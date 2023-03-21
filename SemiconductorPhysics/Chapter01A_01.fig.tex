@@ -1,0 +1,55 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\newcounter{cnt}
+
+\foreach \x in {-4,0,+4}
+{
+    \foreach \y in {-4,0,+4}
+    {
+        \ifthenelse{\equal{\thecnt}{0}}
+        {
+            \draw[thick] (\x,\y) node[draw,circle,minimum size=1cm,name={A\x\y}] {$0$};
+            \setcounter{cnt}{1}
+        }
+        {
+            \draw[thick] (\x,\y) node[draw,circle,minimum size=1cm,name={A\x\y}] {$1/2$};
+            \setcounter{cnt}{0}
+        }
+    }
+}
+
+\foreach \x in {-2,+2}
+{
+    \foreach \y in {-2,+2}
+    {
+        \ifthenelse{\equal{\thecnt}{0}}
+        {
+            \draw[thick] (\x,\y) node[draw,circle,minimum size=1cm,name=A\x\y] {$3/4$};
+            \setcounter{cnt}{1}
+        }
+        {
+            \draw[thick] (\x,\y) node[draw,circle,minimum size=1cm,name=A\x\y] {$1/4$};
+            \setcounter{cnt}{0}
+        }
+    }
+}
+
+\foreach \xa/\ya/\xb/\yb in 
+{
+    -4/+4/-2/+2, -2/+2/0/0, 0/0/+2/-2, +2/-2/+4/-4,
+    0/+4/+2/+2, +2/+2/+4/0, -4/0/-2/-2, -2/-2/0/-4,
+    -4/-4/-2/-2, -2/-2/0/0, 0/0/+2/+2, +2/+2/+4/+4,
+    0/-4/+2/-2, +2/-2/+4/0, -4/0/-2/+2, -2/+2/0/+4%
+}%
+{
+    \draw[gray] (A\xa\ya) to[bend right=20] node[pos=0.5,circ] {} (A\xb\yb);
+    \draw[gray] (A\xa\ya) to[bend left =20] node[pos=0.5,circ] {} (A\xb\yb);
+}
+
+\draw[dashed] (A-4+4)--(A-40)--(A-4-4)--(A0-4)--(A+4-4)--(A+40)--(A+4+4)--(A0+4)--(A-4+4);
+
+\end{tikzpicture}
+\end{document}
