@@ -38,3 +38,55 @@
 简而言之，价带和导带是允带的两个细分概念\footnote{允带给出只是电子允许存在的能量，但是这些能量未必真的填充有电子。}，\empx{价带中填满了电子}，\empx{导带中没有电子}。
 
 因此，价带也称为\uwave{满带}（Filled Band），导带也称为\uwave{空带}（Empty Band）。
+
+\subsection{能带的定量分析}
+在\xref{subsec:能级分裂与能带}中，我们定性的对比了晶体中的电子和孤立原子的电子的差异，阐述了能级是如何分裂并演化为能带的，而在这一小节，我们将定量研究晶体中的电子和自由电子的关系。
+
+实际上，从定态薛定谔方程的角度看
+\begin{eqnarray}
+    -\frac{\hbar^2}{2m_e}\dv[2]{\psi}{x}+V(x)\psi=E\psi
+\end{eqnarray}
+自由电子即势能$V(x)=0$恒为零，晶体中的电子即势能$V(x)=V(x+a)$具有晶格周期性。
+
+自由电子的波函数就是普通的平面波
+\begin{Equation}
+    \psi_k(x)=A\e^{\i kx}
+\end{Equation}
+自由电子的能量本征值（色散关系）满足抛物线关系
+\begin{Equation}
+    E(k)=\frac{\hbar^2k^2}{2m_e^2}
+\end{Equation}
+自由电子的波矢$k$可以连续取值，因此，自由电子的能量是连续能谱，任意取值都是允许的。
+
+
+布洛赫曾经证明过，周期性势场$V(x)=V(x+a)$中的波函数必具有以下形式
+\begin{BoxTheorem}[布洛赫定理]
+    若势场$V(x)$具有周期性$V(x)=V(x+a)$，则其波函数一定有以下形式
+    \begin{Equation}
+        \psi_k(x)=A_k(x)\e^{\i kx}\qquad A_k(x)=A_k(x+a)
+    \end{Equation}
+    该结论称为\uwave{布洛赫定理}（Bloch's Theorem）。
+\end{BoxTheorem}
+布洛赫定理告诉我们，晶体周期性势场中的电子波函数具有$\psi_k(x)=A_k(x)\e^{\i kx}$的形式，通过和自由电子波函数$\psi_k(x)=A\e^{\i kx}$的对比，我们可以看出，\empx{晶体中的电子是以一个被周期性调幅的平面波在晶体中传播}，振幅$A_k(x)$随$x$依照晶格周期$a$作周期性变化。除此之外，根据波函数的意义，在空间某点找到电子的概率密度与$|\psi|^2$成正比，因此，自由电子在空间格点处的概率密度$|\psi|^2=A^2$处处相同，晶体中的电子的概率密度$|\psi|^2=|A_kA_K^{*}|$则是周期性的。
+
+现在的问题是，我们已经知道晶体中电子的波函数了，那么晶体中电子的能量本征值$E(k)$与波矢$k$的关系是什么呢？这是比较复杂的，我们直接在\xref{tab:能带结构的三种图示}中给出图像，我们注意到
+\begin{enumerate}
+    \item 重复区表示法是最完整的图像，我们看到，晶体中的电子能量$E(k)$与波矢$k$间的关系有若干组$E_1(k), E_2(k), E_3(k), \cdots$，这些色散关系均具有周期性，并且，这些色散关系两两之间不重叠，而是有一定间隙，这些间隙就是禁带，而每个$E(k)$就给出了一个允带。
+    \item 扩展区表示法是指，将各组$E(k)$分别对应到各个布里渊区，我们以$E_n(k)$对应第$n$布里渊区，这种表示法的好处是，我们可以看到，晶体中电子的$E(k)$关系的整体趋势上，其实很接近自由粒子$E(k)$的抛物线关系，但是，能量在布里渊区的边界$\pm n\pi/a$处会出现不连续，因此我们常说，\empx{每个布里渊区对应一个允带}，\empx{禁带出现在布里渊区的边界}。\footnote{尽管能带图只是关于能量的一维关系，与波矢和布里渊区并没有什么关系。}
+    \item 约化区表示法是指，将各组$E(k)$利用周期性简约在第一布里渊区$[-\pi/a,+\pi/a]$。
+\end{enumerate}
+晶体中的原子数$N$总是有限的，考虑周期性边界条件，波矢$k$只能分立取值
+\begin{Equation}
+    k=\frac{2\pi n}{Na}\qquad n=0,\pm 1,\pm 2,\cdots
+\end{Equation}
+因此在第一布里渊区中$k$只有$N$个分立的取值，但由于$N$很大，可以认为是准连续的。
+\begin{TableLong}[能带结构的三种图示]{|c|}
+<>()
+< >( )
+    \xcell<c>[1.5ex][0.0ex]{\includegraphics[scale=0.95]{build/Chapter01B_03.fig.pdf}}\\*
+    \xgp[0ex][3ex]{重复区表示法}\\ \hlinemid
+    \xcell<c>[1.5ex][0.0ex]{\includegraphics[scale=0.95]{build/Chapter01B_04.fig.pdf}}\\*
+    \xgp[0ex][3ex]{扩展区表示法}\\ \hlinemid
+    \xcell<c>[1.5ex][0.0ex]{\includegraphics[scale=0.95]{build/Chapter01B_05.fig.pdf}}\\*
+    \xgp[0ex][3ex]{约化区表示法}\\ \hlinemid
+\end{TableLong}

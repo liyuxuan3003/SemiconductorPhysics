@@ -1,0 +1,52 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    \tikzset{axi/.style={gray,->}}
+    \tikzset{aux/.style={thin,gray,dotted}}
+
+    \draw[axi] (-4.3,0) coordinate (X1) -- (+4.3,0) coordinate (X2) node[above] {$\vb*{k}$};
+    \draw[axi] (0,0) coordinate (O) -- (0,10) coordinate (Y2) node[right] {$E(\vb*{k})$};
+
+    \foreach \x in {-4,-3,...,4}
+    {
+        \draw[aux] (\x,0)--(\x,9.75);
+        \ifthenelse{\equal{\x}{0}}
+        {
+            \path (\x,0) node[below] {\tiny $0\vphantom{/}$};
+        }
+        {
+            \ifthenelse{\x < 0}
+            {
+                \path (\x,0) node[below] {\tiny $-\fpeval{-\x}\pi/a$};
+            }
+            {
+                \path (\x,0) node[below] {\tiny $+\fpeval{+\x}\pi/a$};
+            }
+        }
+    }
+
+    \foreach \x in {0.25,0.75,1,2,2.5,4.5,5.5,9.5}
+    {
+        \draw[aux] (-4.2,\x) -- (+4.2,\x);
+    }
+
+    \draw[thick,red!100!blue] plot[domain=-1:1,samples=500] (\x,{-0.25*cos(deg(\x*pi))+0.5});
+
+    \draw[thick,red!66!blue] plot[domain=-1:1,samples=500] (\x,{+0.50*cos(deg(\x*pi))+1.5});
+
+    \draw[thick,red!33!blue] plot[domain=-1:1,samples=500] (\x,{-1.00*cos(deg(\x*pi))+3.5});
+
+    \draw[thick,red!0!blue] plot[domain=-1:1,samples=500] (\x,{+2.00*cos(deg(\x*pi))+7.5});
+
+\draw (5,0) rectangle (5.7,10);
+\draw[fill=blue!20!white]  (5,0.25) rectangle node {\tiny 导带} (5.7,0.75);
+\draw[fill=black!10!white] (5,0.75) rectangle node {\tiny 禁带} (5.7,1.00);
+\draw[fill=blue!20!white]  (5,1.00) rectangle node {\tiny 导带} (5.7,2.00);
+\draw[fill=black!10!white] (5,2.00) rectangle node {\tiny 禁带} (5.7,2.50);
+\draw[fill=blue!20!white]  (5,2.50) rectangle node {\tiny 导带} (5.7,4.50);
+\draw[fill=black!10!white] (5,4.50) rectangle node {\tiny 禁带} (5.7,5.50);
+\draw[fill=blue!20!white]  (5,5.50) rectangle node {\tiny 导带} (5.7,9.50);
+
+\end{tikzpicture}
+\end{document}
