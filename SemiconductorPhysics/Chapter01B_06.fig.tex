@@ -1,0 +1,36 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\foreach \y in {0,1,2,3,4,5}
+{
+    \draw (0,\fpeval{+1.5+\y/4}) coordinate (A\y) -- ++(6,0) coordinate (A\y');
+    \draw (0,\fpeval{-1.5-\y/4}) coordinate (B\y) -- ++(6,0) coordinate (B\y');
+}
+
+\foreach \y in {0,2,4}
+{
+    \path (B\y) -- node[circ,pos=0.2] {} node[circ,pos=0.6] {} (B\y');
+}
+
+\foreach \y in {1,3,5}
+{
+    \path (B\y) -- node[circ,pos=0.4] {} node[circ,pos=0.8] {} (B\y');
+}
+
+\path (B0') node[right] {$E_\text{v}$};
+\path (A0') node[right] {$E_\text{c}$};
+
+\draw[<->,very thin] ($(A0)!0.93!(A0')$) -- node[pos=0.5,right] {$E_\text{g}$}  ($(B0)!0.93!(B0')$);
+
+\path ($(A0)!0.5!(A5)$) node[left] {\small 导带};
+\path ($(B0)!0.5!(B5)$) node[left] {\small 价带};
+\path ($(B0)!0.5!(A0)$) node[left] {\small 禁带};
+
+\draw[-latex,gray,thin] ($(B0)!0.2!(B0')$) node[ocirc] {} -- ($(A1)!0.2!(A1')$) node[circ] {};
+
+\draw[-latex,gray,thin] ($(B1)!0.8!(B1')$) node[ocirc] {} -- ($(A0)!0.8!(A0')$) node[circ] {};
+
+\end{tikzpicture}
+\end{document}
