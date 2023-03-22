@@ -1,0 +1,76 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\path (0,0) coordinate (O);
+\draw[ultra thin] ($(O)+(-2,-3.5)$) coordinate (O1) rectangle ($(O)+(+2,+2.75)$) coordinate (O2);
+
+\path (O) ++(+1.25,0) coordinate (l0);
+\path (O) ++(-0.25,0) coordinate (l1);
+\path (O) ++(-1.25,0) coordinate (l2);
+
+\path (O) ++(0,-3.0) coordinate (1s);
+\path (O) ++(0,-2.0) coordinate (2s);
+\path (O) ++(0,+1.0) coordinate (2p); 
+
+\draw[thick] (1s-|l0) node[right] {1s} -- (1s-|l2);
+\draw[thick] (2s-|l0) node[right] {2s} -- (2s-|l2);
+\draw[thick] (2p-|l0) node[right] {2p} -- (2p-|l1);
+
+\draw[thin] (2p-|l1) |- ($(2p-|l2)+(0,+0.5)$) ++(-0.65,0) node[right] {p$_z$};
+\draw[thin] (2p-|l1) |- ($(2p-|l2)$) ++(-0.65,0) node[right] {p$_y$};
+\draw[thin] (2p-|l1) |- ($(2p-|l2)+(0,-0.5)$) ++(-0.65,0) node[right] {p$_x$};
+
+\path (O) ++(7.5,0) coordinate (A);
+\draw[ultra thin] ($(A)+(-2,-3.5)$) coordinate (A1) rectangle ($(A)+(+2,+2.75)$) coordinate (A2);
+
+\path (A) ++(+1.25,0) coordinate (l0');
+\path (A) ++(-0.25,0) coordinate (l1');
+\path (A) ++(-1.25,0) coordinate (l2');
+
+\foreach \y in {-0.1,0,0.1}
+{
+    \draw 
+    ($(1s-|l0')+(0,\y)$) -- 
+    ($(1s-|l2')+(0,\y)$);
+}
+
+\foreach \y in {-0.2,0,0.2}
+{
+    \draw 
+    ($(2s-|l0')+(0,\y)$) -- 
+    ($(2s-|l2')+(0,\y)$);
+}
+
+\foreach \y in {-1.2,-0.8,...,1.2}
+{
+    \draw 
+    ($(2p-|l0')+(0,\y)$) -- 
+    ($(2p-|l2')+(0,\y)$);
+}
+
+\path (1s-|l0') node[right] {1s};
+\path (2s-|l0') node[right] {2s};
+\path (2p-|l0') node[right] {2p};
+
+\path (A) ++(3,0) coordinate (B);
+\draw[ultra thin] ($(B)+(-0.5,-3.5)$) coordinate (B1) rectangle ($(B)+(+0.5,+2.75)$) coordinate (B2);
+
+\draw[black,fill=blue!30!white] ($(1s-|B1)+(0,-0.2)$) coordinate (1sA) rectangle node[black] {\footnotesize 允带} ($(1s-|B2)+(0,0.2)$) coordinate (1sB);
+
+\draw[black,fill=blue!30!white] ($(2s-|B1)+(0,-0.3)$) coordinate (2sA) rectangle node[black] {\footnotesize 允带} ($(2s-|B2)+(0,0.3)$) coordinate (2sB);
+
+\draw[black,fill=blue!30!white] ($(2p-|B1)+(0,-1.3)$) coordinate (2pA) rectangle node[black] {\footnotesize 允带} ($(2p-|B2)+(0,1.3)$) coordinate (2pB);
+
+\draw[fill=black!10!white] (1sB) rectangle node {\footnotesize 禁带} (2sA);
+\draw[fill=black!10!white] (2sB) rectangle node {\footnotesize 禁带} (2pA);
+
+\path (O) node[below=3.65cm] {能级};
+\path (A) node[below=3.65cm] {能带};
+\path (B) node[below=3.65cm] {\tiny $N\to\infty$};
+
+\draw[->] ($(O-|O2)+(0.5,0)$) -- node[above] {能级分裂} node[below] {\tiny 共$N$个原子（$N=3$）} ($(A-|A1)+(-0.5,0)$);
+
+\end{tikzpicture}
+\end{document}
