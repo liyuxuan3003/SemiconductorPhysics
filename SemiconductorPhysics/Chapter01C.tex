@@ -1,0 +1,132 @@
+\section{半导体中的载流子}
+
+\subsection{有效质量的引入}
+晶体中电子的能量形成能带，而$E(k)$和$k$的关系如\xref{tab:能带结构的三种图示}所示，但事实是，我们仅仅是半定量的确定了$E(k)$是$k$的周期函数，仍然没有得出$E(k)$的具体形式，这确实是很繁琐的。
+
+不过，对于半导体而言，由于起作用的常常是接近价带顶部或导带底部处的电子，因此，只要掌握其价带底部和导带顶部，也就是能带极值处$E(k)$与$k$的关系式就可以了，而这就给我们的近似计算提供了可能。近似技巧是应用泰勒级数，假设能带极值位于波矢$k=0$处，由于能带底部附近的$k$值必然很小，因此可以将$E(k)$在$k=0$处泰勒展开，并仅取至二次项，得到\setpeq{有效质量的引入}
+\begin{Equation}&[1]
+    E(k)=E(0)+\eval{\dv{E}{k}}_{k=0}k+\frac{1}{2}\eval{\dv[2]{E}{k}}_{k=0}k^2
+\end{Equation}
+这里，由于在能带极值处一阶导数为零，即$(\dv*{E}{k})|_{k=0}=0$，故
+\begin{Equation}&[2]
+    E(k)-E(0)=\frac{1}{2}\eval{\dv[2]{E}{k}}_{k=0}k^2
+\end{Equation}
+这里$E(0)$是该能带底部的能量，而对于给定半导体，这里$(\dv*[2]{E}{k})$应该是一个定值。
+
+基于此，我们可以定义一个代换变量（我们马上会看到它为什么称为“质量”）
+\begin{BoxDefinition}[有效质量]
+    定义半导体中的电子，在能带极值处的\uwave{有效质量}（Effective Mass）$\mne$为
+    \begin{Equation}
+        \frac{1}{\mne}=\frac{1}{\hbar^2}\eval{\dv[2]{E}{k}}_{k=0}
+    \end{Equation}
+\end{BoxDefinition}
+运用有效质量的概念，\xrefpeq[有效质量的引入]{2}就可以改写为
+\begin{Equation}
+    E(k)-E(0)=\frac{\hbar^2k^2}{2\mne}
+\end{Equation}
+这和先前自由电子的能量表达式非常接近
+\begin{Equation}
+    E(k)=\frac{\hbar^2k^2}{2m_e}
+\end{Equation}
+唯一的差异是，电子的质量$m_e$被替换了能带极值处电子的有效质量$\mne$，换言之，\empx{半导体中位于能带极值处的电子的行为，可以用特定质量的自由电子等效}。我们知道，半导体中的电子会受到大量原子核和大量其他电子的群体作用，而现在，我们将这种群体作用的结果用一个特定质量简单的自由电子来代替。从这样的观点看，半导体中的电子在应用上述能带极值处的等效后，实际上,是一种\uwave{准粒子}（Quasiparticles）或\uwave{集体激发}（Collective Excitations）。
+
+有效质量，依据上述讨论，其实也就是半导体中电子对应的“准粒子”的“准质量”了，简洁起见，我们后面不再区分“半导体中的电子”和“半导体中的电子对应的准粒子”的提法。
+
+有效质量$\mne$可以是正的，也可以是负的
+\begin{itemize}
+    \item 价带顶部处$E(0)>E(k)$，因此，价带顶部的有效质量$\mne<0$。
+    \item 导带底部处$E(0)<E(k)$，因此，导带底部的有效质量$\mne>0$。
+\end{itemize}
+
+接下来，我们来看有效质量是如何与我们认知中的质量相一致的。
+
+\subsection{半导体中电子的速度}\setpeq{半导体中电子的速度}
+根据量子力学的概念，电子的运动速度相当于其波包的群速
+\begin{Equation}&[1]
+    v=\dv{\omega}{k}
+\end{Equation}
+在该式中，代入德布罗意关系$E=\hbar\omega$
+\begin{Equation}&[2]
+    v=\frac{1}{\hbar}\dv{E}{k}
+\end{Equation}
+在上式中将能量$E$用有效质量表示
+\begin{Equation}&[3]
+    v=\frac{1}{\hbar}\dv{k}\qty(\frac{\hbar^2k^2}{2\mne}+E_0)=\frac{\hbar k}{\mne}    
+\end{Equation}
+由此，半导体中电子的速度就可以用其有效质量表示了
+\begin{BoxFormula}[半导体中电子的速度]
+    半导体中，电子的速度可以用有效质量表示为
+    \begin{Equation}
+        v=\frac{\hbar k}{\mne}
+    \end{Equation}
+\end{BoxFormula}
+
+\subsection{半导体中电子的加速度}\setpeq{半导体中电子的加速度}
+实际中，许多半导体器件都在一定的外加电压下工作，这样一来，半导体内部就产生了外加电场，这种情况下，电子还会受到外加电场力的作用，那此时，电子将会以何种规律运动？
+
+我们要回答的其实就是，如果电子受力为$f$，那么电子的加速度是多少？
+
+计算外力$f$对电子做的功
+\begin{Equation}&[1]
+    \dd{E}=f\dd{s}=fv\dd{t}
+\end{Equation}
+将\xrefpeq[半导体中电子的速度]{2}中$v=(\dv*{E}{k})/\hbar$代入上式
+\begin{Equation}&[2]
+    \dd{E}=\frac{f}{\hbar}\dv{E}{k}\dd{t}
+\end{Equation}
+但很显然的是
+\begin{Equation}&[3]
+    \dd{E}=\dv{E}{k}\dd{k}
+\end{Equation}
+这样，对比一下\xrefpeq{2}和\xrefpeq{3}
+\begin{Equation}&[4]
+    \frac{f}{\hbar}\dd{t}=\dd{k}
+\end{Equation}
+这样就可以确定$f$
+\begin{Equation}&[5]
+    f=\hbar\dv{k}{t}
+\end{Equation}
+这就表明，\empx{电子波矢的变化率正比于外力}，而根据\fancyref{fml:半导体中电子的速度}，既然此处电子的波矢在变化，那么电子的速度也必然在变化，这就意味着，电子将具有加速度。
+
+在加速度定义的基础上应用\xrefpeq[半导体中电子的速度]{2}，即$v=(\dv*{E}{k})/\hbar$
+\begin{Equation}&[6]
+    a=\dv{v}{t}=\frac{1}{\hbar}\dv{t}\qty(\dv{E}{k})=\frac{1}{\hbar}\dv[2]{E}{k}\dv{k}{t}
+\end{Equation}
+在上式中代入\xrefpeq{5}
+\begin{Equation}
+    a=\frac{f}{\hbar^2}\dv[2]{E}{k}
+\end{Equation}
+根据\fancyref{def:有效质量}，即$(1/\mne)=(\dv*[2]{E}{k})/\hbar^2$
+\begin{Equation}
+    a=\frac{f}{\mne}
+\end{Equation}
+
+这就表明，电子所受外力与加速度的关系，在使用有效质量时符合牛顿第二定律。
+\begin{BoxFormula}[半导体中电子的加速度]
+    半导体中，电子的加速度和所受外力间满足以下关系
+    \begin{Equation}
+        a=\frac{f}{\mne}
+    \end{Equation}
+\end{BoxFormula}
+
+\subsection{空穴的进一步讨论}
+在\xref{subsec:能带与固体导电性}中曾提到，导带中是电子导电，价带中是空穴导电。实际上，空穴也可以视为一种准粒子，因为，空穴的实质是电子群体运动导致的在能带上移动的空量子态。既然空穴是准粒子，它也可以定义有效质量的概念，那么，空穴的有效质量和电子的有效质量有何种关系？
+
+\begin{BoxFormula}[空穴和电子的有效质量的关系]
+    空穴的效质量$\mpe$总是相应电子有效质量$\mne$的负值
+    \begin{Equation}
+        \mpe=-\mne
+    \end{Equation}
+\end{BoxFormula}
+在这里，让我们来总结一下
+\begin{itemize}
+    \item 价带中空穴导电，空穴带正电，空穴质量$\mpe$是价带顶电子有效质量的负值。
+    \item 导带中电子导电，电子带负电，电子质量$\mne$是导带底电子有效质量的正值。
+\end{itemize}
+价带顶电子有效质量为负，导带底电子有效质量为正，因此，\empx{电子和空穴的质量均为正}。
+
+
+
+
+
+
