@@ -1,0 +1,134 @@
+\section{回旋共振}
+在以上几节中，我们以一维情形为例，讨论了半导体能带结构的一些共同的基本特点。但是实际的三维半导体材料会更复杂一些，首先不同半导体材料的能带结构是不同的，其次还往往是各向异性的，即沿不同的波矢$\vb*{k}$方向，能量$E(\vb*{k})$与$\vb*{k}$的关系不同。本节，我们将首先了解三维情形下$E(\vb*{k})$与$\vb*{k}$的关系，随后，我们将了解如何通过回旋共振实验测定有效质量。
+
+\subsection{椭球等能面}\setpeq{1}
+在一维情形下，我们知道能带极值附近的$E(k)$与$k$的关系是
+\begin{Equation}&[1]
+    E(k)-E(0)=\frac{\hbar^2 k^2}{2\mne}
+\end{Equation}
+在三维情形下，由于$k=k_x^2+k_y^2+k_z^2$
+\begin{Equation}&[2]
+    E(\vb*{k})-E(\vb*{0})=\frac{\hbar^2}{2\mne}(k_x^2+k_y^2+k_z^2)
+\end{Equation}
+但是三维晶体往往是各向异性的，这反映在不同波矢$\vb*{k}$方向，能带极值处电子的有效质量将是不同的，除此之外，在比较一般的情况下，能带极值也不一定位于波矢$\vb*{k}=\vb*{0}$处，因此
+\begin{Equation}&[3]
+    E(\vb*{k})-E(\vb*{0})=\frac{\hbar^2}{2}\qty[\frac{(k_x-k_{0x})^2}{m_x^{*}}+\frac{(k_y-k_{0y})^2}{m_y^{*}}+\frac{(k_z-k_{0z})^2}{m_z^{*}}]
+\end{Equation}
+其中，各个方向的有效质量分别满足
+\begin{Align}[8pt]
+    \frac{1}{m_x^{*}}=\frac{1}{\hbar^2}\eval{\qty(\pdv[2]{E}{k_x})}_{k_0}\\
+    \frac{1}{m_y^{*}}=\frac{1}{\hbar^2}\eval{\qty(\pdv[2]{E}{k_y})}_{k_0}\\
+    \frac{1}{m_z^{*}}=\frac{1}{\hbar^2}\eval{\qty(\pdv[2]{E}{k_z})}_{k_0}
+\end{Align}
+我们也可以将\xrefpeq{3}中的式子做一些改写
+\begin{Equation}
+    \frac{(k_x-k_{0x})^2}{2m_x^{*}(E-E_c)/\hbar^2}+
+    \frac{(k_y-k_{0y})^2}{2m_y^{*}(E-E_c)/\hbar^2}+
+    \frac{(k_z-k_{0z})^2}{2m_z^{*}(E-E_c)/\hbar^2}=1
+\end{Equation}
+
+其中$E, E_c$分别代表$E(\vb*{k})$和$E(\vb*{0})$，不难看出，这是一个$\vb*{k}$空间中的椭球等能面族。
+
+\subsection{回旋共振}
+根据大学物理2的电磁学知识，我们知道，带电粒子在恒定均匀磁场中将作回旋运动，我们现在的想法，通过理论分析，求出半导体中的电子的回旋频率和其有效质量的关系，从而提供一种通过回旋共振实验（将半导体置于均匀恒定磁场，测定回旋频率）测定电子有效质量的途径。
+\begin{BoxFormula}[回旋共振实验]
+    电子的回旋频率与有效质量的关系是
+    \begin{Equation}
+        \omega_c=\frac{qB}{\mne}
+    \end{Equation}
+    其中，如果半导体材料是各向异性的，那么$\mne$应展开为
+    \begin{Equation}
+        \frac{1}{\mne}=\sqrt{\frac{m_x^{*}\alpha^2+m_y^{*}\beta^2+m_z^{*}\gamma^2}{m_x^{*}m_y^{*}m_z^{*}}}
+    \end{Equation}
+    其中$\alpha,\beta,\gamma$分别是磁场$\vb*{B}$沿$k_x,k_y,k_z$的方向余弦。
+\end{BoxFormula}
+
+\begin{Proof}
+    作为一些启发，我们先来考虑各向同性的情形，接下来再考虑各向异性的情形。
+
+    若磁感应强度为$\vb*{B}$，而电子初速为$\vb*{v}$，则电子受到的磁场力$\vb*{f}$为
+    \begin{Equation}&[1]
+        \vb*{f}=-q\vb*{v}\times\vb*{B}
+    \end{Equation}
+    而磁场力的大小$f$为，其中$\sin\theta$是$B$和$v$之间的夹角
+    \begin{Equation}&[2]
+        f=qv\sin\theta B
+    \end{Equation}
+    根据大学物理的力学知识，向心加速度为
+    \begin{Equation}&[3]
+        a=\frac{(v\sin\theta)^2}{r}
+    \end{Equation}
+    根据大学物理的力学知识，角速度（角频率）为
+    \begin{Equation}&[4]
+        \omega_c=\frac{v\sin\theta}{r}
+    \end{Equation}
+    依据\xrefpeq{3}，有$r=(v\sin\theta)^2/a$，将其代入\xrefpeq{4}
+    \begin{Equation}&[5]
+        \omega_c=\frac{v\sin\theta}{(v\sin\theta)^2/a}=\frac{a}{v\sin\theta}
+    \end{Equation}
+    而根据\fancyref{fml:半导体中电子的加速度}
+    \begin{Equation}&[6]
+        \omega_c=\frac{f}{m_n^{*} v\sin\theta}
+    \end{Equation}
+    将\xrefpeq{2}代入\xrefpeq{6}
+    \begin{Equation}&[7]
+        \omega_c=\frac{qv\sin\theta B}{m_n^{*}v\sin\theta}=\frac{qB}{m_n^{*}}
+    \end{Equation}
+    以上是各向同性的情况，而对于各向异性的情况，其力的三个分量分别为
+    \begin{Split}&[8]
+        f_x&=-qB(v_x\gamma-v_z\beta)\\[6pt]
+        f_y&=-qB(v_z\alpha-v_x\gamma)\\[6pt]
+        f_z&=-qB(v_x\beta-v_y\alpha)
+    \end{Split}
+    电子在三个方向的运动方程为（介于没有圆周运动的结论了，我们必须从运动方程出发）
+    \begin{Split}&[9]
+        m_x^{*}\dv{v_x}{t}&+qB(v_x\gamma-v_z\beta)=0\\[8pt]
+        m_y^{*}\dv{v_y}{t}&+qB(v_z\alpha-v_x\gamma)=0\\[8pt]
+        m_z^{*}\dv{v_z}{t}&+qB(v_x\beta-v_y\alpha)=0
+    \end{Split}
+    电子应当作周期运动\footnote{应当吗？谁知道呢，姑且这么猜一下吧……}
+    \begin{Equation}&[10]
+        v_x=v_{0x}\e^{\i\omega_c t}\qquad
+        v_y=v_{0y}\e^{\i\omega_c t}\qquad
+        v_z=v_{0z}\e^{\i\omega_c t}
+    \end{Equation}
+    注意到
+    \begin{Equation}&[11]
+        \dv{v_x}{t}=\i\omega_cv_x\qquad
+        \dv{v_y}{t}=\i\omega_cv_y\qquad
+        \dv{v_z}{t}=\i\omega_cv_z
+    \end{Equation}
+    将\xrefpeq{10}和\xrefpeq{11}代入\xrefpeq{9}，并以矩阵形式表示
+    \begin{Equation}&[12]
+        \begin{pmatrix}
+            \i\omega_c&\dfrac{qB}{m_x^{*}}\gamma&-\dfrac{qB}{m_x^{*}}\\[8pt]
+            -\dfrac{qB}{m_y^{*}}\gamma&\i\omega_c&\dfrac{qB}{m_y^{*}}\alpha\\[8pt]
+            \dfrac{qB}{m_z^{*}}\beta&-\dfrac{qB}{m_z^{*}}\alpha&\i\omega_c
+        \end{pmatrix}
+        \begin{pmatrix}
+            v_x\vphantom{\dfrac{qB}{m_x^{*}}}\\[8pt]
+            v_y\vphantom{\dfrac{qB}{m_y^{*}}}\\[8pt]
+            v_z\vphantom{\dfrac{qB}{m_z^{*}}}
+        \end{pmatrix}=0
+    \end{Equation}
+    如果\xrefpeq{12}有解，那\xrefpeq{12}的系数矩阵对应的行列式的值应为零，故
+    \begin{Equation}&[13]
+        (\i\omega_c)^3-\frac{qB}{m_x^{*}m_y^{*}m_z^{*}}\alpha\beta\gamma+\frac{qB}{m_x^{*}m_y^{*}m_z^{*}}\alpha\beta\gamma
+        +\frac{(qB)^2}{m_z^{*}m_x^{*}}\beta^2(\i\omega C)
+        +\frac{(qB)^2}{m_x^{*}m_y^{*}}\gamma^2(\i\omega C)
+        +\frac{(qB)^2}{m_y^{*}m_z^{*}}\alpha^2(\i\omega C)=0
+    \end{Equation}
+    稍作整理
+    \begin{Equation}&[14]
+        (\i\omega_c)^3-(qB)^2\qty[\frac{\beta^2}{m_z^{*}m_x^{*}}+\frac{\gamma^2}{m_x^{*}m_y^{*}}+\frac{\alpha^2}{m_y^{*}m_z^{*}}](\i\omega_c)=0
+    \end{Equation}
+    将括号内通分，并两端约掉一个$(\i\omega_c)$
+    \begin{Equation}&[15]
+        (\i\omega_c)^2-(qB)^2\qty[\frac{\alpha^2m_x^{*}+\beta^2m_y^{*}+\gamma^2m_z^{*}}{m_x^{*}m_y^{*}m_z^{*}}]=0
+    \end{Equation}
+    即得
+    \begin{Equation}&[16]
+        \omega_c=qB\sqrt{\frac{\alpha^2m_x^{*}+\beta^2m_y^{*}+\gamma^2m_z^{*}}{m_x^{*}m_y^{*}m_z^{*}}}=\frac{qB}{\mne}
+    \end{Equation}
+    因此，各向同性和各向异性的$\omega_c$的形式是一致的，只不过后者的$\mne$需要重新表达。
+\end{Proof}
