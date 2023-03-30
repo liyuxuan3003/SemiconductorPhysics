@@ -1,0 +1,52 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{dis/.style={thin,<->,gray}}
+
+\path
+    (0,+2) coordinate   (A1)
+    ++(8,0) coordinate  (A2)
+    (0,-2) coordinate   (B1)
+    ++(8,0) coordinate  (B2);
+
+\fill[red!10!white]  (A1) rectangle ($(A2)+(0,+1.5)$) coordinate (A2');
+\fill[blue!10!white] (B1) rectangle ($(B2)+(0,-1.5)$) coordinate (B2');
+
+\path ($(A1)!0.5!(A2')$) ++(0,+0.2) node {\textbf{导带}};
+\path ($(B1)!0.5!(B2')$) ++(0,-0.2) node {\textbf{价带}};
+
+\draw[thick] (A1)--(A2) node[right] {$E_\text{c}$};
+\draw[thick] (B1)--(B2) node[right] {$E_\text{v}$};
+
+\draw[dis] 
+    ($(A1)!0.05!(A2)$) 
+    -- node[left] {$E_\text{g}$} 
+    ($(B1)!0.05!(B2)$);
+
+\foreach \x in {1,2,...,7}
+{
+    \path (\fpeval{\x+0.75},1) coordinate (P\x);
+    \draw 
+    ($(P\x)+(-0.25,0)$) -- 
+    ($(P\x)+(+0.25,0)$);
+}
+
+\draw[dis] (P1) -- node[left] {$\delt{E_\text{D}}$} (P1|-A1);
+
+\foreach \x in {2,3,4,5}
+{
+    \draw[-latex] (P\x) ++(0,0.2) node[circ] {} ++(0,0.2) -- ++(0,1) coordinate (Q\x); 
+}
+
+\foreach \x in {6,7}
+{
+    \draw (Q2-|P\x) node[circ] {};
+    \draw (P\x) ++(0,-0.4) node[point] {$+$};
+}
+
+\path (P7) ++(0.25,0) node[right] {$E_\text{D}$};
+
+\end{tikzpicture}
+\end{document}

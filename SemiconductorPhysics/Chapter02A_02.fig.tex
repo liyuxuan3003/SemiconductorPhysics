@@ -1,0 +1,71 @@
+\documentclass{xStandalone}
+
+\NewDocumentCommand{\drawIon}{O{gray}O{4}r()}
+{
+    \draw[fill=#1,thick] 
+    (#3) circle (0.5)
+    coordinate (TEMP)
+    ($(TEMP)+(0,0)$) node[white]{\large $#2$};
+}
+
+\NewDocumentCommand{\drawElec}{r()}
+{
+    \draw[fill=black,very thin] (#1) circle(0.05);
+}
+
+\NewDocumentCommand{\drawHole}{r()}
+{
+    \draw[fill=white,very thin] (#1) circle(0.05)
+}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{bound/.style={gray,very thin}}
+
+\def\k{2.5}
+
+\clip (-1.5*\k,-1.5*\k) rectangle (1.5*\k,1.5*\k);
+
+\foreach \x in{-2,-1,...,2}
+{
+    \foreach \y in{-2,-1,...,2}
+    {
+        \path (\k*\x,\k*\y)
+            coordinate (O)
+            ++(-\k,0) coordinate (P);
+        \drawElec($(P)!0.37!(O)$);
+        \drawElec($(P)!0.63!(O)$);
+        \draw[bound] (P) to[out=30,in=150] (O);
+        \draw[bound] (P) to[out=-30,in=-150] (O);
+
+        \path (\k*\x,\k*\y)
+            coordinate (O)
+            ++(0,-\k) coordinate (P);
+        \drawElec($(P)!0.37!(O)$);
+        \drawElec($(P)!0.63!(O)$);
+        \draw[bound] (P) to[out=120,in=240] (O);
+        \draw[bound] (P) to[out=60,in=-60] (O);
+    }
+}
+
+\foreach \x in {-2,-1,...,2}
+{
+    \foreach \y in{-2,-1,...,2}
+    {
+        \drawIon[gray][$\ce{Si}$](\k*\x,\k*\y);
+    }
+}
+
+\path ($(0,0)!0.37!(\k*1,0)$) ++(-0.2,0.7) coordinate(H);
+
+\drawElec(H);
+
+\draw[very thin,<-] ($(H)+(0,-0.13)$) -- ++(0,-1.8) node[right] {\footnotesize 电子};
+
+\drawIon[red][$\ce{P^{+}}$](0,0);
+
+\draw[very thin,<-] (-0.5,0.5) -- ++(-0.7,0.7) node[above] {\footnotesize 施主原子} node[above=0.3cm] {\tiny （磷原子）};
+
+\end{tikzpicture}
+\end{document}
