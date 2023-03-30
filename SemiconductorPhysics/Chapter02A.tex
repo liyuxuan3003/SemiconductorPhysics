@@ -119,3 +119,72 @@
 0.0120&0.0127&0.0096&0.0104&0.0102&0.0108&0.0112\\
 \end{Table}
 由\xref{tab:部分杂质的电离能}可见，\Romnum{5}族元素和\Romnum{3}族元素在硅和锗中的电离能都不大，无论是施主杂质还是受主杂质，硅中电离能普遍在$0.05\si{eV}$（铟的$0.154\si{eV}$是特例），锗中电离能普遍在$0.01\si{eV}$。
+
+\subsection{杂质的补偿作用}
+假如在半导体中，同时存在着施主杂质和受主杂质，半导体究竟是N型还是P型呢？形象的说，这其实就是一个“水多了加面，面多了加水”的过程，关键取决于哪种杂质比较多，因为施主杂质和受主杂质之间具有相互抵消的作用。我们将这种相互作用称为\uwave{杂质的补偿作用}。
+
+实际上，无论是施主杂质和受主杂质哪一方比较多，补偿作用的效果都是一致的，即施主能级的电子会跃迁至能级更低的受主能级并与其上的空穴复合，如\xref{fig:杂质的补偿作用}所示，而在此基础上
+\begin{itemize}
+    \item 若施主杂质掺杂量远高于受主杂质，即$N_\text{D}\gg N_\text{A}$，经过中和后，在施主能级上仍然剩有$N_\text{D}-N_\text{A}$个电子，可以跃迁至导带形成导带电子，故此时表现为N型半导体。
+    \item 若施主杂质掺杂量远高于受主杂质，即$N_\text{D}\ll N_\text{A}$，经过中和后，在受主能级上仍然剩有$N_\text{A}-N_\text{D}$个空穴，可以跃迁至价带形成价带空穴，故此时表现为P型半导体。
+\end{itemize}
+
+很明显，补偿作用并不利于杂质半导体性质，那为什么我们要这样做呢？因为制造半导体器件的过程中，我们往往会使用N型或P型衬底材料，在此基础上，在局部通过扩散或离散注入的方式，以改变某一区域的导电类型，制成各种半导体器件，所以，补偿作用是不可避免的。
+
+\begin{Figure}[杂质的补偿作用]
+    \begin{FigureSub}[施主杂质多于受主杂质]
+        \includegraphics[scale=0.65]{build/Chapter02A_05.fig.pdf}
+    \end{FigureSub}
+    \hspace{1cm}
+    \begin{FigureSub}[受主杂质多于施主杂质]
+        \includegraphics[scale=0.65]{build/Chapter02A_06.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+但是，如果该过程中控制不当，可能会出现$N_\text{D}\approx N_\text{A}$的情况，此时中和后，施主能级上没有更多的电子，受主能级上没有更多的空穴，虽然杂质很多，但不能像导带和价带提供电子和空穴，这种现象称为杂质的高度补偿，这种该材料很容易被误认为是高纯半导体，但实际上杂质很多，性能很差，是无法使用的（形象的说，反复加水加面的面团，最后只能弃之不用）。
+
+\subsection{浅能级杂质}
+上述提到的杂质（硅和锗中掺入\Romnum{5}族或\Romnum{3}族元素）都是浅能级杂质，电离能都很低，电子或空穴受到正电中心或负电中心的束缚很微弱，可以利用类氢模型来估算杂质的电离能，我们不妨这样想，正电中心就是氢原子核，正电中心电离产生的电子就是氢原子的核外电子。
+
+根据大学物理中氢原子的波尔模型，能级$E_n$是
+\begin{Equation}
+    E_n=-\frac{m_0q^4}{2(4\pi\varepsilon_0)^2\hbar^2n^2}
+\end{Equation}
+取$n=1$即得$-13.6\si{eV}$的基态能量
+\begin{Equation}
+    E_1=-\frac{m_0q^4}{2(4\pi\varepsilon_0)^2\hbar^2}=-13.6\si{eV}
+\end{Equation}
+容易注意到当$n\to\infty$时有$E_n\to 0$，而$E_{\infty}$就是电子完全摆脱氢原子对应的能级。
+
+因此，氢原子电子的电离能即为
+\begin{Equation}
+    \delt{E}=E_{\infty}-E_{1}=\frac{m_0q^4}{2(4\pi\varepsilon_0)^2\hbar^2}
+\end{Equation}
+而这里将氢原子模型用于杂质电离能的计算时，要作两点改变，首先考虑到周期性势场的影响，需要将电子质量$m_0$更换为相应的有效质量$\mne$或$\mpe$，取决于是电子还是空穴。其次考虑到硅和锗作为电介质，我们需要将$\varepsilon_0$替换为$\varepsilon_0\varepsilon_r$，其中，硅的$\varepsilon_r=12$，锗的$\varepsilon_r=16$。
+
+\begin{BoxFormula}[施主杂质的电离能]
+    施主杂质的电离能可以表示为
+    \begin{Equation}
+        \delt{E_\text{D}}=\frac{\mne q^4}{2(4\pi\varepsilon\varepsilon_r)^2\hbar^2}=\frac{\mne}{m_0}\frac{E_0}{\varepsilon_r^2}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{BoxFormula}[受主杂质的电离能]
+    受主杂质的电离能可以表示为
+    \begin{Equation}
+        \delt{E_\text{A}}=\frac{\mpe q^4}{2(4\pi\varepsilon\varepsilon_r)^2\hbar^2}=\frac{\mpe}{m_0}\frac{E_0}{\varepsilon_r^2}
+    \end{Equation}
+\end{BoxFormula}
+
+基于氢原子模型的杂质电离能的计算精度并不高，只能作为数量级上的估算，因为其根本没有考虑杂质原子类型的影响，所有杂质原子对其而言都是完全相同的正电中心或负电中心。
+
+\subsection{深能级杂质}
+在半导体硅和锗中，除了\Romnum{3}族和\Romnum{5}族杂质产生浅能级外，如果我们将其他各族元素掺入硅和锗中，情况又会怎么样呢？大量实验结果表明，它们也能在禁带中产生能级，有以下特点
+\begin{enumerate}
+    \item 由非\Romnum{3},\Romnum{5}族杂质产生的能级，施主能级距导带底较远，受主能级距价带顶较远，有时甚至可能倒挂\footnote{就是说，施主能级反而更靠近价带顶，受主能级反而更靠近导带底。}，这种杂质能级被形象的称为深能级，区别于\Romnum{3},\Romnum{5}族形成的浅能级。
+    \item 由非\Romnum{3},\Romnum{5}族杂质产生的能级，往往会通过多次电离或复合引入若干个杂质能级，而且有些杂质，既能引入施主能级，又能引入受主能级。例如金原子\xce{Au}中仅包含了一个价电子，其作为硅和锗中的杂质时，即可以电离出这个电子形成正电中心\xce{Au+}，产生一个极深的施主能级$E_\text{D}$，也可以接受$1,2,3$个电子，形成负电中心\xce{Au-, Au^{2-}, Au^{3-}}，由于随着接受电子数量的增加，电子间库伦排斥力逐渐增大，这将产生三个由浅到深的受主能级$E_\text{A1},E_\text{A2},E_\text{A3}$（不过即便$E_\text{A1}$也算深能级了），金原子的四个能级间的关系是
+\end{enumerate}
+\begin{Equation}
+    E_\text{D}<E_\text{A1}<E_\text{A2}<E_\text{A3}
+\end{Equation}
+金是一种很典型的复合中心，在制造高速开关器件，常有意掺入金以提高器件速度。
