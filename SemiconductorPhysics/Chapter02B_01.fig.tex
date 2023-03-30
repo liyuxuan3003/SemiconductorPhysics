@@ -1,0 +1,38 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\foreach \x in {0,1,...,5}
+{
+    \foreach \y in {0,1,...,3}
+    {
+        \ifthenelse{\equal{\x}{2}}
+        {
+            \ifthenelse{\equal{\y}{1}}
+            {
+                \draw[gray,dashed]
+                ($(\x,\y)+(0.2,0.2)$)
+                rectangle
+                ($(\x,\y)-(0.2,0.2)$);
+                \draw[gray,very thin,->]
+                ($(\x,\y)+(0.2,0)$)
+                to[short] ++(0.3,0)
+                to[short] ++(0,3)
+                coordinate (X);
+                \draw[fill=black] (X)
+                ++(0,0.15)
+                circle (0.15);
+            }
+            {
+                \draw[fill=black] (\x,\y) circle (0.15);
+            }
+        }
+        {
+            \draw[fill=black] (\x,\y) circle (0.15);
+        }
+    }
+}
+
+\end{tikzpicture}
+\end{document}
