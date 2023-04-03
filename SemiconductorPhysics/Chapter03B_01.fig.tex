@@ -1,0 +1,60 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\clip (-7,-4) rectangle (7,3.8);
+
+\pgfplotsset{every axis legend/.append style=
+{nodes={inner sep=5pt,text depth=0.25em}}}
+    
+\begin{axis}[
+ymin=-0.06,ymax=1.26,
+xmin=-0.03,xmax=12.03,
+anchor=center,
+grid,
+legend style={font=\footnotesize},
+legend entries={
+    {\tiny 费米\footnotesize $\hspace{1em}$}\\
+    {\tiny 玻尔兹曼}\\
+    $300\si{K}\hspace{1em}$\\$300\si{K}$\\
+    $600\si{K}\hspace{1em}$\\$600\si{K}$\\
+    \hspace{-.3em}$1000\si{K}\hspace{1em}$\\\hspace{-.3em}$1000\si{K}$\\
+    \hspace{-.3em}$1500\si{K}\hspace{1em}$\\\hspace{-.3em}$1500\si{K}$\\},
+legend cell align=right,
+legend columns=2,
+width=12cm,
+height=8cm,
+xtick={0,1,...,12},
+xticklabels={},
+ytick={0,0.1,...,1.2},
+yticklabels={},
+extra x ticks={4,12},
+extra x tick labels={$E_\text{F}$,$E$},
+extra y ticks={0,0.5,1.0,1.2},
+extra y tick labels={$0.0$\\$0.5$\\$1.0$\\$f(E,T)$\\},
+mark size=1
+]
+
+\addlegendimage{empty legend}
+\addlegendimage{empty legend}
+
+\addplot[domain=0:12,samples=1000,thick,blue!80!red,line legend] {1/(exp((x-4)/(0.3))+1)};
+\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!80!red,line legend] {exp((4-x)/(0.3))};
+
+\addplot[domain=0:12,samples=1000,thick,blue!60!red,line legend] {1/(exp((x-4)/(0.6))+1)};
+\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!60!red,line legend] {exp((4-x)/(0.6))};
+
+\addplot[domain=0:12,samples=1000,thick,blue!40!red,line legend] {1/(exp((x-4)/(1.0))+1)};
+\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!40!red,line legend] {exp((4-x)/(1.0))};
+
+\addplot[domain=0:12,samples=1000,thick,blue!20!red,line legend] {1/(exp((x-4)/(2.0))+1)};
+\addplot[domain=3:12,samples=1000,thin,dashed,blue!20!red,line legend] {exp((4-x)/(2.0))};
+
+\addplot[white] coordinates{(4,0.5)} node[point] {};
+\addplot[white] coordinates{(4,1.0)} node[point] {};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
