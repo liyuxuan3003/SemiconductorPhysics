@@ -1,0 +1,102 @@
+\section{状态密度}
+
+\subsection{状态密度的定义}
+在半导体的导带和价带中，有很多能级的存在。但相邻能级的间隔很小，约为$10^{-23}$\si{eV}的数量级，因此，可以认为能级是准连续的。故可以用状态密度描述各个能值处状态数的疏密。
+\begin{BoxDefinition}[状态密度]
+    定义\uwave{状态密度}（Density of States），为单位能量间隔的量子态的数目
+    \begin{Equation}
+        g(E)=\dv{Z}{E}
+    \end{Equation}
+\end{BoxDefinition}
+
+暂且，先让我们放下状态密度，而是先研究一下状态本身是如何分布于$\vb*{k}$空间的。
+
+我们知道，受限于晶体边界的限制，事实上$\vb*{k}$只能取一系列的分立值
+\begin{Align}[12pt]
+    k_x&=\frac{2\pi n_x}{L}&(n_x&=0,\pm 1,\pm 2,\cdots)\\
+    k_y&=\frac{2\pi n_y}{L}&(n_y&=0,\pm 1,\pm 2,\cdots)\\
+    k_z&=\frac{2\pi n_z}{L}&(n_z&=0,\pm 1,\pm 2,\cdots)
+\end{Align}
+其中$n_x,n_y,n_z$是整数，而$L$是晶体的线度，因此
+\begin{Equation}
+    V=L^3
+\end{Equation}
+就是晶体的体积。显然在$\vb*{k}$空间，每一组整数$(n_x,n_y,n_z)$都将对应波矢$\vb*{k}$的一个可行的取值$(k_x,k_y,k_z)$，或者说，对应$\vb*{k}$空间中的一个点$(k_x,k_y,k_z)$，而$\vb*{k}$空间中的每个可取的点就代表要给可行的量子态。由于任意代表点的坐标，沿三条坐标轴的方向均为$2\pi/L$的整数倍，所以代表点在$\vb*{k}$空间中是均匀分布的，每一个代表点都可以具有$8\pi^3/L^3=8\pi^3/V$立方体积。
+
+因此，在$\vb*{k}$空间中电子的能量状态密度是$V/8\pi^3$，由于每个能量上可以存在两个自旋方向相反的电子，所以，在$\vb*{k}$空间中电子的状态密度就是$V/4\pi^3$，是均匀的。但需要注意的是，此处求出的$V/4\pi^3$的“状态密度”与\xref{def:状态密度}中$g(E)$的“状态密度”是两回事，\empx{前者是单位体积的状态，后者是单位能量区间的状态}。不过，这两者间是有联系的，因为，能值在$\vb*{k}$空间中表现为等能面的形式，该等能面上的量子态都具有相应能值，换言之，单位能量区间的状态数实际上就是$\vb*{k}$空间中一个等能面薄层中的状态数。这也就是下面我们求解$g(E)$的思路。
+
+\subsection{状态密度的计算}\setpeq{状态密度的计算}
+
+下面我们来推导半导体能带极值附近的状态密度，简单起见，姑且考虑导带底，并假设导带底位于$\vb*{k}=\vb*{0}$且等能面为球面的情况，根据\xref{subsec:有效质量的引入}中的相关公式，能量--波矢关系为
+\begin{Equation}&[1]
+    E(\vb*{k})=E_\text{c}+\frac{\hbar^2k^2}{2\mne}
+\end{Equation}
+在$\vb*{k}$空间中，以$\abs{\vb*{k}}$为半径作一球面，它就是能量为$E(\vb*{k})$的等能面，而要计算$E$与$E+\dd{E}$间的量子态数，就相当于计算半径$\abs{\vb*{k}}$至$\abs{\vb*{k}+\dd{\vb*{k}}}$的球壳间的量子态数，而这两个球壳间的体积是$4\pi k^2\dd{k}$，而$\vb*{k}$空间中量子态密度是$V/4\pi^3$，故$E$至$E+\dd{E}$间的量子态数$\dd{Z}$为
+\begin{Equation}&[2]
+    \dd{Z}=\frac{V}{4\pi^3}\times 4\pi k^2\dd{k}=\frac{V}{\pi^2}k^2\dd{k}
+\end{Equation}
+而由\xrefpeq{1}可以解得
+\begin{Equation}&[3]
+    k^2=\frac{2\mne(E-E_\text{c})}{\hbar^2}
+\end{Equation}
+即
+\begin{Equation}&[4]
+    k=\frac{(2\mne)^{1/2}(E-E_\text{c})^{1/2}}{\hbar}
+\end{Equation}
+就\xrefpeq{4}求微分
+\begin{Equation}&[5]
+    \dd{k}=\frac{(2\mne)^{1/2}(E-E_\text{c})^{-1/2}}{2\hbar}\dd{E}
+\end{Equation}
+这样一来，将\xrefpeq{3}和\xrefpeq{5}代入\xrefpeq{2}
+\begin{Equation}
+    \dd{Z}=\frac{V}{2\pi^2}\frac{(2\mne)^{3/2}}{\hbar^3}(E-E_\text{c})^{1/2}\dd{E}
+\end{Equation}
+而根据\fancyref{def:状态密度}
+\begin{Equation}
+    g_\text{c}(E)=\dv{Z}{E}=\frac{V}{2\pi^2}\frac{(2\mne)^{3/2}}{\hbar^3}(E-E_\text{c})^{1/2}
+\end{Equation}
+这就表明，导带底附近的状态密度，随电子能量的增加以平方根关系增大。
+
+\begin{Figure}[状态密度函数]
+    \includegraphics[scale=0.85]{build/Chapter03A_01.fig.pdf}
+\end{Figure}
+
+而对于实际的半导体硅和锗而言，情况要比上述讨论的复杂很多，主要问题在于硅和锗的导带等能面并不是简单的球面，而是若干中心$\vb*{k}\neq\vb*{0}$对称分布的旋转椭球面，换言之，我们有两个麻烦，其一是等能面发生了变形，由球面变为了旋转椭球面，其二是导带底不只是一个状态，对于硅是$6$个，对于锗是$4$个\footnote{虽然锗有$8$个沿$\<1 1 1>$对称分布的旋转椭球面，但每个只有一半在布里渊区内，故实际只计为$4$个。}，所幸的是，这两个麻烦都可以通过$\mne$重新表述解决。
+
+\begin{BoxFormula}[导带底的状态密度]
+    硅和锗在导带底的状态密度为
+    \begin{Equation}
+        g_\text{c}(E)=\frac{V}{2\pi^2}\frac{(2\mne)^{3/2}}{\hbar^3}(E-E_\text{c})^{1/2}
+    \end{Equation}
+    其中$\mne$为
+    \begin{Equation}
+        \mne=m_\text{dn}=s^{2/3}(m_lm_t^2)^{1/3}
+    \end{Equation}
+    其中$m_\text{dn}$称为导带底电子状态密度的有效质量，而$s$是对称状态的数目。
+\end{BoxFormula}
+
+需要说明的是，我们其实不必区分“有效质量”和“状态密度有效质量”的提法，因为对于硅和锗的导带电子而言，其实原本也就没有什么有效质量$\mne$的提法，只有横向有效质量$m_t$和纵向有效质量$m_l$的提法，故这里$m_t,m_l$给出的$m_\text{dn}$其实就可以视为对硅和锗$\mne$的定义。
+
+实际上，价带顶的情况和导带底的情况是相似的，价带顶主要起作用的是极值重合的重空穴和轻空穴，如\xref{tab:硅的价带结构}所示，价带顶同样有等能面变形和存在多个极值的问题，因此价带空穴质量$\mpe$也不是简单常数，同样需用重空穴有效质量$(m_\text{p})_\text{h}$和轻空穴有效质量$(m_\text{p})_\text{l}$重表述。
+\begin{BoxFormula}[价带顶的状态密度]*
+    硅和锗在价带顶的状态密度为
+    \begin{Equation}
+        g_\text{v}(E)=\frac{V}{2\pi^2}\frac{(2\mpe)^{3/2}}{\hbar^3}(E_\text{v}-E)^{1/2}
+    \end{Equation}
+    其中$\mne$为
+    \begin{Equation}
+        \mpe=m_\text{dp}=\qty[(m_\text{p})_\text{l}^{3/2}+(m_\text{p})_\text{h}^{3/2}]^{2/3}
+    \end{Equation}
+    其中$m_\text{dp}$称为价带顶空穴状态密度的有效质量。
+\end{BoxFormula}
+在\xref{tab:硅和锗的状态密度有效质量}中，结合\xref{tab:硅和锗的载流子有效质量}以及硅$s=6$和锗$s=4$，列出了硅和锗的$\mne$和$\mpe$
+\begin{Table}[硅和锗的状态密度有效质量]{c|cccc|ccc}
+    <
+    \mrx<c>{3}{半导体材料}&\mc{4}(c|){电子}&\mc{3}(c){空穴}\\
+    &纵向&横向&对称状态&有效质量&重&轻&有效质量\\
+    &$m_l$&$m_t$&$s$&$\mne$&$(m_\text{p})_\text{h}$&$(m_\text{p})_\text{l}$&$\mpe$\\
+    >
+    硅&$0.98m_0$&$0.19m_0$&$6$&$1.06m_0$&$0.53m_0$&$0.16m_0$&$0.59m_0$\\
+    锗&$1.64m_0$&$0.08m_0$&$4$&$0.56m_0$&$0.28m_0$&$0.04m_0$&$0.29m_0$\\
+\end{Table}
+在\xref{fig:状态密度函数}中，以红线和蓝线分别绘制了价带顶状态密度$g_\text{v}(E)$和导带底状态密度$g_\text{c}(E)$的曲线图像，由此可以看出，价带中能量越低，状态密度越大，导带中能量越高，状态密度越大。

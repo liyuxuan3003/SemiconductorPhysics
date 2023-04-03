@@ -23,6 +23,7 @@ legend entries={
     \hspace{-.3em}$1500\si{K}\hspace{1em}$\\\hspace{-.3em}$1500\si{K}$\\},
 legend cell align=right,
 legend columns=2,
+legend pos=south east,
 width=12cm,
 height=8cm,
 xtick={0,1,...,12},
@@ -32,24 +33,24 @@ yticklabels={},
 extra x ticks={4,12},
 extra x tick labels={$E_\text{F}$,$E$},
 extra y ticks={0,0.5,1.0,1.2},
-extra y tick labels={$0.0$\\$0.5$\\$1.0$\\$f(E,T)$\\},
+extra y tick labels={$0.0$\\$0.5$\\$1.0$\\$1-f(E,T)$\\},
 mark size=1
 ]
 
 \addlegendimage{empty legend}
 \addlegendimage{empty legend}
 
-\addplot[domain=0:12,samples=1000,thick,blue!80!red,line legend] {1/(exp((x-4)/(0.3))+1)};
-\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!80!red,line legend] {exp((4-x)/(0.3))};
+\addplot[domain=0:12,samples=1000,thick,blue!80!red,line legend] {1-1/(exp((x-4)/(0.3))+1)};
+\addplot[domain=0:4.5,samples=1000,thin,dashed,blue!80!red,line legend] {exp((-4+x)/(0.3))};
 
-\addplot[domain=0:12,samples=1000,thick,blue!60!red,line legend] {1/(exp((x-4)/(0.6))+1)};
-\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!60!red,line legend] {exp((4-x)/(0.6))};
+\addplot[domain=0:12,samples=1000,thick,blue!60!red,line legend] {1-1/(exp((x-4)/(0.6))+1)};
+\addplot[domain=0:4.5,samples=1000,thin,dashed,blue!60!red,line legend] {exp((-4+x)/(0.6))};
 
-\addplot[domain=0:12,samples=1000,thick,blue!40!red,line legend] {1/(exp((x-4)/(1.0))+1)};
-\addplot[domain=3.5:12,samples=1000,thin,dashed,blue!40!red,line legend] {exp((4-x)/(1.0))};
+\addplot[domain=0:12,samples=1000,thick,blue!40!red,line legend] {1-1/(exp((x-4)/(1.0))+1)};
+\addplot[domain=0:4.5,samples=1000,thin,dashed,blue!40!red,line legend] {exp((-4+x)/(1.0))};
 
-\addplot[domain=0:12,samples=1000,thick,blue!20!red,line legend] {1/(exp((x-4)/(1.5))+1)};
-\addplot[domain=3:12,samples=1000,thin,dashed,blue!20!red,line legend] {exp((4-x)/(1.5))};
+\addplot[domain=0:12,samples=1000,thick,blue!20!red,line legend] {1-1/(exp((x-4)/(1.5))+1)};
+\addplot[domain=0:4.5,samples=1000,thin,dashed,blue!20!red,line legend] {exp((-4+x)/(1.5))};
 
 \addplot[white] coordinates{(4,0.5)} node[point] {};
 \addplot[white] coordinates{(4,1.0)} node[point] {};
