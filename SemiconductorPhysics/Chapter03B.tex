@@ -1,0 +1,80 @@
+\section{费米分布与玻尔兹曼分布}
+在\xref{sec:状态密度}中，我们已经通过状态密度$g(E)$弄清了电子的量子态是如何分布的了，但是，并不是每一个电子可能存在的量子态都有电子存在，所以说，我们还需要找到一个电子关于能量的分布函数。事实上，尽管就单一电子而言，它所具有的能量时大时小经常变化，但是，电子按能量大小的分布具有统计规律性，这就是说，\empx{电子在不同能量上的概率密度分布是一定的}。
+
+\subsection{费米分布}
+
+量子统计理论指出，具有泡利不相容特性的费米子遵从费米分布，而电子作为一种费米子，其随能量$E$的概率密度分布$f(E)$也满足费米分布，这对于导带和价带（甚至禁带，只不过就算电子在禁带范围内有很高的概率密度，也没有允许电子存在的量子态）都是适用的，但是按照我们的习惯，导带讨论电子，价带讨论空穴，所以在价带中我们往往需要的是空穴的概率密度分布，空穴是电子不存在的情况，因此，空穴的统计分布其实就可以用$1-f(E)$表述。\goodbreak
+\begin{BoxFormula}[费米分布]
+    电子的概率密度分布遵从\uwave{费米分布}（Fermi Statistics）
+    \begin{Equation}&[1]
+        f(E)=\frac{1}{1+\exp(E-E_\text{F}/\kB T)}
+    \end{Equation}
+    空穴的概率密度分布相应遵从
+    \begin{Equation}&[2]
+        1-f(E)=\frac{1}{1+\exp(E_\text{F}-E/\kB T)}
+    \end{Equation}
+\end{BoxFormula}
+
+在\fancyref{fml:费米分布}中的$E_\text{F}$是一个很重要的参数，称为\uwave{费米能级}（Fermi Level），它并不是一个真正的能级，只是一个具有能量量纲的参数，与温度、半导体材料、半导体的杂质类型和含量、能量零点的选取等因素有关。费米能级$E_\text{F}$作为费米分布$f(E)$的参数，具有分界线的意义，如\xref{fig:电子的统计分布}所示，\empx{费米能级是费米分布的半概率密度点}，即有$f(E_\text{F})=1/2$成立。
+
+更具体的说，电子的费米分布是这样以费米能级为界的
+\begin{itemize}
+    \item 在费米能级$E_\text{F}$以下，电子有较大概率出现，当$E<E_\text{F}$时有$f(E)>1/2$。
+    \item 在费米能级$E_\text{F}$以上，电子有较小概率出现，当$E>E_\text{F}$时有$f(E)<1/2$。
+\end{itemize}
+而由\xref{fig:电子的统计分布}，我们亦可以注意到温度对费米分布的影响，温度越低，费米分布的曲线在费米能级$E_\text{F}$处由$1.0$至$0.0$的跃变就越陡峭，事实上，温度为绝对零度时，此时，费米分布将转化为一个阶跃函数，换言之，电子将会完全分布在费米能级以内，严格的以最低能级填充。
+
+而这里还有一个问题，费米能级$E_\text{F}$在哪里？事实是，\empx{费米能级通常会落在禁带中}，即
+\begin{Equation}
+    E_\text{v}<E_\text{F}<E_\text{c}
+\end{Equation}
+直观上想这也是合理的，价带上有很多电子，导带上几乎没有什么电子。
+
+\subsection{玻尔兹曼分布}
+玻尔兹曼分布并不是全新的东西，它其实只不过是一定条件下对费米分布的近似。
+
+\begin{BoxFormula}[玻尔兹曼分布]
+    电子的概率密度分布在$E-E_\text{F}\gg\kB T$时遵从\uwave{玻尔兹曼分布}（Boltzmann Statistics）
+    \begin{Equation}
+        f(E)=\exp(\frac{E_\text{F}-E}{\kB T})
+    \end{Equation}
+    空穴的概率密度分布在$E-E_\text{F}\ll\kB T$时遵从
+    \begin{Equation}
+        1-f(E)=\exp(\frac{E-E_\text{F}}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:费米分布}的\xrefpeq[费米分布]{1}，若$E-E_\text{F}\gg\kB T$
+    \begin{Equation}*
+        f(E)=\frac{1}{1+\exp(E-E_\text{F}/\kB T)}=\frac{1}{\exp(E-E_\text{F}/\kB T)}=
+        \exp(\frac{E_\text{F}-E}{\kB T})
+    \end{Equation}
+    根据\fancyref{fml:费米分布}的\xrefpeq[费米分布]{2}，若$E_\text{F}-E\gg\kB T$
+    \begin{Equation}*
+        1-f(E)=\frac{1}{1+\exp(E_\text{F}-E/\kB T)}=\frac{1}{\exp(E_\text{F}-E/\kB T)}=
+        \exp(\frac{E-E_\text{F}}{\kB T})
+    \end{Equation}
+    由此可见，玻尔兹曼分布实质就是对费米分布作$1+\e^x=\e^x$近似的结果。
+\end{Proof}
+
+玻尔兹曼分布其实是非常实用的近似，因为我们研究电子的统计分布，最终目的就是要研究电子在价带和导带上的统计分布，前面我们提到过，对于大部分半导体，费米能级$E_\text{F}$往往落在禁带中，其距离导带底和价带顶都有一定的距离，因此，对于导带和价带中的能值
+\begin{itemize}
+    \item 在导带中$E-E_\text{F}\gg\kB T$，而导带中研究的是电子分布，符合玻尔兹曼分布的近似条件。
+    \item 在价带中$E_\text{F}-E\gg\kB T$，而价带中研究的是空穴分布，符合玻尔兹曼分布的近似条件。
+\end{itemize}
+因此，通常我们在研究半导体时都可以应用近似的玻尔兹曼分布，适用玻尔兹曼分布的半导体称为\uwave{非简并半导体}（Non-degenerate Semiconductor），而有些情况下，费米能级$E_\text{F}$会比较靠近导带底或价带顶，这时$E-E_\text{F}\gg\kB T$或$E_\text{F}-E\gg\kB T$就不再成立了，仍然需要通过费米分布进行描述，我们将这类半导体称为\uwave{简并半导体}（Degenerate Semiconductor）。简而言之，\empx{适用费米分布的称为简并半导体，适用玻尔兹曼分布的称为非简并半导体}。我们或许会想，简并通常是描述多个量子态具有同一本征能量的，为何在又被用于描述半导体？实际上是这样的，简并一词的意义在应用中逐渐被拓宽，简并最初确实是指多个量子态具有同一本征能量，而事实是，简并态的数目越多，量子效应就会越明显，相反，非简并态可以较好的用经典物理解释，所以这样一来，简并亦被用于指称量子效应是否显著\cite{W10}。而费米分布到玻尔兹曼分布的近似从物理上看，其实就是忽略了泡利不相容原理，在\xref{fig:费米分布与玻尔兹曼分布}中，我们可以清楚的看到费米分布和玻尔兹曼分布间的关系，我们注意到，玻尔兹曼分布近似的比较好的部分其实都是费米分布值较接近$0$的部分，在这些位置，电子和空穴都很稀疏，因而不必考虑泡利不相容的。因此，\empx{作为量子效应的泡利不相容是否需要考虑，就决定了半导体是简并还是非简并的}。
+
+玻尔兹曼分布中，还要强调的是，由于其$f(E)$和$1-f(E)$是分别由相应费米分布近似而来的，因此玻尔兹曼分布中$f(E)$和$1-f(E)$只是两个独立的记号罢了，相加并不等于$1$。
+
+\begin{Figure}[费米分布与玻尔兹曼分布]
+    \vspace{-0.15cm}
+    \begin{FigureSub}[电子的统计分布]
+        \includegraphics[scale=0.85]{build/Chapter03B_01.fig.pdf}\vspace{-0.15cm}
+    \end{FigureSub}\vspace{0.3cm}
+    \begin{FigureSub}[空穴的统计分布]
+        \includegraphics[scale=0.85]{build/Chapter03B_02.fig.pdf}\vspace{-0.15cm}
+    \end{FigureSub}
+\end{Figure}
+
+接下来的内容中，我们主要讨论的都是适用玻尔兹曼分布的非简并半导体。
