@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      3259,         93]
-NotebookOptionsPosition[      2801,         77]
-NotebookOutlinePosition[      3214,         94]
-CellTagsIndexPosition[      3171,         91]
+NotebookDataLength[      4478,        122]
+NotebookOptionsPosition[      3835,        104]
+NotebookOutlinePosition[      4248,        121]
+CellTagsIndexPosition[      4205,        118]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -73,7 +73,34 @@ Cell[BoxData[
      RowBox[{"-", "x"}], "]"}]}], ",", "x"}], "]"}]], "Input",
  CellChangeTimes->{{3.8894775743063073`*^9, 3.8894775981706853`*^9}, {
   3.8894776363101563`*^9, 3.8894776377895765`*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"4dc0f013-125e-4c36-b924-b959b1f69a22"]
+ CellLabel->"In[1]:=",ExpressionUUID->"4dc0f013-125e-4c36-b924-b959b1f69a22"],
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8896027144542246`*^9, 3.8896027224311595`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"a070b9b4-ed0c-46f6-beaf-d83f94ef4f6f"],
+
+Cell[BoxData[{
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["x", 
+     RowBox[{"1", "/", "2"}]], 
+    RowBox[{"Exp", "[", 
+     RowBox[{"-", "x"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "5"}], "}"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"Filling", "\[Rule]", "Bottom"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0.5"}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<output/SqrtExp.pdf\>\"", ",", "%"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.889602602709967*^9, 3.8896027520879326`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"14ecea7d-98c8-48b1-a298-425c5e3eb146"]
 },
 WindowSize->{951., 469.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
@@ -94,7 +121,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 1826, 43, 97, "Input",ExpressionUUID->"c2146e12-6640-4628-950e-eeb6c4271749"],
-Cell[2387, 65, 410, 10, 31, "Input",ExpressionUUID->"4dc0f013-125e-4c36-b924-b959b1f69a22"]
+Cell[2387, 65, 410, 10, 31, "Input",ExpressionUUID->"4dc0f013-125e-4c36-b924-b959b1f69a22"],
+Cell[2800, 77, 253, 4, 28, "Input",ExpressionUUID->"a070b9b4-ed0c-46f6-beaf-d83f94ef4f6f"],
+Cell[3056, 83, 775, 19, 50, "Input",ExpressionUUID->"14ecea7d-98c8-48b1-a298-425c5e3eb146"]
 }
 ]
 *)
