@@ -1,0 +1,58 @@
+\documentclass{xStandalone}
+
+\pgfkeys{/pgf/declare function={asinh(\x) = ln(\x + sqrt(\x^2+1));}}
+
+\begin{document}
+\begin{tikzpicture}
+
+\clip (-7.5,-4) rectangle (7.5,3.8);
+
+\pgfplotsset{every axis legend/.append style=
+{nodes={inner sep=5pt,text depth=0.25em}}}
+    
+\begin{axis}[
+xmin=0,xmax=4200,
+ymin=-0.02,ymax=1.22,
+anchor=center,
+grid,
+legend style={font=\footnotesize},
+legend entries={
+    {弱电离区}\\
+    {强电离区}\\
+    {过渡区}\\
+    {本征激发区}\\
+},
+legend cell align=right,
+legend columns=1,
+width=12cm,
+height=8cm,
+xtick={0,1000,...,4000},
+xticklabels={\tiny 0,\tiny 1000,\tiny 2000\hspace*{2.5em},\tiny 3000,\tiny 4000},
+ytick={0,0.1,...,1.2},
+yticklabels={},
+extra x ticks={164.682, 448.14, 2041.08, 4200},
+extra x tick labels={$T_1$,$T_2$,\hspace{1em}$T_3$,\hspace{1.5em}$T/\si{K}$},
+extra y ticks={0,0.5,0.6,0.8,1.0,1.2},
+extra y tick labels={$E_\text{v}$\\ \tiny $(E_\text{c}+E_\text{v}\hspace{0.25em})/2$\\$E_\text{D}$\\ \tiny $(E_\text{c}+E_\text{D})/2$\\$E_\text{c}$\\$E_\text{F}(T)$\\},
+mark size=1
+]
+
+\addplot[domain=0:4000,samples=1000,very thick,blue,line legend] {0.8 + 0.0000430867*x*(9.15766 + ln(1/x^(3/2))};
+
+\addplot[domain=0:4000,samples=1000,very thick,red,line legend] {1. + 0.0000861733*x*(9.85081 + ln(1/x^(3/2)))};
+
+\addplot[domain=1:4000,samples=1000,ultra thick,dotted,black,line legend] {0.5 - 0.0000378668*x + 
+0.0000861733*x*asinh((14721.8*e^(5802.26/x))/sqrt(x^3)};
+
+\addplot[domain=0:4000,samples=1000,thick,dashed,black,line legend] {0.5 - 0.0000378668*x};
+
+\addplot[white] coordinates{(164.862,0.812)} node[point] {};
+\addplot[white] coordinates{(448.14,0.8)} node[point] {};
+\addplot[white] coordinates{(2041.08,0.6)} node[point] {};
+
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+

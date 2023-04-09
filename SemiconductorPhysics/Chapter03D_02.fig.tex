@@ -1,0 +1,65 @@
+\documentclass{xStandalone}
+
+\pgfkeys{/pgf/declare function={asinh(\x) = ln(\x + sqrt(\x^2+1));}}
+
+\begin{document}
+\begin{tikzpicture}
+
+\clip (-7.5,-4) rectangle (7.5,3.8);
+
+\pgfplotsset{every axis legend/.append style=
+{nodes={inner sep=5pt,text depth=0.25em}}}
+    
+\begin{axis}[
+xmin=0,xmax=4200,
+ymin=-0.1*10^20,ymax=3.7*10^20,
+anchor=center,
+grid,
+legend style={font=\footnotesize},
+legend entries={
+    {弱电离区}\\
+    {强电离区}\\
+    {过渡区}\\
+    {过渡区--强电近似}\\
+    {过渡区--本征近似}\\
+    {本征激发区}\\
+},
+legend cell align=right,
+legend columns=1,
+legend pos=north west,
+width=12cm,
+height=8cm,
+xtick={0,1000,...,4000},
+xticklabels={\tiny 0,\tiny 1000,\tiny 2000,\tiny 3000,\tiny 4000},
+ytick={0.1,1*10^20,2*10^20,3*10^20},
+yticklabels={0,1,2,3},
+extra x ticks={4200},
+extra x tick labels={\hspace{1.5em}$T/\si{K}$},
+extra y ticks={3.7*10^20},
+extra y tick labels={$n_0/\si{cm^{-3}}$\\},
+mark size=1
+]
+
+\addplot[domain=0:4000,samples=1000,very thick,blue,line legend] {5.13345*10^23/100^3*e^(-2320.9/x)*sqrt(x^(3/2))};
+
+\addplot[domain=0:4000,samples=1000,very thick,red,line legend] {100000000000000000000000000/100^3};
+
+\addplot[domain=2:4000,samples=1000,ultra thick,dotted,black,line legend] {50000000000000000000000000*(1 + sqrt(
+    1 + 4.61399*10^(-9)*e^(-11604.5/x)*x^3))/100^3};
+
+\addplot[domain=2:4000,samples=1000,thin,dashed,green,line legend] {(1.*10^26 + 1.1535*10^17*e^(-11604.5/x)*x^3)/100^3};
+
+\addplot[domain=2:4000,samples=1000,thin,dash dot,green,line legend] {(5.*10^25 + 3.39632*10^21*e^(-5802.26/x)*sqrt(x^3))/100^3};   
+
+\addplot[domain=0:4000,samples=1000,thick,dashed,black,line legend] {(3.39632*10^21*e^(-5802.26/x)*sqrt(x^3))/100^3};
+
+% \addplot[white] coordinates{(164.862,0.812)} node[point] {};
+% \addplot[white] coordinates{(448.14,0.8)} node[point] {};
+% \addplot[white] coordinates{(2041.08,0.6)} node[point] {};
+
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
+
