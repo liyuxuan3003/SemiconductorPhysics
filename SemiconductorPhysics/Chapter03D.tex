@@ -1,0 +1,116 @@
+\section{本征半导体的载流子浓度}
+\uwave{本征半导体}（Intrinsic Semiconductor）就是指一块没有杂质和缺陷的半导体，因此，本征半导体的载流子完全来自本征激发，由于本征激发中，电子从价带跃迁到导带，电子和空穴将会成对产生，因此，导带中的电子浓度应当等同于价带中的空穴浓度，这就是\uwave{电中性条件}。
+
+\begin{BoxFormula}[本征半导体的电中性条件]
+    本征半导体的电中性条件满足
+    \begin{Equation}
+        n_0=p_0
+    \end{Equation}
+\end{BoxFormula}
+
+本征半导体的能带图，如\xref{fig:本征半导体的能带图}所示，其中，需要特别解释的是最右侧的图像，我们可能会困惑其中的$\dv*{n_0}{E}$和$\dv*{p_0}{E}$究竟是什么含义？介于$n_0$和$p_0$本身就是对能量$E$积分后的常数，又何谈对$E$的导数呢？实际上，在\xref{sec:载流子浓度}当我们通过积分求得$n_0$和$p_0$时，被积函数就是$f(E)g(E)/V$，它表征了载流子浓度的能量密度。原先的观点中$n_0,p_0$由能带底到能带顶的定积分，如果放宽一些，将$n_0,p_0$视为由能带顶到$E$的变上限积分$n_0(E),p_0(E)$，那这里的$\dv*{n_0}{E}$和$\dv*{p_0}{E}$就可以解释了，它们与$f(E)g(E)/V$是同一回事，都代表浓度的能量密度。这也是为何$f(E)g(E)/V$的曲线下面积就表示了电子浓度$n_0$和空穴浓度$p_0$的大小。
+\begin{Figure}[本征半导体的能带图]
+    \includegraphics[width=0.95\linewidth]{build/Chapter03D_03.fig.pdf}
+\end{Figure}
+
+这里也证实了先前的一个提法，我们注意到
+\begin{itemize}
+    \item 导带电子浓度的能量密度的最大值接近导带底，表明，\empx{导带电子主要位于导带底}。
+    \item 价带电子浓度的能量密度的最大值接近价带顶，表明，\empx{价带空穴主要位于价带顶}。
+\end{itemize}
+这里关注到\xref{fig:本征半导体的能带图}中$f(E)$和$g(E)$的图像相较\xref{fig:状态密度函数}和\xref{fig:费米分布与玻尔兹曼分布}，作为自变量的能量反而变为了纵轴，这其实是为了顺应简单能带图中，能量在纵向分布的习惯，也是半导体物理的通用作法。
+
+
+至此，有一个疑惑，这一节我们到底要干嘛？本节题名“本征半导体的载流子浓度”，但问题是，载流子的浓度我们在\xref{sec:载流子浓度}中，已经由\fancyref{fml:导带电子浓度}和\fancyref{fml:价带空穴浓度}求出了，本节还有什么可做的？关键点在于，现有的$n_0$和$p_0$的公式中包含费米能级$E_\text{F}$，而根据固体物理的知识，\empx{费米能级是随温度变化的函数}，而这个函数是我们目前未知的。因此，本节就是要求出本征半导体的费米能级的函数，进而求出$n_0$和$p_0$的具体表达。
+
+\begin{BoxFormula}[本征半导体的费米能级]*
+    本征半导体的费米能级满足
+    \begin{Equation}
+        E_\text{F}=\frac{E_\text{c}-E_\text{v}}{2}+\frac{\kB T}{2}\ln\frac{N_\text{v}}{N_\text{c}}
+    \end{Equation}
+    或
+    \begin{Equation}
+        E_\text{F}=E_\text{i}=\frac{E_\text{c}+E_\text{v}}{2}+\frac{3\kB T}{4}\ln\frac{\mpe}{\mne}
+    \end{Equation}
+    这里$E_\text{i}$是专属本征半导体的费米能级的记号，下标i表示本征（Intrinsic）。
+\end{BoxFormula}
+\begin{Proof}
+    求解费米能级的关键，在于运用电中性条件，根据\fancyref{fml:本征半导体的电中性条件}
+    \begin{Equation}&[1]
+        n_0=p_0
+    \end{Equation}
+    根据\fancyref{fml:导带电子浓度}和\fancyref{fml:价带空穴浓度}
+    \begin{Equation}&[2]
+        N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})=N_\text{v}\exp(\frac{E_\text{v}-E_\text{F}}{\kB T})
+    \end{Equation}
+    在\xrefpeq{2}两端取对数
+    \begin{Equation}&[3]
+        \ln N_\text{c}+\qty(\frac{E_\text{F}-E_\text{c}}{\kB T})=\ln N_\text{V}+\qty(\frac{E_\text{v}}{\kB T})
+    \end{Equation}
+    移项整理
+    \begin{Equation}&[4]
+        \frac{2E_\text{F}-E_\text{c}-E_\text{v}}{\kB T}=\ln\frac{N_\text{v}}{N_\text{c}}
+    \end{Equation}
+    再整理
+    \begin{Equation}&[5]
+        \frac{2E_\text{F}}{\kB T}=\frac{E_\text{c}-E_\text{v}}{\kB T}+\ln\frac{N_\text{v}}{N_\text{c}}
+    \end{Equation}
+    由此即解得$E_\text{F}$
+    \begin{Equation}&[6]
+        E_\text{F}=\frac{E_\text{c}-E_\text{v}}{2}+\frac{\kB T}{2}\ln\frac{N_\text{v}}{N_\text{c}}
+    \end{Equation}
+    而我们知道$N_\text{v}\sim(\mpe)^{3/2}$和$N_\text{c}\sim(\mne)^{3/2}$
+    \begin{Equation}&[7]
+        E_\text{F}=\frac{E_\text{c}-E_\text{v}}{2}+\frac{3\kB T}{4}\ln\frac{\mpe}{\mne}
+    \end{Equation}
+    这里，我们愿意引入$E_\text{i}$作为本征半导体中费米能级$E_\text{F}$的特别记号。
+\end{Proof}
+
+\xref{fml:本征半导体的费米能级}指出，本征半导体的费米能级$E_\text{i}$由两部分组成，首先是$E_\text{c}+E_\text{v}/2$的常数部分，它表明费米能级在绝对零度时位于禁带中线上，其次是$(3\kB T/4)\ln(\mpe/\mne)$的线性项，它表明费米能级将随温度增大线性变化。不过事实上，对于大部分半导体材料，在室温范围内，线性项的影响其实都不大。例如，根据\xref{tab:半导体的状态密度有效质量}的数据，硅和锗的$\mpe/\mne$分别为$0.55$和$0.52$，砷化镓的$\mpe/\mne$则为$8.25$，故三者的$\ln(\mpe/\mne)$均大致在$\pm 2$的范围内，而$\kB T$在室温$T=300\si{K}$时为$\kB T=0.026\si{eV}$，因此整个线性项在室温下的影响小于$0.05\si{eV}$，根据\xref{tab:部分半导体材料的参数}的数据，其相较于硅、锗、砷化镓$1.14\si{eV}, 0.67\si{eV}, 1.52\si{eV}$在$1\si{eV}$量级的禁带宽度，完全可以忽略，因此我们可以近似认为，\empx{本征半导体的费米能级基本在禁带中线附近}。不过，也有例外，例如锑化铟的$\mpe/\mne$约为$36.7$，取对数后仍然有$3.60$，线性项的影响达到了近$0.07\si{eV}$，但是，锑化铟的禁带非常窄，仅有$0.17\si{eV}$，这时，线性项的影响就很显著了，费米能级已远在禁带中线上了。
+
+现在，让我们来计算本征半导体的载流子浓度。
+
+\begin{BoxFormula}[本征半导体的载流子浓度]
+    本征半导体中，电子浓度$n_0$和空穴浓度$p_0$相等，统一记为$n_\text{i}$
+    \begin{Equation}
+        n_\text{i}=n_0=p_0
+    \end{Equation}
+    且$n_\text{i}$满足
+    \begin{Equation}
+        n_\text{i}=(N_\text{c}N_\text{v})^{1/2}\exp(-\frac{E_\text{g}}{2\kB T})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:导带电子浓度}，并代入\fancyref{fml:本征半导体的费米能级}
+    \begin{Equation}&[1]
+        \qquad
+        n_0=N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})=N_\text{c}\exp(\frac{E_\text{c}/2+E_\text{v}/2+(\kB T/2)\ln N_\text{v}/N_\text{c}-E_\text{c}}{\kB T})
+        \qquad
+    \end{Equation}
+    化简整理得
+    \begin{Equation}&[2]
+        n_0=N_\text{c}\qty(-\frac{E_\text{c}-E_\text{v}}{2\kB T}+\frac{\ln N_\text{v}/N_\text{c}}{2})=N_\text{c}\sqrt{N_\text{v}/N_\text{c}}\exp(-\frac{E_\text{g}}{2\kB T})=(N_\text{c}N_\text{v})^{1/2}\exp(-\frac{E_\text{g}}{2\kB T})
+    \end{Equation}
+    根据\fancyref{fml:价带空穴浓度}，并代入\fancyref{fml:本征半导体的费米能级}
+    \begin{Equation}&[3]
+        \qquad
+        p_0=N_\text{v}\exp(\frac{E_\text{v}-E_\text{F}}{\kB T})=N_\text{c}\exp(\frac{E_\text{v}-E_\text{c}/2-E_\text{v}/2-(\kB T/2)\ln N_\text{v}/N_\text{c}}{\kB T})
+        \qquad
+    \end{Equation}
+    化简整理得
+    \begin{Equation}&[4]
+        p_0=N_\text{v}\qty(-\frac{E_\text{c}-E_\text{v}}{2\kB T}-\frac{\ln N_\text{v}/N_\text{c}}{2})=N_\text{v}\sqrt{N_\text{c}/N_\text{v}}\exp(-\frac{E_\text{g}}{2\kB T})=(N_\text{v}N_\text{c})^{1/2}\exp(-\frac{E_\text{g}}{2\kB T})
+    \end{Equation}
+    比较\xrefpeq{3}和\xrefpeq{4}即得
+    \begin{Equation}*
+        n_0=p_0\qedhere
+    \end{Equation}
+\end{Proof}
+由此可见，本征半导体的载流子浓度对温度非常敏感，其随温度增加而迅速增加。而在同一温度下，半导体材料的禁带宽度$E_\text{g}$越大，本征载流子的浓度$n_i$就相应越小，这从直观上想也是很合理的，因为禁带宽度越大，电子从价带跃迁到导带也越困难，载流子自然也就少了。
+
+在\xref{fml:本征半导体的载流子浓度}中代入$N_\text{c}N_\text{v}$，并引入\fancyref{fml:禁带宽度和温度的关系}
+\begin{Equation}
+    n_i=2\frac{(2\pi \kB T)^{3/2}(\mpe\mne)^{3/4}}{\hbar^3}\exp[-\frac{E_\text{g}(0)}{2\kB T}]\exp[\frac{\alpha T}{2\kB (T+\beta)}]
+\end{Equation}
+该式可以在实验上用于测定禁带宽度。

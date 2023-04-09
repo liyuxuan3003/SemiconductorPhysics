@@ -1,0 +1,152 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+% \clip (-7.5,-4) rectangle (7.5,3.8);
+
+\pgfplotsset{every axis legend/.append style=
+{nodes={inner sep=5pt,text depth=0.25em}}}
+
+\begin{axis}[
+xmin=-0.1,xmax=1.1,
+ymin=-0.5,ymax=16.5,
+anchor=center,
+at={(0,0)},
+grid,
+legend cell align=right,
+legend columns=2,
+width=6cm,
+height=8cm,
+ytick={0,1,...,16},
+yticklabels={},
+xtick={0,0.1,...,1.1},
+xticklabels={},
+xlabel={\small 简单能带},
+extra y ticks={6,8,10,16},
+extra y tick labels={{\small$ E_\text{v}\hspace{0.1em}$},{\small$ E_\text{F}$},{\small$ E_\text{c}\hspace{0.15em}$},{\small$ E\hspace{0.4em}$}},
+extra x ticks={},
+extra x tick labels={},
+mark size=1
+]
+
+\draw[blue,thick] (axis cs:0,10) -- (axis cs:1,10); 
+\fill[blue,fill opacity=0.1] (axis cs:0,10) rectangle (axis cs:1,15.5); 
+
+\draw[red,thick]  (axis cs:0,6) -- (axis cs:1,6); 
+\fill[red,fill opacity=0.1] (axis cs:0,6) rectangle (axis cs:1,0.5);
+
+\draw[very thick,gray,dotted] (axis cs:0,8) -- (axis cs:1,8);
+
+\path (axis cs:0.3,11) node[point] {$-$};
+\path (axis cs:0.7,11) node[point] {$-$};
+\path (axis cs:0.3,5 ) node[point] {$+$};
+\path (axis cs:0.7,5 ) node[point] {$+$};
+
+\draw[latex-latex,thin] (axis cs:0.6,10) -- node[pos=0.25,right] {\small $E_\text{g}$} (axis cs:0.6,6);
+
+% \foreach \t in {0.4,0.6}
+% {
+    
+% }
+
+\end{axis}
+
+\begin{axis}[
+xmin=-0.1,xmax=1.1,
+ymin=-0.5,ymax=16.5,
+anchor=center,
+at={(150,0)},
+grid,
+legend cell align=right,
+legend pos=north west,
+legend entries={$g(E)$},
+legend columns=2,
+width=6cm,
+height=8cm,
+ytick={0,1,...,16},
+yticklabels={},
+xtick={0,0.1,...,1.1},
+xticklabels={},
+xlabel={$g(E)$},
+extra y ticks={6,8,10,16},
+extra y tick labels={{\small$ E_\text{v}\hspace{0.1em}$},{\small$ E_\text{F}$},{\small$ E_\text{c}\hspace{0.15em}$},{\small$ E\hspace{0.4em}$}},
+extra x ticks={0,0.5,1.0},
+extra x tick labels={$0$\\},
+mark size=1
+]
+
+\addplot[domain=0:16,samples=1000,thick,black,line legend] ({0.4*sqrt(-(x-6))},{x});
+\addplot[domain=0:16,samples=1000,thick,black,line legend] ({0.4*sqrt(+(x-10))},{x});
+
+\end{axis}
+    
+\begin{axis}[
+xmin=-0.1,xmax=1.1,
+ymin=-0.5,ymax=16.5,
+anchor=center,
+at={(300,0)},
+grid,
+legend cell align=right,
+legend entries={$f(E)$},
+legend columns=2,
+width=6cm,
+height=8cm,
+ytick={0,1,...,16},
+yticklabels={},
+xtick={0,0.1,...,1.1},
+xticklabels={},
+xlabel={$f(E)$},
+extra y ticks={6,8,10,16},
+extra y tick labels={{\small$ E_\text{v}\hspace{0.1em}$},{\small$ E_\text{F}$},{\small$ E_\text{c}\hspace{0.15em}$},{\small$ E\hspace{0.4em}$}},
+extra x ticks={0,0.5,1.0},
+extra x tick labels={$0.0$\\$0.5$\\$1.0$\\},
+mark size=1
+]
+
+\addplot[domain=0:16,samples=1000,thick,black,line legend] ({1/(exp((x-8)/(0.5))+1)},{x});
+
+\addplot[white] coordinates{(0.5,8)} node[point] {};
+\addplot[white] coordinates{(0.017,10)} node[point] {};
+\addplot[white] coordinates{(0.983,6)} node[point] {};
+
+\end{axis}
+
+\begin{axis}[
+xmin=-0.1,xmax=1.1,
+ymin=-0.5,ymax=16.5,
+anchor=center,
+at={(450,0)},
+grid,
+legend cell align=right,
+legend entries={$\dv*{n_0}{E}$\\$\dv*{p_0}{E}$\\$n_0$\\$p_0$\\},
+legend columns=1,
+width=6cm,
+height=8cm,
+ytick={0,1,...,16},
+yticklabels={},
+xtick={0,0.1,...,1.2},
+xticklabels={},
+xlabel={$f(E)g(E)/V$},
+extra y ticks={6,8,10,16},
+extra y tick labels={{\small$ E_\text{v}\hspace{0.1em}$},{\small$ E_\text{F}$},{\small$ E_\text{c}\hspace{0.15em}$},{\small$ E\hspace{0.4em}$}},
+extra x ticks={0},
+extra x tick labels={$0$},
+mark size=1
+]
+
+\addplot [name path=N0,domain=10:16,samples=1000,thick,blue,line legend] ({10*0.4*sqrt(+(x-10))*(1/(exp((x-8)/(1))+1))},{x});
+
+\addplot [name path=P0,domain=0:6,samples=1000,thick,red,line legend] ({10*0.4*sqrt(-(x-6))*(1-1/(exp((x-8)/(1))+1))},{x});
+
+\path [name path=HL]
+(10,\pgfkeysvalueof{/pgfplots/ymin}) --
+(10,\pgfkeysvalueof{/pgfplots/ymax});
+
+\addplot [fill=blue,fill opacity=0.2] fill between [of=N0 and HL];
+\addplot [fill=red ,fill opacity=0.2] fill between [of=P0 and HL];
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
