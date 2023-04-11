@@ -1,0 +1,46 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.0]
+
+\draw[thick] (0,-2) 
+node[right] {$E_\text{v}$} 
+-- ++(-2,0);
+
+\draw[thick] (0,+2) 
+node[right] {$E_\text{c}$} 
+-- ++(-2,0);
+
+\fill[red, fill opacity=0.1]
+    (0,-2) 
+    rectangle ++(-2,-1);
+
+\fill[blue,fill opacity=0.1]
+    (0,+2) 
+    rectangle ++(-2,+1);
+
+\draw[gray,dotted] (0,0)
+node[right,black] {$E_\text{i}$}
+-- ++(-2,0);
+
+\draw[green] (0,+1.5)
+node[right,black] {$E_\text{F}$}
+-- ++(-2,0);
+
+\draw[thick,dashed] (-0.5,+1.75)
+-- ++(-1.5,0) node[left] {$E_\text{D}$};
+
+\foreach \x in {0,1,...,8}
+{
+    \foreach \y in {0,1}
+    {
+        \path (\fpeval{-\x*0.2-0.2},+2.25+\fpeval{\y*0.25}) node[circ] {};
+    }
+}
+
+\path (-1,-2.25) node[ocirc] {};
+
+\draw[ultra thin] (-2.8,-3.1) rectangle (0.8,3.1);
+
+\end{tikzpicture}
+\end{document}
