@@ -1,0 +1,20 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\path (-1.414,0) node[point] {$+$}; 
+
+\draw[-latex] 
+plot[domain=1:-1,smooth,variable=\t] 
+({+sec(\t r)},{tan(\t r)});
+
+\draw[-latex] 
+plot[domain=1:-1,smooth,variable=\t] 
+({-sec(\t r)},{tan(\t r)});
+
+\path (-1.307,+0.842) node[circ] {};
+\path (+1.307,+0.842) node[ocirc] {};
+
+\end{tikzpicture}
+\end{document}
