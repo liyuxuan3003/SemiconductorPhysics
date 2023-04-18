@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10205,        271]
-NotebookOptionsPosition[      9648,        254]
-NotebookOutlinePosition[     10067,        271]
-CellTagsIndexPosition[     10024,        268]
+NotebookDataLength[     16655,        404]
+NotebookOptionsPosition[     16000,        386]
+NotebookOutlinePosition[     16419,        403]
+CellTagsIndexPosition[     16376,        400]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,8 +25,7 @@ Cell[BoxData[{
   RowBox[{"SetDirectory", "[", 
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{3.8906980438805237`*^9},
- CellLabel->
-  "In[129]:=",ExpressionUUID->"4bfedd9a-32d4-47f1-ba71-db0702065a46"],
+ CellLabel->"In[77]:=",ExpressionUUID->"4bfedd9a-32d4-47f1-ba71-db0702065a46"],
 
 Cell[BoxData[{
  RowBox[{
@@ -52,8 +51,7 @@ Cell[BoxData[{
     SuperscriptBox["10", 
      RowBox[{"-", "19"}]]}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.8906870345190783`*^9, 3.8906870380040035`*^9}},
- CellLabel->
-  "In[131]:=",ExpressionUUID->"1590328e-69ae-4bd5-bce4-9755d811ac6d"],
+ CellLabel->"In[79]:=",ExpressionUUID->"1590328e-69ae-4bd5-bce4-9755d811ac6d"],
 
 Cell[BoxData[{
  RowBox[{
@@ -238,19 +236,153 @@ Cell[BoxData[{
    RowBox[{"PlotStyle", "\[Rule]", 
     RowBox[{"ColorData", "[", "10", "]"}]}]}], "]"}], "\[IndentingNewLine]", 
  RowBox[{"Export", "[", 
-  RowBox[{"\"\<output/Mobility.pdf\>\"", ",", "%"}], "]"}]}], "Input",
- CellChangeTimes->CompressedData["
-1:eJwd0DtIggEABOC/twqFNVSDIBJBUFTYWFGZqUTRO0MpQkgh7IGQgTQY6dAD
-LP2ThkooLVGHCgOdIjMyauqBS6MZmGVghZVi3j8cH7fccBzZTP9ENkEQrEyg
-q9W3+pyMthUaaQaoyg8FYFV4+QPuOW3f0Nt1nh3OaL/l0KGWbGRApqC0CKbb
-9TXw2rM7Cx+HxCoo9/LVkLws00OzPmWAko9iK9x66nbAi0q3Eya8bC80aTVn
-MDQdu4YBZZqy07j5AOsnRsOQ/+OKwlre+jucfBUNRDLq/JphSFf4ZPA3yy+H
-hzHlFByXfFHe3FsXoZotXIKenroVmDNfYYbb8YIduFYgskD5TMs+5YvlAPKO
-NQ7IZc4dwRONLULtDwreYODTHYeirGriFX/1CnNhMkjmwSbaHwOOBMdKIDfF
-KocLpK4B2k0dYphQnEqpLu3bgFd3zWb4DzcbHj4=
-  "],
- CellLabel->
-  "In[227]:=",ExpressionUUID->"7870d1f7-b8e2-43ac-b273-9045db8aaecf"]
+  RowBox[{"\"\<output/MobilityT.pdf\>\"", ",", "%"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8906870700703945`*^9, 3.8906870962678285`*^9}, {
+   3.890687559125787*^9, 3.8906878763093452`*^9}, {3.8906879251772013`*^9, 
+   3.8906880220406156`*^9}, {3.8906880730562325`*^9, 
+   3.8906880818618774`*^9}, {3.8906881126960526`*^9, 
+   3.8906883561645503`*^9}, {3.890688900960057*^9, 3.8906889147292275`*^9}, {
+   3.8906889461476316`*^9, 3.8906890647428684`*^9}, {3.890689151922557*^9, 
+   3.89068931256059*^9}, {3.890689362433178*^9, 3.8906893736296096`*^9}, {
+   3.8906894809914513`*^9, 3.890689531828195*^9}, {3.8906896154822865`*^9, 
+   3.890689615982029*^9}, {3.8906897006741076`*^9, 3.890689842918602*^9}, {
+   3.890689893405428*^9, 3.8906899085080786`*^9}, {3.890696858278737*^9, 
+   3.8906968838364887`*^9}, {3.8906969820750775`*^9, 
+   3.8906970141252413`*^9}, {3.8906970674042544`*^9, 3.890697071667282*^9}, {
+   3.8906972291508536`*^9, 3.8906972422225904`*^9}, {3.8906972974784813`*^9, 
+   3.890697393108278*^9}, {3.8906974482484875`*^9, 3.8906974662509212`*^9}, {
+   3.8906974979823484`*^9, 3.890697524996997*^9}, {3.890697555834138*^9, 
+   3.890697603658227*^9}, {3.8906980691712275`*^9, 3.8906980901977997`*^9}, {
+   3.8906981416548805`*^9, 3.8906982413439064`*^9}, {3.8906982742285233`*^9, 
+   3.8906982846513653`*^9}, {3.890698327844755*^9, 3.890698386963787*^9}, {
+   3.8906984329059076`*^9, 3.8906986521431255`*^9}, {3.8906989381742744`*^9, 
+   3.8906989736689415`*^9}, {3.8906994025424385`*^9, 3.8906994419319797`*^9}, 
+   3.8907661617935762`*^9},
+ CellLabel->"In[83]:=",ExpressionUUID->"7870d1f7-b8e2-43ac-b273-9045db8aaecf"],
+
+Cell[BoxData[{
+ RowBox[{"LogLogPlot", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"mu", "[", 
+      RowBox[{
+       RowBox[{"1.06", " ", 
+        SubscriptBox["m", "0"]}], ",", 
+       SuperscriptBox["10", "Ae"], ",", 
+       SuperscriptBox["10", "Be"], ",", "600", ",", "Nx"}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"mu", "[", 
+      RowBox[{
+       RowBox[{"1.06", " ", 
+        SubscriptBox["m", "0"]}], ",", 
+       SuperscriptBox["10", "Ae"], ",", 
+       SuperscriptBox["10", "Be"], ",", "500", ",", "Nx"}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"mu", "[", 
+      RowBox[{
+       RowBox[{"1.06", " ", 
+        SubscriptBox["m", "0"]}], ",", 
+       SuperscriptBox["10", "Ae"], ",", 
+       SuperscriptBox["10", "Be"], ",", "400", ",", "Nx"}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"mu", "[", 
+      RowBox[{
+       RowBox[{"1.06", " ", 
+        SubscriptBox["m", "0"]}], ",", 
+       SuperscriptBox["10", "Ae"], ",", 
+       SuperscriptBox["10", "Be"], ",", "300", ",", "Nx"}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"mu", "[", 
+      RowBox[{
+       RowBox[{"1.06", " ", 
+        SubscriptBox["m", "0"]}], ",", 
+       SuperscriptBox["10", "Ae"], ",", 
+       SuperscriptBox["10", "Be"], ",", "200", ",", "Nx"}], "]"}]}], 
+    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"Nx", ",", 
+     SuperscriptBox["10", "13"], ",", 
+     RowBox[{"5", " ", 
+      SuperscriptBox["10", "19"]}]}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    RowBox[{"16", "/", "9"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"50", ",", "1500"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameStyle", "\[Rule]", "BlackFrame"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"BaseStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"FontFamily", "\[Rule]", "\"\<Latin Modern Roman\>\""}], ",", 
+      RowBox[{"FontSize", "\[Rule]", "8"}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"MaTeX", "[", 
+       RowBox[{"\"\<N/\\\\si{cm^{-3}}\>\"", ",", 
+        RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+         RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"MaTeX", "[", 
+       RowBox[{
+       "\"\<\\\\mu/\\\\si{cm^2\\\\cdot V^{-1}\\\\cdot s^{-1}}\>\"", ",", 
+        RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+         RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}]}], 
+     "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotLegends", "\[Rule]", 
+    RowBox[{"LineLegend", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"MaTeX", "[", 
+         RowBox[{"\"\<\\\\text{\\\\footnotesize $T=600\\\\si{K}$}\>\"", ",", 
+          RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+           RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"MaTeX", "[", 
+         RowBox[{"\"\<\\\\text{\\\\footnotesize $T=500\\\\si{K}$}\>\"", ",", 
+          RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+           RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"MaTeX", "[", 
+         RowBox[{"\"\<\\\\text{\\\\footnotesize $T=400\\\\si{K}$}\>\"", ",", 
+          RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+           RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"MaTeX", "[", 
+         RowBox[{"\"\<\\\\text{\\\\footnotesize $T=300\\\\si{K}$}\>\"", ",", 
+          RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+           RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"MaTeX", "[", 
+         RowBox[{"\"\<\\\\text{\\\\footnotesize $T=200\\\\si{K}$}\>\"", ",", 
+          RowBox[{"\"\<Preamble\>\"", "\[Rule]", 
+           RowBox[{"{", "\"\<\\\\usepackage{siunitx}\>\"", "}"}]}]}], "]"}]}],
+        "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"LegendFunction", "\[Rule]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Framed", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"RoundingRadius", "\[Rule]", "1"}], ",", 
+           RowBox[{"FrameStyle", "\[Rule]", 
+            RowBox[{"{", "Thin", "}"}]}]}], "]"}], "&"}], ")"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"LegendMargins", "\[Rule]", "5"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"ColorData", "[", "10", "]"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<output/MobilityN.pdf\>\"", ",", "%"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.890765666803308*^9, 3.8907658270555935`*^9}, {
+  3.8907659384141626`*^9, 3.890765961079748*^9}, {3.8907661682128983`*^9, 
+  3.890766283647657*^9}, {3.890766321610758*^9, 3.890766407678622*^9}},
+ CellLabel->"In[88]:=",ExpressionUUID->"3638450f-f390-4ffc-aba8-dd8648236d27"]
 },
 WindowSize->{960., 478.75},
 WindowMargins->{{-4.5, Automatic}, {Automatic, -4.5}},
@@ -270,9 +402,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 342, 8, 48, "Input",ExpressionUUID->"4bfedd9a-32d4-47f1-ba71-db0702065a46"],
-Cell[903, 30, 812, 25, 86, "Input",ExpressionUUID->"1590328e-69ae-4bd5-bce4-9755d811ac6d"],
-Cell[1718, 57, 7926, 195, 727, "Input",ExpressionUUID->"7870d1f7-b8e2-43ac-b273-9045db8aaecf"]
+Cell[558, 20, 338, 7, 48, "Input",ExpressionUUID->"4bfedd9a-32d4-47f1-ba71-db0702065a46"],
+Cell[899, 29, 808, 24, 86, "Input",ExpressionUUID->"1590328e-69ae-4bd5-bce4-9755d811ac6d"],
+Cell[1710, 55, 8901, 205, 727, "Input",ExpressionUUID->"7870d1f7-b8e2-43ac-b273-9045db8aaecf"],
+Cell[10614, 262, 5382, 122, 566, "Input",ExpressionUUID->"3638450f-f390-4ffc-aba8-dd8648236d27"]
 }
 ]
 *)
