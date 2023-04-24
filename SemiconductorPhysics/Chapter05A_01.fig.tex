@@ -1,0 +1,48 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[thick] (0,0) coordinate (Ev) node[left] {$E_\text{v}$} -- ++(5,0) coordinate (Ev');
+
+\draw[thick] ($(Ev)+(0,4)$) coordinate (Ec) node[left] {$E_\text{c}$} -- (Ec-|Ev')coordinate (Ec');
+
+\foreach \x in {0.25,0.5,...,4.75}
+{
+    \path (\x,4.25) node[circ] {}; 
+}
+
+\foreach \x in {1.75,2.00,...,3.25}
+{
+    \path (\x,4.60) node[circ] {}; 
+}
+
+\draw[gray,thin,dotted] (1.5,4.45) rectangle (3.5,4.75) ++(0,-0.15) node[right,black] {$\delt{n}$};
+
+\path (4.8,4.25) node[right] {$n_0$};
+
+\foreach \x in {0.25,1.75,...,4.75}
+{
+    \path (\x,-0.25) node[ocirc] {};
+}
+
+\foreach \x in {1.75,2.00,...,3.25}
+{
+    \path (\x,-0.60) node[ocirc] {}; 
+}
+
+\draw[gray,thin,dotted] (1.5,-0.45) rectangle (3.5,-0.75) ++(0,+0.15) node[right,black] {$\delt{p}$};
+
+\path (4.8,-0.25) node[right] {$p_0$};
+
+\foreach \x in {2.125,2.875}
+{
+    \draw[-latex] (\x,-0.45) -- (\x,4.45);
+}
+
+\draw[-latex] (1,2.5) node[left] {\small 光照} -- ++(-45:1);
+\draw[-latex] (1,2.0) -- ++(-45:1);
+
+
+\end{tikzpicture}
+\end{document}

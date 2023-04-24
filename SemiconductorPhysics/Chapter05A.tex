@@ -1,0 +1,75 @@
+\section{非平衡载流子的产生与复合}
+
+\setpeq{非平衡载流子的产生与复合}
+
+半导体处于热平衡状态时，在一定温度下，载流子浓度是一定的。这种处于热平衡状态下的载流子浓度，称为\uwave{平衡载流子浓度}（Equilibrate Carrier Concentration）。前面各章我们讨论的都是平衡载流子，实际上$n_0$和$p_0$中的下标$0$就是为了强调这里描述的是平衡状态的电子浓度和空穴浓度。根据\fancyref{fml:载流子的浓度乘积}，在非简并的情况下$n_0,p_0$的乘积满足
+\begin{Equation}&[1]
+    n_0p_0=N_\text{c}N_\text{v}\exp(-\frac{E_\text{g}}{\kB T})=n_\text{i}^2
+\end{Equation}
+换言之，在非简并时，无论半导体掺杂多少，只要半导体处于平衡状态上，载流子的浓度乘积就必然会满足\xrefpeq{1}，掺杂，无非是使得$n_0$和$p_0$某个多些某个少些罢了，不改变乘积。
+
+但是，有一些情况会打破这种平衡状态。试想，如果对半导体施加一些外界作用，如光照，而只要光子能量大于半导体的禁带宽度，那么，光子就可以将价带电子激发到导带上，从而形成额外的导带电子$\delt{n}$和价带空穴$\delt{p}$，这时，总的导带电子浓度和价带空穴浓度就分别是
+\begin{Equation}
+    n=n_0+\delt{n}\qquad p=p_0+\delt{p}
+\end{Equation}
+此时$np\neq n_\text{i}^2$，即热平衡状态被打破。
+
+我们将$\delt{n},\delt{p}$称为\uwave{非平衡载流子}（Non-Equilibrium Carrier），取决于半导体的掺杂类型到底是N型还是P型，两者分别称为\uwave{非平衡多数载流子}和\uwave{非平衡少数载流子}，具体而言
+\begin{itemize}
+    \item 对于N型半导体，$\delt{n}$是非平衡多数载流子，$\delt{p}$是非平衡少数载流子。
+    \item 对于P型半导体，$\delt{n}$是非平衡少数载流子，$\delt{p}$是非平衡多数载流子。
+\end{itemize}
+我们将用光照产生非平衡载流子的方法，称为\uwave{光注入}，其满足
+\begin{Equation}
+    \delt{n}=\delt{p}
+\end{Equation}
+而对于其他非平衡载流子的注入手段，这里$\delt{n},\delt{p}$就未必相等了。除了光注入，比较典型的还有电注入，实际上，我们后面将提到的PN结在其正向工作时，就是以电注入方式运作的。
+
+通常，非平衡载流子浓度，远小于平衡多数载流子浓度，远大于平衡少数载流子浓度，满足该条件的注入称为\uwave{小注入}，反之称为\uwave{大注入}。换言之，非平衡多数载流子通常可以忽略，但即便在小注入情况下，非平衡少数载流子的浓度仍然远大于平衡少数载流子，它的影响就十分显著了。因此，通常我们说非平衡载流子时指的都是非平衡少数载流子，介于后者的重要影响。
+
+在\xref{fig:光照产生的非平衡载流子}中，我们描绘了光注入下，N型半导体中非平衡载流子和平衡载流子的浓度关系
+\begin{Figure}[光照产生的非平衡载流子]
+    \includegraphics{build/Chapter05A_01.fig.pdf}
+\end{Figure}
+
+光注入额外引入了载流子，因此势必会导致电导率增大，根据\xref{fml:半导体的迁移率与电导率}
+\begin{Equation}
+    \delt{\sigma}=
+    \delt{n}q\mu_\text{n}+
+    \delt{p}q\mu_\text{p}
+\end{Equation}
+而考虑到光注入时$\delt{n}=\delt{p}$，不妨统一记为$\delt{p}$
+\begin{Equation}
+    \delt{\sigma}=\delt{p} q(\mu_\text{n}+\mu_\text{p})
+\end{Equation}
+转而计算电阻率的变化，显然
+\begin{Equation}
+    \delt{\rho}=\frac{1}{\sigma}-\frac{1}{\sigma_0}
+\end{Equation}
+这里$\sigma_0$是半导体在平衡状态下的电导率，而$\sigma=\sigma_0+\delt{\sigma}$，通分得
+\begin{Equation}
+    \delt{\rho}=\frac{\sigma_0-\sigma}{\sigma\sigma_0}=-\frac{\delt{\sigma}}{\sigma\sigma_0}
+\end{Equation}
+这里我们可以作$\sigma\sigma_0=\sigma_0^2$的近似
+\begin{Equation}
+    \delt{\rho}=-\frac{\delt{\sigma}}{\sigma_0^2}
+\end{Equation}
+亦即
+\begin{Equation}
+    \delt{\rho}=
+    -\frac{\delt{p}q(\mu_\text{n}+\mu_\text{p})}{\sigma_0^2}
+\end{Equation}
+进而考虑到电阻长度和截面积一定时，电阻正比于电阻率，根据欧姆定律
+\begin{Equation}
+    \delt{V}=I\delt{r}\propto\delt{\rho}\propto-\delt{p}
+\end{Equation}\nopagebreak
+这就表明，\empx{半导体上的电压降正比于非平衡少数载流子浓度的负值}，这提供了一种测定非平衡少数载流子浓度的实验方法，通过电压降的变化直观反映非平衡少数载流子浓度的变化。\goodbreak
+
+当产生非平衡载流子的外部作用撤出以后，半导体中将发生什么？仍然以光注入为例说明，我们知道，光照时$\delt{V}$的变化反映了$\delt{p}$的变化，而进一步的实验表明，光照停止后$\delt{V}$将很快的趋于零，大约只需要微秒到毫秒数量级的时间。这说明，注入的非平衡载流子并不能一直存在下去，原先激发到导带的电子重新回到价带，电子和而空穴又成对的消失，回到平衡态。
+
+这里让我们来总结一下半导体在光注入中到底会发生什么
+\begin{itemize}
+    \item 光照施加时，电子由价带激发到导带，称为非平衡载流子的产生。
+    \item 光照撤走后，电子由导带重新回到价带，称为非平衡载流子的复合。
+\end{itemize}
+这里，我们其实没有必要割裂非平衡载流子与平衡载流子，实际上，即便是平衡状态，也同时存在着载流子的产生与复合，但是两者速率相同，处于动态平衡中。光照时，在光子能量的作用下，产生速率显著提升，从而出现了非平衡载流子，光照撤走后，产生速率会立即恢复至平衡状态，但，复合速率却因为载流子浓度的增加而高于平衡状态，使非平衡载流子逐渐消失。
