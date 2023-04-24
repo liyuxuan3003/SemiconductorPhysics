@@ -1,0 +1,86 @@
+\section{准费米能级}
+
+根据\fancyref{fml:导带电子浓度}和\fancyref{fml:价带空穴浓度}，热平衡时，有
+\begin{Equation}
+    n_0=N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\qquad
+    p_0=N_\text{v}\exp(\frac{E_\text{v}-E_\text{F}}{\kB T})
+\end{Equation}
+我们常说，半导体中的电子系统在热平衡状态时，半导体具有统一的费米能级，而当外界影响破坏了热平衡，半导体就不再存在统一的费米能级了。并称，\empx{统一的费米能级是热平衡状态的标志}。这个提法其实很让人感到迷惑，因为，费米能级的实质是费米分布中的一个参数，参数就那么一个，又何谈什么统一不统一的？为理解这一点，我们要更深刻的认识热平衡的本质。
+
+热平衡描述的是电子的统计规律，这种统计规律的成立，依托的是电子在能级间极为频繁的热跃迁。在一个能带范围内，热跃迁是非常频繁的，热平衡很快就可以达成，但是，在两个能带间，由于禁带的阻隔，热跃迁则稀少的多，如果在平衡状态下，没有外界的扰动，尽管时间稍长些，能带间的热平衡仍然是可以达成的。然而，如果外界还有扰动，那么能带间如此系数的热跃迁是无法消解扰动引入的非平衡载流子的，而这样一来，能带间就无法达成热平衡。
+
+热平衡下，电子的分布适用费米分布。而根据以上论述，在非平衡状态下，价带和导带各自内部处于平衡态，价带和导带之间则并不平衡。因此，我们可以认为，非平衡态时，\empx{价带和导带分别适用两个参数值不同的费米分布}，换言之，\empx{价带和导带将具有不同的费米能级}。我们将这种局部的（导带上的/价带上的）费米能级称为\uwave{准费米能级}（Quasi Fermi Level），具体而言
+\begin{itemize}
+    \item 导带的准费米能级称为\uwave{电子准费米能级}，常用$E_\text{Fn}$表示。
+    \item 价带的准费米能级称为\uwave{空穴准费米能级}，常用$E_\text{Fp}$表示。
+\end{itemize}
+而先前所谓的半导体在非平衡态时“不再存在统一的费米能级”，其实就是指电子准费米能级和空穴准费米能级$E_\text{Fn}, E_\text{Fp}$在非平衡态时不再重合，分别偏离$E_\text{F}$，即平衡态时的费米能级。
+
+根据\xref{sec:杂质半导体的载流子浓度}中的讨论，我们已经知道，费米能级的位置将会直接决定载流子的浓度，具体而言，$E_\text{F}$越靠近导带，导带电子浓度越高，$E_\text{F}$越靠近价带，价带空穴浓度越高。而半导体进入非平衡态后，导带电子浓度和价带空穴浓度都会增加，这就意味着
+\begin{itemize}
+    \item 电子准费米能级$E_\text{Fn}$相较于$E_\text{F}$，将会向上偏移。
+    \item 空穴准费米能级$E_\text{Fp}$相较于$E_\text{F}$，将会向下偏移。
+\end{itemize}
+在此基础上，我们还知道，非平衡载流子带来的浓度增量，对于多子可忽略，对于少子则极为显著。\empx{故少子准费米能级的偏移远大于多子准费米能级}，\xref{fig:N型半导体的准费米能级}绘制了N型半导体的情况。
+\begin{Figure}[N型半导体的准费米能级]
+    \begin{FigureSub}[处于热平衡态时]
+        \includegraphics[scale=0.9]{build/Chapter05C_01.fig.pdf}
+    \end{FigureSub}
+    \hspace{1.5cm}
+    \begin{FigureSub}[处于非平衡态时]
+        \includegraphics[scale=0.9]{build/Chapter05C_02.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+这一结果也可以通过数学式得到验证。
+\begin{BoxFormula}[非平衡态下的电子浓度]
+    非平衡态下的电子浓度满足
+    \begin{Equation}
+        n=n_0\exp(\frac{E_\text{Fn}-E_\text{F}}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    运用\fancyref{fml:导带电子浓度}
+    \begin{Equation}*
+        n=
+        N_\text{c}\exp(\frac{E_\text{Fn}-E_\text{c}}{\kB T})=
+        N_\text{c}
+        \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\exp(\frac{E_\text{Fn}-E_\text{F}}{\kB T})=n_0\exp(\frac{E_\text{Fn}-E_\text{F}}{\kB T})\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{BoxFormula}[非平衡态下的空穴浓度]
+    非平衡态下的空穴浓度满足
+    \begin{Equation}
+        p=p_0\exp(\frac{E_\text{F}-E_\text{Fp}}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    运用\fancyref{fml:价带空穴浓度}
+    \begin{Equation}*
+        p=
+        N_\text{v}\exp(\frac{E_\text{v}-E_\text{Fp}}{\kB T})=
+        N_\text{v}
+        \exp(\frac{E_\text{v}-E_\text{F}}{\kB T})\exp(\frac{E_\text{F}-E_\text{Fp}}{\kB T})=p_0\exp(\frac{E_\text{F}-E_\text{Fp}}{\kB T})\qedhere
+    \end{Equation}
+\end{Proof}
+
+很明显，若$n/n_0, p/p_0$越大，则$E_\text{Fn},E_\text{Fp}$偏离$E_\text{F}$的距离就要相应越大。
+
+\begin{BoxFormula}[非平衡态下的载流子浓度积]
+    非平衡态下，载流子的浓度乘积满足
+    \begin{Equation}
+        np=n\text{i}^2\exp(\frac{E_\text{Fn}-E_\text{Fp}}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:非平衡态下的电子浓度}和\fancyref{fml:非平衡态下的空穴浓度}
+    \begin{Equation}*
+        np=n_0p_0\exp(\frac{E_\text{Fn}-E_\text{F}}{\kB T})\exp(\frac{E_\text{F}-E_\text{Fp}}{\kB T})=n_0p_0\exp(\frac{E_\text{Fn}-E_\text{Fp}}{\kB T})
+    \end{Equation}
+    根据\fancyref{fml:载流子的浓度乘积}
+    \begin{Equation}*
+        np=n\text{i}^2\exp(\frac{E_\text{Fn}-E_\text{Fp}}{\kB T})\qedhere
+    \end{Equation}
+\end{Proof}
+由此可见，准费米能级的间距$E_\text{Fn}-E_\text{Fp}$的大小直接反映了$np$与$n_\text{i}^2$的相差程度。
+

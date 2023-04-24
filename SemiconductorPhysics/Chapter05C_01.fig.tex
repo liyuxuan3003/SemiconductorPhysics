@@ -1,0 +1,14 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[thick] (0,0) coordinate (Ev) node[left] {$E_\text{v}$} -- ++(3,0) coordinate (Ev');
+\draw[thick] (Ev) ++(0,6) coordinate (Ec) node[left] {$E_\text{c}$} -- (Ec-|Ev') coordinate (Ec');
+
+\draw[green] ($(Ec)!0.3!(Ev)$) coordinate (EF) node[left,black] {$E_\text{F}$} -- (EF-|Ec') coordinate (EF');
+
+\draw[ultra thin] ($(Ev)+(-0.85,-0.5)$) rectangle ($(Ec')+(0.85,0.5)$);
+
+\end{tikzpicture}
+\end{document}

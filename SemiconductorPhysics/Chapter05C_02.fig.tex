@@ -1,0 +1,20 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[thick] (0,0) coordinate (Ev) node[left] {$E_\text{v}$} -- ++(3,0) coordinate (Ev');
+\draw[thick] (Ev) ++(0,6) coordinate (Ec) node[left] {$E_\text{c}$} -- (Ec-|Ev') coordinate (Ec');
+
+\draw[green,dotted] ($(Ec)!0.3!(Ev)$) coordinate (EF) node[left,gray] {$E_\text{F}$} -- (EF-|Ec') coordinate (EF');
+
+\draw[green] ($(Ec)!0.25!(Ev)$) coordinate (EFn) -- (EFn-|Ec') coordinate (EFn') node[right,black] {$E_\text{Fn}$} ;
+\draw[green] ($(Ec)!0.40!(Ev)$) coordinate (EFp) -- (EFp-|Ec') coordinate (EFp') node[right,black] {$E_\text{Fp}$} ;
+
+\draw[ultra thin] ($(Ev)+(-0.85,-0.5)$) rectangle ($(Ec')+(0.85,0.5)$);
+
+\draw[green,-latex] ($(EF)!0.3!(EF')$) -- ($(EFn)!0.3!(EFn')$);
+\draw[green,-latex] ($(EF)!0.4!(EF')$) -- ($(EFp)!0.4!(EFp')$);
+
+\end{tikzpicture}
+\end{document}
