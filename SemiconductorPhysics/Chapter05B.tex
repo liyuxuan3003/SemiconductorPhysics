@@ -1,0 +1,38 @@
+\section{非平衡载流子的寿命}
+光照停止后，非平衡载流子浓度$\delt{p}$的减小是一个过程，换言之，非平衡载流子在导带和价带中仍然有一定的生存时间，有些长一些，有些短一些，我们将这生存时间的平均值称为\uwave{非平衡载流子的寿命}（Lifetime of Non-Equilibrium Carriers），用$\tau$表示，很显然的，$1/\tau$表示的就是单位时间内非平衡载流子的\uwave{复合概率}，$\delt{p}/\tau$则代表\uwave{复合率}，即单位时间单位体积内净复合消失的电子--空穴对数。现在的问题是，非平衡载流子浓度$\delt{p}$随时间变化的规律是什么？
+
+很显然，$\delt{p}$发生变化的原因在于复合，因而，$\delt{p}$随时间的负变化率即复合率
+\begin{Equation}
+    \dv{\delt{p}}{t}=-\frac{\delt{p}}{\tau}
+\end{Equation}
+在小注入时，寿命$\tau$是不随时间变化的常数，故$\delt{p}$的通解为
+\begin{Equation}
+    \delt{p}(t)=C\e^{-t/\tau}
+\end{Equation}
+在$t=0$时记$\delt{p}(0)=(\delt{p})_0$，则
+\begin{Equation}
+    \delt{p}(t)=(\delt{p})_0\e^{-t/\tau}
+\end{Equation}
+这表明，\empx{非平衡载流子的浓度随时间以指数方式衰减}。
+
+通过$\delt{p}(t)$的表达式可以反过来验证平均生存时间$\bar{t}$就是寿命$\tau$，推导如下
+\begin{Equation}
+    \qquad
+    \bar{t}=\frac{\Int[0][\infty]t\delt{p}(t)\dd{t}}{\Int[0][\infty]\delt{p}(t)\dd{t}}=\frac{(\delt{p})_0\Int[0][\infty]t\e^{-t/\tau}\dd{t}}{(\delt{p})_0\Int[0][\infty]\e^{-t/\tau}\dd{t}}=\frac{(-\tau t\e^{-t/\tau}-\tau^2\e^{-t/\tau})|_0^{\infty}}{(-\tau\e^{-t/\tau})|_0^{\infty}}=\frac{\tau^2}{\tau}=\tau
+    \qquad
+\end{Equation}
+通过$\delt{p}$的表达式亦可以看到，寿命$\tau$的意义是非平衡载流子下降到原先$1/\e$所经历的时间。\goodbreak
+
+通常非平衡载流子的寿命是通过实验测量的，主要有两种方法
+\begin{itemize}
+    \item 光电导法，它的原理就是\xref{sec:非平衡载流子的产生与复合}中提到的，非平衡载流子会影响半导体的电导率，进而影响半导体上的电压降。在测量时，通过脉冲光照射半导体，通过示波器观察脉冲光照后电压降的指数衰减曲线（脉冲光使得指数衰减曲线周期性出现），从而确定寿命。
+    \item 光电磁法，它利用的是半导体的光磁电效应，在此不做赘述。我们只需要知道，光电磁法尤为适合测量短的非平衡载流子寿命，在砷化镓等\Romnum{3}--\Romnum{5}族化合物中用的比较多。
+\end{itemize}
+
+通常来说，\empx{锗比硅的寿命高些，砷化镓的寿命则要短的多}
+\begin{itemize}
+    \item 较完整的锗单晶，寿命在$10^4\si{us}$以上。
+    \item 较完整的硅单晶，寿命在$10^3\si{us}$以上。
+    \item 砷化镓的寿命则是极短的，通常在$10^{-2}\si{us}$以下。
+\end{itemize}
+实际上，不仅是不同半导体材料的寿命很不相同，即便是同种半导体材料，不同条件下，寿命也可以在一个很大的范围内变化，以锗为例，其寿命可以在几十微秒到几百微秒的区间内。
