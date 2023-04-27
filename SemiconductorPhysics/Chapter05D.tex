@@ -1,0 +1,526 @@
+\section{复合理论}
+现在的问题是，非平衡载流子到底是怎么复合的？如\xref{tab:复合的分类}所示
+\begin{TableLong}[复合的分类]
+<类别&类型&解释\\>
+\mr{2}{复合的微观机构}
+&\xgp[1ex]{直接复合}&电子从价带直接跃迁至导带，引起电子和空穴的直接复合。\\*
+&\xgp[1ex]{间接复合}&电子和空穴通过禁带能级，即复合中心进行复合。\\ \hlinelig
+\mr{2}{复合的发生位置}
+&\xgp[1ex]{体内复合}&复合发生在半导体的内部。\\*
+&\xgp[1ex]{间接复合}&复合发生在半导体的表面。\\ \hlinelig
+\mr{3}[-0.5ex]{复合的能量过程}
+&\xgp[1ex]{发射光子}&能量以光子形式释放，伴随着复合有发光现象。\\*
+&\xgp[1ex]{发射声子}&能量以声子形式释放，伴随着复合晶格的振动被增强。\\*
+&\xgp[1ex]{俄歇复合}&能量给予其他载流子，增加它们的动能。\\
+\end{TableLong}
+这里需要解释的是，什么是\uwave{复合中心}（Recombination Center）？复合中心代表的是禁带中的能级，通常记为$E_\text{t}$，实际上这些禁带能级就是杂质能级，只不过考虑复合时，我们并不再关心它到底是施主杂质能级还是受主杂质能级。复合中心的存在将使得复合变得更为容易，这是因为，直接复合时，载流子的跃迁需要跨越整个禁带，能量跨度较大。间接复合时，禁带中存在复合中心，因此只要电子和空穴跨越较小的能量分别到达复合中心，复合就可以发生。
+
+\subsection{直接复合}
+半导体中，总是存在载流子产生和复合两个相反的过程
+\begin{itemize}
+    \item 将单位时间单位体积内产生的电子--空穴对数$G$，称为\uwave{产生率}（Generation Rate）。
+    \item 将单位时间单位体积内复合的电子--空穴对数$R$，称为\uwave{复合率}（Recombination Rate）。
+\end{itemize}
+直接复合的复合率$R$显然与电子浓度和空穴浓度的乘积$np$成正比，故有下式。
+\begin{BoxFormula}[直接复合的复合率]
+    直接复合的复合率，正比于载流子的浓度积
+    \begin{Equation}
+        R=rnp
+    \end{Equation}
+\end{BoxFormula}
+直接复合的复合率$R$中，比例系数$r$称为\uwave{电子--空穴复合概率}，复合概率与电子和空穴的热运动速度有关，这里$r$是一个平均的考量。复合概率$r$仅是温度的函数，与$n,p$无关。
+
+直接复合的产生率$G$则有些不一样，在一定温度下，价带中的每个电子都有一定的概率被激发到导带，从而形成一对电子和空穴。但根据泡利不相容，如果导带和价带上已经有一些电子和空穴了，那产生率也就会相应小一些，因为电子不能被激发到已被电子占据的状态上。然而在非简并情况下，导带基本上是全空的，价带基本上的全满的，所以，可以认为激发概率不受载流子浓度$n,p$影响。因而，产生率$G$在非简并情况下，基本是相同的，是一个常数。
+\begin{BoxFormula}[直接复合的产生率]
+    直接复合的产生率，是一个常数
+    \begin{Equation}
+        G=rn_\text{i}^2        
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    在热平衡状态下，产生率与复合率是相同的
+    \begin{Equation}
+        G=R
+    \end{Equation}
+    代入\fancyref{fml:直接复合的复合率}，热平衡时$n=n_0, p=p_0$
+    \begin{Equation}
+        G=R=rn_0p_0=rn_\text{i}^2
+    \end{Equation}
+    由于产生率$G$是一个常数，因此，在非热平衡态时产生率$G$也为
+    \begin{Equation}*
+        G=rn_\text{i}^2\qedhere
+    \end{Equation}
+\end{Proof}
+
+在进一步讨论之前，我们先要阐明两个事实。首先，复合率$R$减去产生率$G$就等于非平衡载流子的净复合率，记为$U_\text{d}$。其次，在\xref{sec:非平衡载流子的寿命}中我们提到过，$1/\tau$表示复合概率，$\delt{p}/\tau$表示复合率，而这里复合率就是$U_\text{d}=R-G$，因此可以从中解出非平衡载流子的寿命$\tau=\delt{p}/U_\text{d}$。
+
+\begin{BoxDefinition}[直接复合的净复合率]
+    直接复合中，净复合率是复合率$R$和产生率$G$的差
+    \begin{Equation}
+        U_\text{d}=R-G
+    \end{Equation}
+\end{BoxDefinition}
+
+\begin{BoxFormula}[净复合率与寿命的关系]
+    净复合率与非平衡载流子寿命的关系是
+    \begin{Equation}
+        \tau=\frac{\delt{p}}{U_\text{d}}
+    \end{Equation}
+\end{BoxFormula}
+
+现在，我们可以继续讨论直接复合中的净复合率和非平衡载流子寿命了。
+
+\begin{BoxFormula}[直接复合的净复合率]
+    直接复合的净复合率满足
+    \begin{Equation}
+        U_\text{d}=r(n_0+p_0)\delt{p}+r(\delt{p})^2
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    根据\fancyref{def:直接复合的净复合率}
+    \begin{Equation}&[1]
+        U_\text{d}=R-G
+    \end{Equation}
+    根据\fancyref{fml:直接复合的复合率}和\fancyref{fml:直接复合的产生率}
+    \begin{Equation}&[2]
+        U_\text{d}=rnp-rn_\text{i}^2=r(np-n_\text{i}^2)
+    \end{Equation}
+    在\xrefpeq{2}中，代入$n=n_0+\delt{n}$和$p=p_0+\delt{p}$，以及光注入的$\delt{n}=\delt{p}$
+    \begin{Equation}&[3]
+        U_\text{d}=r[(n_0+\delt{p})(p_0+\delt{p})-n_\text{i}^2]
+    \end{Equation}
+    化简得到
+    \begin{Equation}&[4]
+        U_\text{d}=r[n_0p_0+(n_0+p_0)\delt{p}+(\delt{p}^2-n_\text{i}^2)]
+    \end{Equation}
+    根据\fancyref{fml:载流子的浓度乘积}，这里$n_0,p_0$和$n_\text{i}$可以约掉
+    \begin{Equation}*
+        U_\text{d}=r(n_0+p_0)+r(\delt{p})^2\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{BoxFormula}[直接复合的寿命]
+    直接复合的寿命满足
+    \begin{Equation}
+        \tau=\frac{1}{r(n_0+p_0+\delt{p})}
+    \end{Equation}
+    在小注入条件下，即$\delt{p}\ll(n_0+p_0)$时，可以近似为
+    \begin{Equation}
+        \tau=\frac{1}{r(n_0+p_0)}
+    \end{Equation}
+    在大注入条件下，即$\delt{p}\gg(n_0+p_0)$时，可以近似为
+    \begin{Equation}
+        \tau=\frac{1}{r\delt{p}}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:净复合率与寿命的关系}和\fancyref{fml:直接复合的净复合率}
+    \begin{Equation}
+        \tau=\frac{\delt{p}}{U_\text{d}}=\frac{\delt{p}}{r(n_0+p_0)\delt{p}+r(\delt{p})^2}
+    \end{Equation}
+    即
+    \begin{Equation}
+        \tau=\frac{1}{r(n_0+p_0+\delt{p})}
+    \end{Equation}
+    两个近似很容易由此得到。
+\end{Proof}
+
+\fancyref{fml:直接复合的寿命}指出
+\begin{itemize}
+    \item 在小注入条件下，寿命是一个无关非平衡载流子浓度的常数，仅却决于半导体的温度和掺杂情况，考虑到，N型半导体中$n_0+p_0\approx n_0$，P型半导体中$n_0+p_0\approx p_0$，因此，可以说，寿命与多数载流子的浓度成反比，或者说，半导体电导率越高，寿命就越短。
+    \item 在大注入条件下，寿命与非平衡载流子的浓度成反比，不再是常数。
+\end{itemize}
+复合概率$r$是可以通过实验测量的，然而，由此计算出的硅和锗的非平衡载流子的寿命竟达到了$\tau=3.5\si{s}$和$\tau=0.3\si{s}$，而实际上，两者的最大寿命都在$\si{ms}$量级。这是因为，硅和锗中起到主要作用的复合机构，不是直接复合，而是间接复合，后者我们会在下一小节具体讨论。
+
+复合到底是由直接复合主导还是由间接复合主导？通常来说
+\begin{itemize}
+    \item 禁带宽度较小时，直接复合将主导复合过程。
+    \item 禁带宽度较大时，间接复合将主导复合过程。
+\end{itemize}
+这是合理的，间接复合与禁带中的复合中心有关，这只有在禁带宽度较大时有意义。
+
+\subsection{间接复合}
+间接复合的关键，在于复合中心$E_\text{t}$的存在，其在复合过程中相当于起到了“台阶”的作用。
+
+间接复合存在四个微观过程，如\xref{fig:间接复合的四个微观过程}所示
+\begin{enumerate}
+    \item 俘获电子过程，以\uwave{电子俘获率} $R_\text{n}$描述，代表复合中心$E_\text{t}$从导带俘获电子。
+    \item 发射电子过程，以\uwave{电子产生率} $G_\text{n}$描述，代表复合中心$E_\text{t}$上的电子被激发到导带。
+    \item 俘获空穴过程，以\uwave{空穴俘获率} $R_\text{p}$描述，代表复合中心$E_\text{t}$从价带伏虎空穴。
+    \item 发射电子过程，以\uwave{空穴产生率} $G_\text{p}$描述，代表复合中心$E_\text{t}$上的空穴被激发到价带。
+\end{enumerate}
+\begin{Figure}[间接复合的四个微观过程]
+    \includegraphics{build/Chapter05D_02.fig.pdf}
+\end{Figure}
+这里的“俘获”和“发射”都是以复合中心$E_\text{t}$的视角来谈的。
+
+那么，现在的问题是，$R_\text{n},G_\text{n},R_\text{p},G_\text{p}$如何表达呢？关键在于四个浓度和两个模式。四个浓度是指，导带电子浓度$n$、价带空穴浓度$p$、复合中心的电子浓度$n_\text{t}$和空穴浓度$N_\text{t}-n_\text{t}$，这里的$N_\text{t}$即复合中心的掺杂浓度，相当于过去的$N_\text{D},N_\text{A}$。两个模式是指，俘获过程正比于两种载流子的浓度乘积，发射过程则只取决于复合中心上的相应载流子的浓度（非简并半导体）。
+
+\begin{BoxFormula}[电子俘获率]
+    电子俘获率$R_\text{n}$，正比于复合中心空穴浓度与导带电子浓度的积
+    \begin{Equation}
+        R_\text{n}=r_\text{n}n(N_\text{t}-n_\text{t})
+    \end{Equation}
+    这里的比例系数$r_\text{n}$\hspace{0.25em}，称为\uwave{电子俘获系数}。
+\end{BoxFormula}
+\begin{BoxFormula}[电子发射率]
+    电子发射率$G_\text{n}$，正比于复合中心的电子浓度
+    \begin{Equation}
+        G_\text{n}=s_{-}n_\text{t}
+    \end{Equation}
+    这里的比例系数$s_{-}$，称为\uwave{电子发射系数}。
+\end{BoxFormula}
+\begin{BoxFormula}[空穴俘获率]
+    空穴俘获率$R_\text{p}$，正比于复合中心电子浓度与导带空穴浓度的积
+    \begin{Equation}
+        R_\text{p}=r_\text{p}pn_\text{t}
+    \end{Equation}
+    这里的比例系数$r_\text{p}$\hspace{0.25em}，称为\uwave{空穴俘获系数}。
+\end{BoxFormula}
+\begin{BoxFormula}[空穴发射率]
+    空穴发射率$G_\text{p}$，正比于复合中心的空穴浓度
+    \begin{Equation}
+        G_\text{p}=s_{+}(N_\text{t}-n_\text{t})
+    \end{Equation}
+    这里的比例系数$s_{+}$，称为\uwave{空穴发射系数}。
+\end{BoxFormula}
+现在我们要做这样一件事，简而言之，我们实在不太喜欢发射系数$s_{-},s_{+}$，我们希望将发射系数$s_{-},s_{+}$用俘获系数$r_\text{n},r_\text{p}$替代。为了达成这一目的，我们需要利用平衡时俘获率和发射率相等（平衡时俘获过程和发射过程必须相互抵消），即$R_\text{n}=G_\text{n}$和$R_\text{p}=G_\text{p}$来建立方程。
+
+\begin{BoxFormula}[电子发射系数的再表示]
+    电子发射系数可以用电子俘获系数表示为
+    \begin{Equation}
+        s_{-}=r_\text{n}n_1\qquad n_1=N_\text{c}\exp(\frac{E_\text{t}-E_\text{c}}{\kB T}) 
+    \end{Equation}
+    电子发射率相应可以表示为
+    \begin{Equation}
+        G_\text{n}=r_\text{n}n_1n_\text{t}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    在平衡时，电子俘获率与电子发射率相等
+    \begin{Equation}&[1]
+        R_\text{n}=G_\text{n}
+    \end{Equation}
+    代入\fancyref{fml:电子俘获率}和\fancyref{fml:电子发射率}
+    \begin{Equation}&[2]
+        r_\text{n}n_0(N_\text{t}-n_\text{t0})=s_{-}n_\text{t0}
+    \end{Equation}
+    稍作整理，将$s_{-}$移至一端
+    \begin{Equation}&[3]
+        s_{-}=r_\text{n}n_0\qty(\frac{N_\text{t}}{n_\text{t0}}-1)
+    \end{Equation}
+    这里的关键在于$n_0$和$n_\text{t0}$的表达式是什么？根据\fancyref{fml:导带电子浓度}，此处$n_0$应为
+    \begin{Equation}&[4]
+        n_0=N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+    \end{Equation}
+    根据\fancyref{fml:施主浓度}和\fancyref{fml:受主浓度}，取决于$n_\text{t0}$是施主还是受主
+    \begin{Equation}&[5]
+        \qquad
+        n_\text{t0}=N_\text{t}\frac{1}{1+g_\text{D}^{-1}\exp[(E_\text{t}-E_\text{F})/\kB T]}\qquad
+        n_\text{t0}=N_\text{t}\frac{1}{1+g_\text{A}\vphantom{^{-1}}\exp[(E_\text{t}-E_\text{F})/\kB T]}
+        \qquad
+    \end{Equation}
+    简单起见，在计算$n_\text{t0}$时，简并因子$g_\text{D}$或$g_\text{A}$可以忽略
+    \begin{Equation}&[6]
+        n_\text{t0}=\frac{N_\text{t}}{1+\exp[(E_\text{t}-E_\text{F})/\kB T]}
+    \end{Equation}
+    将\xrefpeq{4}和\xrefpeq{6}代入\xrefpeq{3}
+    \begin{Equation}&[7]
+        s_{-}=r_\text{n}N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\exp(\frac{E_\text{t}-E_\text{F}}{\kB T})
+    \end{Equation}
+    化简得
+    \begin{Equation}
+        s_{-}=r_\text{n}N_\text{c}\exp(\frac{E_\text{t}-E_\text{c}}{\kB T})
+    \end{Equation}
+    如果我们引入
+    \begin{Equation}
+        n_1=N_\text{c}\exp(\frac{E_\text{t}-E_\text{c}}{\kB T})
+    \end{Equation}
+    则
+    \begin{Equation}*
+        s_{-}=r_\text{n}n_1\qedhere
+    \end{Equation}
+\end{Proof}
+这里$n_1$没有明确的物理意义，只是一个代换变量。但从数学形式上看，这里的$n_1$相当于是费米能级$E_\text{F}$位于复合中心能级$E_\text{t}$时的价带电子浓度，之后的$p_1$也可以类似予以解释。
+
+\begin{BoxFormula}[空穴发射系数的再表示]
+    空穴的发射系数可以用空穴俘获系数表示为
+    \begin{Equation}
+        s_{+}=r_\text{p}p_1\qquad
+        p_1=N_\text{v}\exp(\frac{E_\text{v}-E_\text{t}}{\kB T})
+    \end{Equation}
+    空穴发射率相应可以表示为
+    \begin{Equation}
+        G_\text{p}=r_\text{p}p_1(N_\text{t}-n_\text{t})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    在平衡时，空穴俘获率和空穴发射率相等
+    \begin{Equation}
+        R_\text{p}=G_\text{p}
+    \end{Equation}
+    代入\fancyref{fml:空穴俘获率}和\fancyref{fml:空穴发射率}
+    \begin{Equation}
+        r_\text{p}p_0n_\text{t0}=s_{+}(N_\text{t}-n_\text{t0})
+    \end{Equation}
+    稍作整理，将$s_{+}$移至一端
+    \begin{Equation}
+        s_{+}=r_\text{p}p_0\qty(\frac{n_\text{t0}}{N_\text{t}-n_\text{t0}})
+    \end{Equation}
+    即
+    \begin{Equation}
+        s_{+}=r_\text{p}p_0\qty(\frac{N_\text{t}}{n_\text{t0}}-1)^{-1}
+    \end{Equation}
+    代入$p_0$和$n_\text{t0}$的表达式，根据\fancyref{fml:导带电子浓度}和前述经验
+    \begin{Equation}
+        s_{+}=r_\text{p}N_\text{v}\exp(\frac{E_\text{v}-E_\text{F}}{\kB T})\exp(\frac{E_\text{F}-E_\text{t}}{\kB T})
+    \end{Equation}
+    化简得
+    \begin{Equation}
+        s_{+}=r_\text{p}N_\text{v}\exp(\frac{E_\text{v}-E_\text{t}}{\kB T})
+    \end{Equation}
+    如果我们引入
+    \begin{Equation}
+        p_1=N_\text{v}\exp(\frac{E_\text{v}-E_\text{v}}{\kB T})
+    \end{Equation}
+    则
+    \begin{Equation}*
+        s_{+}=r_\text{p}p_1\qedhere
+    \end{Equation}
+\end{Proof}
+
+至此，我们已经分别求出了四个微观过程的数学表达式，整理在\xref{tab:间接复合的四个微观过程}中。
+
+\begin{Table}[间接复合的四个微观过程]
+<物理量&表达式&说明（正比于？）\\>
+电子俘获率&$R_\text{n}=r_\text{n}n(N_\text{t}-n_\text{t})$&复合中心空穴浓度与导带电子浓度的积\\
+电子发射率&$G_\text{n}=r_\text{n}n_1n_\text{t}=s_{-}n_\text{t}$&复合中心电子浓度\\
+空穴俘获率&$R_\text{p}=r_\text{p}pn_\text{t}$&复合中心电子浓度与价带空穴浓度的积\\
+空穴发射率&$G_\text{p}=r_\text{p}p_1(N_\text{t}-n_\text{t})=s_{+}(N_\text{t}-n_\text{t})$&复合中心空穴浓度\\
+\end{Table}
+接下来，我们有两个任务
+\begin{enumerate}
+    \item 确定复合中心的电子浓度$n_\text{t}$的表达式。
+    \item 确定净复合率$U$和非平衡载流子的寿命$\tau$。
+\end{enumerate}
+
+关于$n_\text{t}$的计算，其关键在于以下等式
+\begin{Equation}
+    \underbrace{R_\text{p}+G_\text{p}}_{\text{复合中心的空穴增加}}=\underbrace{R_\text{n}+G_\text{p}}_{\text{复合中心的电子增加}}
+\end{Equation}
+代入\xref{tab:间接复合的四个微观过程}的相关结论
+\begin{Equation}
+    r_\text{n}n_1n_\text{t}+r_\text{p}pn_\text{t}=r_\text{n}n(N_\text{t}-n_\text{t})+r_\text{p}p_1(N_\text{t}-n_\text{t})
+\end{Equation}
+整理得到
+\begin{Equation}
+    r_\text{n}(n+n_1)n_\text{t}+r_\text{p}(p+p_1)n_\text{t}=N_\text{t}(r_\text{n}n+r_\text{p}p_1)
+\end{Equation}
+由此很容易解出$n_\text{t}$为
+\begin{BoxFormula}[间接复合的复合中心电子浓度]
+    间接复合中，复合中心的电子浓度满足
+    \begin{Equation}
+        n_\text{t}=\frac{N_\text{t}(r_\text{n}n+r_\text{p}p_1)}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+    \end{Equation}
+\end{BoxFormula}
+关于净复合率的计算，其关键在于以下等式
+\begin{Equation}
+    \underbrace{R_\text{p}-G_\text{p}}_\text{价带的空穴减小}=
+    \underbrace{R_\text{n}-G_\text{n}}_\text{导带的电子减小}
+\end{Equation}
+实际上，这就是间接复合中的净复合率，为了与直接复合区分，将$U_\text{d}$改记为$U$。
+\begin{BoxDefinition}[间接复合的净复合率]
+    间接复合中，净复合率是
+    \begin{Equation}
+        U=R_\text{n}-G_\text{n}=R_\text{p}-G_\text{p}
+    \end{Equation}
+\end{BoxDefinition}
+\begin{BoxFormula}[间接复合的净复合率]
+    间接复合的净复合率满足
+    \begin{Equation}
+        U=\frac{N_\text{t}r_\text{n}r_\text{p}[(n_0+p_0)\delt{p}+(\delt{p})^2]}{r_\text{n}(n_0+n_1+\delt{p})+r_\text{p}(p_0+p_1+\delt{p})}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{def:间接复合的净复合率}
+    \begin{Equation}&[1]
+        U=R_\text{n}-G_\text{n}=R_\text{p}-G_\text{p}
+    \end{Equation}
+    使用其中任何一个等式都可以帮助我们得到正确的结论，这里选取$R_\text{n}-G_\text{n}$的等式。
+
+    根据\fancyref{fml:电子俘获率}和\fancyref{fml:电子发射系数的再表示}
+    \begin{Equation}&[2]
+        U=r_\text{n}n(N_\text{t}-n_\text{t})-r_\text{n}n_1n_\text{t}
+    \end{Equation}
+    稍作整理
+    \begin{Equation}&[3]
+        U=r_\text{n}nN_\text{t}-r_\text{n}(n+n_1)n_\text{t}
+    \end{Equation}
+    在\xrefpeq{3}中代入\fancyref{fml:间接复合的复合中心电子浓度}
+    \begin{Equation}&[4]
+        U=r_\text{n}nN_\text{t}-\frac{r_n(n+n_1)N_\text{t}(r_\text{n}n+r_\text{p}p_1)}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+    \end{Equation}
+    通分，式子有些庞大，但还请不要惊慌
+    \begin{Equation}&[5]
+        \qquad
+        U=\frac{r_\text{n}^2n(n+n_1)N_\text{t}+r_\text{n}r_\text{p}n(p+p_1)N_\text{t}-r_\text{n}^2n(n+n_1)N_\text{t}-r_\text{n}r_\text{p}p_1(n+n_1)N_\text{t}}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+        \qquad
+    \end{Equation}
+    让我们惊喜的是，\xrefpeq{5}分子的第一项和第三项是可以约掉的
+    \begin{Equation}&[6]
+        U=\frac{r_\text{n}r_\text{p}n(p+p_1)N_\text{t}-r_\text{n}r_\text{p}p_1(n+n_1)N_\text{t}}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+    \end{Equation}
+    再整理
+    \begin{Equation}&[7]
+        U=\frac{r_\text{n}r_\text{p}N_\text{t}\qty(np+np_1-np_1-n_1p_1)}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+    \end{Equation}
+    约掉\xrefpeq{7}的第二第三项，并注意到$n_1p_1=n_\text{i}^2$
+    \begin{Equation}&[8]
+        U=\frac{r_\text{n}r_\text{p}N_\text{t}\qty(np-n_\text{i}^2)}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+    \end{Equation}
+    最后，代入$n=n_0+\delt{n}, p=p_0+\delt{p}$，以及$\delt{n}=\delt{p}$
+    \begin{Equation}*
+        U=\frac{N_\text{t}r_\text{n}r_\text{p}[(n_0+p_0)\delt{p}+(\delt{p})^2]}{r_\text{n}(n_0+n_1+\delt{p})+r_\text{p}(p_0+p_1+\delt{p})}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{BoxFormula}[间接复合的寿命]
+    间接复合的寿命满足
+    \begin{Equation}
+        \tau=\frac{r_\text{n}(n_0+n_1+\delt{p})+r_\text{p}(p_0+p_1+\delt{p})}{N_\text{t}r_\text{p}r_\text{n}(n_0+p_0+\delt{p})}
+    \end{Equation}
+    在小注入条件下，即$\delt{p}\ll(n_0+p_0)$时，可以近似为
+    \begin{Equation}
+        \tau=\frac{r_\text{n}(n_0+n_1)+r_\text{p}(p_0+p_1)}{N_\text{t}r_\text{p}r_\text{n}(n_0+p_0)}
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:净复合率与寿命的关系}和\fancyref{fml:间接复合的净复合率}
+    \begin{Equation}&[A]
+        \tau=\frac{\delt{p}}{U}=\delt{p}\frac{r_\text{n}(n_0+n_1+\delt{p})+r_\text{p}(p_0+p_1+\delt{p})}{N_\text{t}r_\text{n}r_\text{p}[(n_0+p_0)\delt{p}+(\delt{p})^2]}
+    \end{Equation}
+    即
+    \begin{Equation}&[B]
+        \tau=\frac{r_\text{n}(n_0+n_1+\delt{p})+r_\text{p}(p_0+p_1+\delt{p})}{N_\text{t}r_\text{p}r_\text{n}(n_0+p_0+\delt{p})}
+    \end{Equation}
+    在小注入近似下，所有的$\delt{p}$都可以忽略掉。
+\end{Proof}
+
+\fancyref{fml:间接复合的寿命}指出，在小注入近似下，寿命近取决于$n_0,n_1,p_0,p_1$的值，与非平衡载流子的浓度$\delt{p}$无关，由于$N_\text{c},N_\text{v}$通常具有相近的数值，那么
+\begin{Gather}[6pt]
+    n_0\sim\exp[-(E_\text{c}-E_\text{F})]\qquad
+    n_1\sim\exp[-(E_\text{c}-E_\text{t})]\\
+    p_0\sim\exp[-(E_\text{F}-E_\text{v})]\qquad
+    p_1\sim\exp[-(E_\text{t}-E_\text{v})]
+\end{Gather}
+当$\kB T$比这些能量间隔小的多时，往往$n_0,n_1,p_0,p_1$之间是高低悬殊，有若干数量级之差，所以，在\xrefpeq{B}中，我们往往只需要考虑$n_0,n_1,p_0,p_1$的最大者，从而使得问题大为简化。
+
+从分类讨论上，我们主要有以下三个维度，如\xref{fig:间接复合的近似原理}
+\begin{itemize}
+    \item 半导体是N型还是P型？
+    \item 半导体的掺杂是重掺还是轻掺（即$E_\text{F}$距导带和价带的距离是近还是远）？
+    \item 复合中心能级，是更靠近价带还是更靠近导带？
+\end{itemize}
+从结果上看，我们主要有三种结果
+\begin{itemize}
+    \item 若半导体重掺，使得费米能级$E_\text{F}$比复合中心能级$E_\text{t}$及其关于禁带中心的镜像$E_\text{t}'$更靠近导带（N型）或价带（P型），那么$E_\text{c}-E_\text{F}$或$E_\text{F}-E_\text{v}$是最小的，因此$n_0$或$p_0$是所有载流子浓度$n_0,n_1,p_0,p_1$中的最大者，此时半导体称为\uwave{强N型区}或\uwave{强P型区}。
+    \item 若半导体轻掺，使费米能级比$E_\text{F}$比$E_\text{t},E_\text{t'}$更靠近中线，此时称为\uwave{高阻态}
+    \item 高阻态中，若$E_\text{t}$与$E_\text{F}$在中线同侧，N型$n_1$最大，P型$p_1$最大。
+    \item 高阻态中，若$E_\text{t}$与$E_\text{F}$在中线异侧，N型$p_1$最大，P型$n_1$最大。
+\end{itemize}
+
+\begin{Table}[间接复合的近似原理]{|c|c|c|c|c|}
+<
+\mr{2}{掺杂}&\mc{2}(c|){复合中心近价带}&\mc{2}(c|){复合中心近导带}\\\clinelig{2-5}
+&重掺&轻掺&重掺&轻掺\\
+>
+\mr{3}{N型}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_03.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_04.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_05.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_06.fig.pdf}}\\
+&强N型区&高阻区&强N型区&高阻区\\
+&\xgp[0.0cm][0.3cm]{$n_0\gg(\,\cdots)$}&$p_1\gg(\,\cdots), n_0\gg p_0$
+&$n_0\gg(\,\cdots)$&$n_1\gg(\,\cdots), n_0\gg p_0$\\ \hlinelig
+\mr{3}{P型}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_07.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_08.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_09.fig.pdf}}&
+\xcell[0.2cm][0.0cm]{\includegraphics[width=3cm]{build/Chapter05D_10.fig.pdf}}\\
+&强P型区&高阻区&强P型区&高阻区\\
+&\xgp[0.0cm][0.3cm]{$p_0\gg(\,\cdots)$}&$p_1\gg(\,\cdots), p_0\gg n_0$
+&$p_0\gg(\,\cdots)$&$n_1\gg(\,\cdots), p_0\gg n_0$\\
+\end{Table}
+
+这样一来，我们就有以下六个近似式
+\begin{Table}[间接复合的寿命近似]{ccccll}
+<掺杂&掺杂浓度&复合中心&工作区&近似&寿命\\>
+N型&重掺&/&强N型区&$n_0\gg n_1,p_0,p_1$&\xgp[4pt]{$\mal{\tau=\tau_\text{p}=\frac{1}{N_\text{t}r_\text{p}}}$}\\
+N型&轻掺&近导带&高阻区&$n_1\gg n_0,p_0,p_1\quad n_0\gg p_0$&\xgp[4pt]{$\mal{\tau=\frac{n_1}{N_\text{t}r_\text{p}}\frac{1}{n_0}}$}\\
+N型&轻掺&近价带&高阻区&$p_1\gg p_0,n_0,n_1\quad n_0\gg p_0$&\xgp[4pt]{$\mal{\tau=\frac{p_1}{N_\text{t}r_\text{n}}\frac{1}{n_0}}$}\\
+\hlinelig
+P型&重掺&/&强P型区&$p_0\gg p_1,n_0,n_1$&\xgp[4pt]{$\mal{\tau=\tau_\text{n}=\frac{1}{N_\text{t}r_\text{n}}}$}\\
+P型&轻掺&近导带&高阻区&$n_1\gg n_0,p_0,p_1\quad p_0\gg n_0$&\xgp[4pt]{$\mal{\tau=\frac{n_1}{N_\text{t}r_\text{p}}\frac{1}{p_0}}$}\\
+P型&轻掺&近价带&高阻区&$p_1\gg p_0,n_0,n_1\quad p_0\gg n_0$&\xgp[4pt]{$\mal{\tau=\frac{p_1}{N_\text{t}r_\text{n}}\frac{1}{p_0}}$}\\
+\end{Table}
+特别注意的是，N型半导体对应的是$\tau_\text{p}$，P型半导体对应的是$\tau_\text{n}$，是反的！
+
+现在，让我们反过来通过寿命研究净复合率和复合中心能级间的关系。
+
+根据\fancyref{fml:间接复合的净复合率}推导过程中的\xrefpeq[间接复合的净复合率]{8}，复合率$U$可以表示为\setpeq{复合率与复合中心能级}
+\begin{Equation}&[1]
+    U=\frac{r_\text{n}r_\text{p}N_\text{t}\qty(np-n_\text{i}^2)}{r_\text{n}(n+n_1)+r_\text{p}(p+p_1)}
+\end{Equation}
+上下同除$r_\text{n}r_\text{p}N_\text{t}$
+\begin{Equation}&[2]
+    U=\frac{np-n_\text{i}^2}{(1/r_\text{p}N_\text{t})(n+n_1)+(1/r_\text{n}N_\text{t})(p+p_1)}
+\end{Equation}
+代入\xref{tab:间接复合的寿命近似}中$\tau_\text{n},\tau_\text{p}$的表达式
+\begin{Equation}&[3]
+    U=\frac{np-n_\text{i}^2}{\tau_\text{p}(n+n_1)+\tau_\text{n}(p+p_1)}
+\end{Equation}
+根据\xref{fml:电子发射系数的再表示}和\xref{fml:空穴发射系数的再表示}中的$n_1,p_1$的表达式
+\begin{Equation}&[5]
+    n_1=N_\text{c}\exp(\frac{E_\text{t}-E_\text{c}}{\kB T})\qquad
+    p_1=N_\text{v}\exp(\frac{E_\text{v}-E_\text{t}}{\kB T})
+\end{Equation}
+改写为
+\begin{Equation}&[6]
+    n_1=n_\text{i}\exp(\frac{E_\text{t}-E_\text{i}}{\kB T})\qquad
+    p_1=n_\text{i}\exp(\frac{E_\text{i}-E_\text{t}}{\kB T})
+\end{Equation}
+将\xrefpeq{6}代入\xrefpeq{4}
+\begin{Equation}&[7]
+    \qquad\qquad\qquad
+    U=
+    \frac{np-n_\text{i}^2}
+    {
+        \tau_\text{p}[n+n_\text{i}\exp(E_\text{t}-E_\text{i}/\kB T)]+
+        \tau_\text{n}[p+n_\text{i}\exp(E_\text{i}-E_\text{t}/\kB T)]}
+    \qquad\qquad\qquad
+\end{Equation}
+简单起见，可以假定$r_\text{n}=r_\text{p}=r$，这样$\tau_\text{n}=\tau_\text{p}=1/N_\text{t}r$
+\begin{Equation}
+    U=\frac{N_\text{t}r(np-n_\text{i}^2)}{n+p+2n_\text{i}\cosh(E_\text{t}-E_\text{i}/\kB T)}
+\end{Equation}
+由此可见，当$E_\text{t}=E_\text{i}$时，净复合率$U$趋向于极大，因此，位于禁带中央附近的深能级杂质是最有效的复合中心，而浅能级杂质则是无效的复合中心，由此，也引出了两种杂质功能上的差异，即，\empx{浅能级杂质提供多数载流子}，\empx{深能级杂质形成复合中心}。在硅中最常用的复合中心是金，在硅中掺入少量的金，就可以显著提高复合率，从而极大的缩短非平衡载流子的寿命。
+
+\subsection{表面复合}
+前面我们只考虑了半导体内部的复合过程，但实际上，非平衡载流子的寿命在很大程度上受表面状态和形状大小的影响。例如半导体表面的粗糙程度和样品的大小，都会显著影响寿命。
+
+若体内复合的寿命为$\tau_\text{v}$，而表面复合的寿命为$\tau_\text{s}$，则总寿命为
+\begin{Equation}
+    \frac{1}{\tau}=\frac{1}{\tau_\text{v}}+\frac{1}{\tau_\text{s}}
+\end{Equation}
+实验表明，表面复合率$U_\text{s}$与表面处非平衡载流子浓度$(\delt{p})_\text{s}$成正比。
+\begin{BoxFormula}[表面复合率]
+    表面复合率正比于表面处的非平衡载流子浓度
+    \begin{Equation}
+        U_\text{s}=s(\delt{p})_\text{s}
+    \end{Equation}
+\end{BoxFormula}
+这里$s$可以赋予一个直观意义，即表面处的非平衡载流子以垂直速度$s$流出表面。

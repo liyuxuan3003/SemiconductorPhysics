@@ -1,0 +1,47 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[thick] (0,0) coordinate (Ev) node[left] {$E_\text{v}$} -- ++(8,0) coordinate (Ev');
+
+\draw[thick] ($(Ev)+(0,4)$) coordinate (Ec) node[left] {$E_\text{c}$} -- (Ec-|Ev')coordinate (Ec');
+
+\draw[dashed] ($(Ev)+(0,2.25)$) coordinate (Et) node[left] {$E_\text{t}$} -- (Et-|Ev')coordinate (Et');
+
+\path ($(Ec)!0.15!(Ec')$) node[circ] {} coordinate (P1);
+\path ($(Et)!0.35!(Et')$) node[circ] {} coordinate (P2);
+\path ($(Et)!0.65!(Et')$) node[circ] {} coordinate (P3);
+\path ($(Ev)!0.85!(Ev')$) node[circ] {} coordinate (P4);
+
+
+\draw[-latex] (P1) -- 
+node[left,pos=0.25] {$1,R_\text{n}$} 
+node[left,pos=0.75] {\footnotesize 俘获电子} 
+(P1|-Et);
+
+\draw[-latex] (P2) -- 
+node[left,pos=0.75] {$2,G_\text{n}$} 
+node[left,pos=0.25] {\footnotesize 发射电子} 
+(P2|-Ec);
+
+\draw[-latex] (P3) -- 
+node[left,pos=0.25] {$3,R_\text{p}$} 
+node[left,pos=0.75] {\footnotesize 俘获空穴} 
+(P3|-Ev);
+
+\draw[-latex] (P4) -- 
+node[left,pos=0.75] {$4,G_\text{p}$} 
+node[left,pos=0.25] {\footnotesize 发射空穴} 
+(P4|-Et);
+
+\path ($(Ec)!0.25!(Ec')$) node[above=0.1cm] {\footnotesize 导带电子浓度$n$};
+
+\path ($(Et)!0.25!(Et')$) node[below=0.1cm] {\footnotesize 复合中心电子浓度$n_\text{t}$};
+
+\path ($(Et)!0.75!(Et')$) node[above=0.1cm] {\footnotesize 复合中心空穴浓度$N_\text{t}-n_\text{t}$};
+
+\path ($(Ev)!0.75!(Ev')$) node[below=0.1cm] {\footnotesize 价带空穴浓度$p$};
+
+\end{tikzpicture}
+\end{document}

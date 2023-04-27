@@ -1,0 +1,73 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\path (0,0) coordinate (O);
+\path (4,0) coordinate (L);
+
+\draw[thick]
+    ($(O)+(0.0,0)$)
+    coordinate (Ev1)
+    -- (Ev1-|L)
+    coordinate (Ev2)
+    node[right] {$E_\text{v}$};
+
+\draw[thick,dashed,gray]
+    ($(O)+(0,1.5)$)
+    coordinate (Et'1)
+    node[left] {$E_\text{t}'$}
+    -- (Et'1-|L)
+    coordinate (Et'2);
+
+\draw[dotted,gray]
+    ($(O)+(0,2.5)$)
+    coordinate (Ei1)
+    -- (Ei1-|L)
+    coordinate (Ei2)
+    node[right] {$E_\text{i}$};
+
+\draw[thick,dashed]
+    ($(O)+(0,3.5)$)
+    coordinate (Et1)
+    node[left] {$E_\text{t}$}
+    -- (Et1-|L)
+    coordinate (Et2);
+
+\draw[green]
+    ($(O)+(0,3.0)$)
+    coordinate (EF1)
+    node[left,black] {$E_\text{F}$}
+    -- (EF1-|L)
+    coordinate (EF2);
+
+\draw[thick]
+    ($(O)+(0,5.0)$)
+    coordinate (Ec1)
+    -- (Ec1-|L)
+    coordinate (Ec2)
+    node[right] {$E_\text{c}$};
+
+\draw[<->,ultra thin]
+    ($(Ec1)!0.20!(Ec2)$) coordinate (n0)
+    --(n0|-EF1);
+
+\draw[<->,ultra thin,dashed]
+    ($(Ev1)!0.25!(Ev2)$) coordinate (p1)
+    --(p1|-Et1);
+
+\draw[<->,ultra thin]
+    ($(Ev1)!0.50!(Ev2)$) coordinate (p0)
+    --(p0|-EF1);
+
+\draw[<->,ultra thin,dashed,red]
+    ($(Ec1)!0.80!(Ec2)$) coordinate (n1)
+    --(n1|-Et1);
+
+\path ($(n0)!0.5!(n0|-EF1)$) node[left] {$n_0$};
+\path ($(n1)!0.5!(n1|-EF1)$) node[left,red] {$n_1$};
+\path ($(p0)!0.214!(p0|-Et1)$) node[left] {$p_0$};
+\path ($(p1)!0.214!(p1|-Et1)$) node[left] {$p_1$};
+
+\end{tikzpicture}
+\end{document}
