@@ -1,4 +1,4 @@
-\section{载流子的漂移运动和迁移率}
+\section{载流子的漂移运动}
 
 \subsection{欧姆定律}
 在电磁场中，我们已经将过去宏观上$U=IR$的欧姆定律拓宽到微观了。
@@ -28,7 +28,7 @@
 \begin{Equation}&[3]
     \abs{\bar{v_\text{d}}}=\frac{\sigma}{nq}\Emf
 \end{Equation}
-这里我们注意到两件事，首先\xrefpeq{3}说明，电子的平均漂移速度和电场强度成正比，我们可以将两者的比值定义成一个常数。其次，这个常数的表达式同时也由\xrefpeq{3}给出了。
+这里我们注意到两件事，首先\xrefpeq{3}说明，\empx{电子的平均漂移速度和电场强度成正比}，因此我们可以将两者的比值定义成一个常数。其次，这个常数的表达式同时也由\xrefpeq{3}给出了。
 \begin{BoxDefinition}[迁移率]
     \uwave{迁移率}定义为，单位电场强度下的漂移速度
     \begin{Equation}
@@ -55,13 +55,17 @@
 注意下！上述这些内容都是对导体而言的！不过，实验发现，在电场强度不太大的情况下，半导体中的载流子在电场作用下也遵从欧姆定律。但是，半导体中存在两种载流子，即带正电的空穴和带负电的电子，而且两种载流子的浓度又随温度和掺杂的不同而不同，所以，它的导电机构要比导体复杂些，但其实只要将两者叠加起来就可以了。显然，电子和空穴是两种不同的载流子，因此，\empx{电子和空穴具有不同的迁移率}，事实上，电子的迁移率比空穴要大一些。
 
 如果以$\mu_\text{n},\mu_\text{p}$分别表示\uwave{电子迁移率}（Electron Mobility）和\uwave{空穴迁移率}（Hole Mobility）
-\begin{Equation}
-    J=J_\text{n}+J_\text{p}=(nq\mu_n+pq\mu_p)\Emf
-\end{Equation}
-这里$J_\text{n},J_\text{p}$分别代表电子和空穴的电流密度，而$n,p$分别代表电子和空穴浓度，由此
+\begin{BoxFormula}[漂移电流密度]
+    半导体中，漂移电流密度满足
+    \begin{Equation}
+        J=J_\text{n}+J_\text{p}=nq\mu_n\Emf+pq\mu_p\Emf
+    \end{Equation}
+    其中，$n,p$分别代表电子和空穴浓度，$\Emf$为电场强度。
+\end{BoxFormula}
+% 这里$J_\text{n},J_\text{p}$分别代表电子和空穴的电流密度，而$n,p$分别代表电子和空穴浓度，由此
 \begin{BoxFormula}[半导体的迁移率与电导率]*
     半导体中，电导率$\sigma$与迁移率$\mu_\text{n},\mu_\text{p}$的关系是
     \begin{Equation}
-        \sigma=nq\mu_\text{n}+pq\mu_\text{p}=\sigma_\text{n}+\sigma_\text{p}
+        \sigma=\sigma_\text{n}+\sigma_\text{p}=nq\mu_\text{n}+pq\mu_\text{p}
     \end{Equation}
 \end{BoxFormula}
