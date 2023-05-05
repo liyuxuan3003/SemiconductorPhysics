@@ -1,0 +1,99 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\draw[ultra thick]
+    (0,0) coordinate (O)
+    rectangle
+    (10,4) coordinate (P);
+
+\foreach \x in {0.1,0.2,...,0.91}
+{
+    \draw[latex-,gray] ($(O)!\x!(O|-P)$) ++(-0.5,0) coordinate(L) -- ++(-2,0) coordinate(L');
+}
+
+\path ($(L)!0.5!(L')$) node[above,gray] {光照};
+
+\draw[dashed,gray] 
+    ($(O)!0.5!(O|-P)$) 
+    coordinate (M1)
+    --(M1-|P)
+    coordinate (M2); 
+
+\newcounter{cnt}
+\foreach \x in {0.1,0.3,0.6,0.8,1.18,-0.18}
+{
+    \path ($(O|-P)!\x!(O)$) 
+        coordinate (T\thecnt) 
+        (T\thecnt-|P) 
+        coordinate (T\thecnt');
+    \path 
+        ($(T\thecnt)!0.2!(T\thecnt')$) coordinate (A\thecnt)
+        ($(T\thecnt)!0.8!(T\thecnt')$) coordinate (A\thecnt');
+    \stepcounter{cnt}
+}
+
+\draw[blue,latex-] (A0) -- (A0') node[right] {$(J_\text{n})_\text{扩}$};
+\draw[blue,-latex] (A1) -- (A1') node[right] {$(J_\text{p})_\text{扩}$};
+
+\draw[red,-latex] (A2) -- (A2') node[right] {$(J_\text{n})_\text{漂}$};
+\draw[red,-latex] (A3) -- (A3') node[right] {$(J_\text{p})_\text{漂}$};
+
+\foreach \p in {0.3,0.4,0.5,0.6,0.7}
+{
+    \foreach \x in {0,2}
+    {
+        \draw ($(A\x)!\p!(A\x')$) node[below=0.2cm,circ] {};
+    }
+    \foreach \x in {1,3}
+    {
+        \draw ($(A\x)!\p!(A\x')$) node[below=0.2cm,ocirc] {};
+    }
+    \foreach \x in {0,1}
+    {
+        \draw[-latex,ultra thin,blue] ($(A\x)!\p!(A\x')$) ++(0.05,-0.25) -- ++(0.3,0);
+    }
+    \foreach \x in {2}
+    {
+        \draw[-latex,ultra thin,red] ($(A\x)!\p!(A\x')$) ++(-0.05,-0.25) -- ++(-0.3,0);
+    }
+    \foreach \x in {3}
+    {
+        \draw[-latex,ultra thin,red] ($(A\x)!\p!(A\x')$) ++(0.05,-0.25) -- ++(0.3,0);
+    }
+}
+
+\path
+    ($(O)!0.75!(O|-P)$) node[right=0.5cm,blue] {扩散}; 
+
+\path
+    ($(O)!0.25!(O|-P)$) node[right=0.5cm,red] {漂移}; 
+
+\draw[ultra thick,dotted,blue,-latex] 
+($(A5)!0.1!(A5')$)
+node[left] {\small 载流子较多}
+--
+node[above] {扩散作用}
+node[below] {$-\dv*{n}{x}\quad -\dv*{p}{x}$}
+($(A5)!0.9!(A5')$)
+node[right] {\small 载流子较少};
+
+\draw[ultra thick,dotted,red,-latex] 
+($(A4)!0.1!(A4')$)
+node[left] {\small 电势较高}
+--
+node[above] {漂移作用}
+node[below] {$\Emf$}
+($(A4)!0.9!(A4')$)
+node[right] {\small 电势较低};
+
+% \draw[blue,-latex] 
+%     ($(O|-P)!0.8$)
+%     coordinate (A1)
+    
+%     --
+    
+
+\end{tikzpicture}
+\end{document}

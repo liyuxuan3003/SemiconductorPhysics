@@ -1,0 +1,107 @@
+\section{爱因斯坦关系式}
+在\xref{chap:半导体的导电性}中，我们曾在\xref{sec:载流子的漂移运动}中详细讨论过载流子在电场作用下的漂移运动，这会产生漂移电流。在\xref{chap:非平衡载流子}中，我们亦在\xref{sec:载流子的扩散运动}中讨论过非平衡载流子在浓度梯度作用下的扩散运动，这会产生扩散电流。而本节要解决的中心问题是，\empx{载流子的漂移运动和扩散运动间有何种关系}？
+
+根据\fancyref{fml:漂移电流密度}
+\begin{Equation}
+    (J_\text{n})_\text{漂}=qn\mu_\text{n}\Emf\qquad
+    (J_\text{p})_\text{漂}=qp\mu_\text{p}\Emf
+\end{Equation}
+根据\fancyref{fml:扩散电流密度}
+\begin{Equation}
+    (J_\text{n})_\text{扩}=qD_\text{n}\dv{\delt{n}}{x}\qquad
+    (J_\text{n})_\text{扩}=-qD_\text{p}\dv{\delt{p}}{x}
+\end{Equation}
+简而言之，电场会导致漂移电流，浓度梯度会导致扩散电流。\xref{fig:载流子的漂移和扩散}形象体现了这一点
+\begin{itemize}
+    \item 漂移电流$(J)_\text{漂}$是电场作用的结果，漂移电流$(J)_\text{漂}$的方向与电场$\Emf$方向一致，这其实是因为，尽管电子和空穴的运动方向分别与电场相反和相同，但是由于电子带负电，两者的电流方向都与电场方向相一致，或者可以换一个角度，因为$J=\sigma\Emf$总是成立的。
+    \item 扩散电流$(J)_\text{扩}$是浓度梯度的结果，扩散方向与相应载流子的浓度负梯度是一致的，这是因为，载流子总是由浓度较高处流向浓度较低处，但是，就电流而言，考虑到电子和空穴分别带负电和正电，故$(J_\text{n})_\text{扩}$和$(J_\text{p})_\text{扩}$与浓度负梯度的方向分别是相反和相同的。
+\end{itemize}\vspace{-1ex}
+\begin{Figure}[载流子的漂移和扩散]
+    \includegraphics[scale=0.9]{build/Chapter05F_01.fig.pdf}
+\end{Figure}
+而一般情况下，扩散和漂移是同时发生的。但在\xref{fig:载流子的漂移和扩散}的基础上，还需要认识到，扩散的关键在于载流子的浓度分布不均，然而，导致载流子的浓度分布不均的因素并不只有一个
+\begin{itemize}
+    \item 不均匀的注入（例如单侧光照）会导致非平衡载流子浓度$\delt{n},\delt{p}$分布不均。
+    \item 不均匀的掺杂亦会导致平衡载流子浓度$n_0,p_0$分布不均。
+\end{itemize}
+由于$n=n_0+\delt{n},~p=p_0+\delt{p}$，故一般情况下，浓度梯度应写作$\dv*{n}{x}$和$\dv*{p}{x}$。
+\begin{BoxFormula}[载流子的漂移扩散]*
+    电子在漂移和扩散作用下的电流密度满足
+    \begin{Equation}
+        J_\text{n}=(J_\text{n})_\text{漂}+(J_\text{n})_\text{扩}=qn\mu_\text{n}\Emf+qD_\text{n}\dv{n}{x}
+    \end{Equation}
+    空穴在漂移和扩散作用下的电流密度满足
+    \begin{Equation}
+        J_\text{p}=(J_\text{p})_\text{漂}+(J_\text{p})_\text{扩}=qp\mu_\text{p}\Emf-qD_\text{p}\dv{p}{x}
+    \end{Equation}
+\end{BoxFormula}
+我们说，本节要研究漂移和扩散的关系，本质上，就是要研究$\mu_\text{n},\mu_\text{p}$和$D_\text{n},D_\text{p}$，即漂移率和扩散系数间的关系。而令人惊讶的是，这两者的关系竟然非常简洁！这就是爱因斯坦关系式。
+
+\begin{BoxLaw}[爱因斯坦关系式]
+    \uwave{爱因斯坦关系式}（Einstein Relation）指出，漂移率与扩散系数成正比
+    \begin{Equation}
+        \frac{D_\text{n}}{\mu_\text{n}}=
+        \frac{\kB T}{q}\qquad
+        \frac{D_\text{p}}{\mu_\text{p}}=
+        \frac{\kB T}{q}
+    \end{Equation}
+\end{BoxLaw}
+
+\begin{Proof}
+    让我们来考虑一块处于热平衡状态的N型半导体，没有光照，没有外加电场，但是其掺杂并不均匀，故平衡载流子浓度$n_0,p_0$均为关于$x$的函数$n_0(x),p_0(x)$，故存在扩散电流
+    \begin{Equation}&[1]
+        (J_\text{n})_\text{扩}=qD_\text{n}\dv{n_0}{x}\qquad
+        (J_\text{p})_\text{扩}=-qD_\text{p}\dv{p_0}{x}
+    \end{Equation}
+    或许我们会想，既然没有外加电场，那此时就不应有漂移电流了？答案是否定的。
+    
+    掺杂不均匀与注入不均匀导致的扩散运动的最大区别在于，掺杂不均匀时，载流子可以发生扩散，但是，电离杂质是不能移动的，电离杂质的不均匀性将会破坏半导体的电中性，从而在半导体中形成内建电场$\Emf$，由于平衡条件下，不存在宏观电流，因此，内建电场$\Emf$的方向必然是反抗扩散电流$(J_\text{n})_\text{扩},(J_\text{p})_\text{扩}$的，内建电场形成的漂移电流$(J_\text{n})_\text{漂},(J_\text{p})_\text{漂}$应分别与之抵消
+    \begin{Equation}&[2]
+        (J_\text{n})_\text{漂}=n_0q\mu_\text{n}\Emf\qquad
+        (J_\text{p})_\text{漂}=p_0q\mu_\text{p}\Emf
+    \end{Equation}
+    以及
+    \begin{Equation}&[3]
+        J_\text{n}=(J_\text{n})_\text{漂}+(J_\text{n})_\text{扩}=0\qquad
+        J_\text{p}=(J_\text{p})_\text{漂}+(J_\text{p})_\text{扩}=0
+    \end{Equation}
+    我们以$J_\text{n}$部分为例求解，这是一个关于$n_0$的微分方程
+    \begin{Equation}&[4]
+        n_0q\mu_\text{n}\Emf+qD_\text{n}\dv{n_0}{x}=0
+    \end{Equation}
+    不过，我们的目的并不是求出$n_0$，而是利用$n_0$的性质解出$D_\text{n}$和$\mu_\text{n}$间的关系。
+
+    注意到，当半导体内部出现电场时，半导体各处电势不相等，而电势为电场的负梯度
+    \begin{Equation}&[5]
+        \Emf=-\dv{V}{x}
+    \end{Equation}
+    在考虑电子的能量时，必须计入附加静电势能$-qV(x)$，因而，电子导带底的能量应由$E_\text{c}$修正为$E_\text{c}-qV(x)$，随$x$变化。因此，根据\fancyref{fml:导带电子浓度}，此时$n_0$满足
+    \begin{Equation}&[6]
+        n_0(x)=N_\text{c}\exp[\frac{E_\text{F}-E_\text{c}+qV(x)}{\kB T}]
+    \end{Equation}
+    两端求导，注意上式右端仅$V(x)$与$x$有关
+    \begin{Equation}&[7]
+        \dv{n_0}{x}=\frac{q}{\kB T}N_\text{c}\exp[\frac{E_\text{F}-E_\text{c}+qV(x)}{\kB T}]\dv{V}{x}
+    \end{Equation}
+    将\xrefpeq{6}代入\xrefpeq{7}，并根据\xrefpeq{5}用$-\Emf$代换$\dv*{V}{x}$
+    \begin{Equation}&[8]
+        \dv{n_0}{x}=-\frac{q}{\kB T}n_0\Emf
+    \end{Equation}
+    将\xrefpeq{8}代入\xrefpeq{4}，代换其$\dv*{n_0}{x}$
+    \begin{Equation}
+        n_0q\mu_\text{n}\Emf-qD_\text{n}\frac{q}{\kB T}n_0\Emf=0
+    \end{Equation}
+    即
+    \begin{Equation}
+        \mu_\text{n}=\frac{qD_\text{n}}{\kB T}
+    \end{Equation}
+    或
+    \begin{Equation}
+        \frac{D_\text{n}}{\mu_\text{n}}=\frac{\kB T}{q}
+    \end{Equation}
+    类似的亦可以得到
+    \begin{Equation}
+        \frac{D_\text{p}}{\mu_\text{p}}=\frac{\kB T}{q}
+    \end{Equation}
+    由此，我们就得到了漂移率和扩散系数间的关系。
+\end{Proof}
