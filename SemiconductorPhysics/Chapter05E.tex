@@ -21,7 +21,7 @@
     D_\text{p}\dv[2]{\delt{p}(x)}{x}=-\dv{S_\text{p}(x)}{x}
 \end{Equation}
 如果这是三维情况，先前$\dv*{\delt{p}}{x}$是求梯度，而此步的求导就变成求散度了，因而\xrefpeq{2}右端的意义即空穴扩散流密度的汇，而什么又会构成空穴扩散流密度的汇呢？答案，就是载流子的复合，这里的汇即单位时间单位体积内因复合消失的空穴数$\delt{p}(x)/\tau$，因此就有
-\begin{Equation}
+\begin{Equation}[稳态扩散下的方程]
     D_\text{p}\dv[2]{\delt{p}(x)}{x}=\frac{\delt{p}(x)}{\tau}
 \end{Equation}
 这就是一维稳定扩散情况下，非平衡少数载流子所遵循的扩散方程，称为稳态扩散方程。
@@ -65,7 +65,7 @@
     \end{Equation}
 \end{Proof}
 
-\xref{fml:样品足够厚时非平衡载流子的浓度分布}指出，非平衡少数载流子从光照表面的$(\delt{p})_0$开始，向内部依负指数规律衰减。而很明显的是，这里$L_\text{p}=\sqrt{D_\text{p}\tau}$代表非平衡载流子在扩散过程中不断复合，浓度减小至原有浓度的$1/\e$时的扩散距离，即$\delt{p}(x+L_\text{p})=\delt{p}(x)/\e$。而除此之外，通过下面的推导亦可以证明，其实$L_\text{p}$还是非平衡载流子深入样品的平均距离，称为\uwave{扩散长度}（Diffusion Length）。
+\xref{fml:样品足够厚时非平衡载流子的浓度分布}指出，非平衡少数载流子从光照表面的$(\delt{p})_0$开始，向内部依负指数规律衰减。而很明显的是，这里$L_\text{p}=\sqrt{D_\text{p}\tau}$代表非平衡载流子在扩散过程中不断复合，浓度减小至原有浓度的$1/\e$时的扩散距离，即$\delt{p}(x+L_\text{p})=\delt{p}(x)/\e$。而除此之外，通过下面的推导亦可以证明，其实$L_\text{p}$还代表了非平衡载流子通过扩散深入样品的平均距离，称为扩散长度。
 \begin{Equation}
     \bar{x}=\frac{\Int[0][\infty]x\delt{p}(x)\dx}{\Int[0][\infty]\delt{p}(x)\dx}=
     \frac{\Int[0][\infty]x\exp(-x/L_\text{p})\dx}{\Int[0][\infty]\exp(-x/L_\text{p})\dx}=L_\text{p}
@@ -185,8 +185,7 @@
     近似的关键在于利用双曲正弦在$t\to 0$时的等价无穷小$\sinh(t)\sim t$的特性。
 \end{Proof}
 
-通过\xref{fig:非平衡载流子的浓度分布}，我们可以很直观的看到，在样品厚度有限时，载流子浓度$\delt{p}$会在$x=W$处降低至零，并且，样品厚度$W$越大则$\delt{p(x)}$的分布曲线越接近于样品足够厚时的曲线（这说明我们的理论是连续过渡的），同时，样品厚度$W<L_\text{p}$较小时，$\delt{p}$的分布逐渐趋近于线性。
-
+通过\xref{fig:非平衡载流子的浓度分布}，我们可以很直观的看到，在样品厚度有限时，载流子浓度$\delt{p}$会在$x=W$处降低至零，并且，样品厚度$W$越大则$\delt{p(x)}$的分布曲线越接近于样品足够厚时的曲线（这说明我们的理论是连续过渡的），同时，样品厚度$W<L_\text{p}$较小时，$\delt{p}$的分布逐渐趋近于线性。\vspace{-2ex}
 \begin{Figure}[非平衡载流子的浓度分布]
     \includegraphics[scale=0.95]{Mathematica/output/DeltP.pdf}
 \end{Figure}
