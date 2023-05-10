@@ -1,0 +1,49 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\path 
+    (0,0) 
+    coordinate (A1) 
+    ++ (6,3) 
+    coordinate (B2)
+    (A1-|B2) coordinate (A2)
+    (A1|-B2) coordinate (B1);
+
+\path 
+    ($(B1)!0.25!(B2)$) coordinate (P1)
+    ($(B1)!0.75!(B2)$) coordinate (P2)
+    ($(P1)+(0,-0.75)$) coordinate (P1')
+    (P1'-|P2) coordinate (P2');
+
+\fill[blue!30!white] (A1) rectangle (B2);
+\fill[red!30!white]  (P1') rectangle (P2);
+\fill[black!80!white] 
+    let     \p1=($(P2)-(P1)$),
+            \n1={veclen(\x1,\y1)}
+    in
+    (P1) -- (P2) arc[start angle=0,end angle=180,radius=\n1/2];
+
+
+\draw[thick]
+    let     \p1=($(P2)-(P1)$),
+            \n1={veclen(\x1,\y1)}
+    in
+    (P1)--(B1)--(A1)--(A2)--(B2)--(P2)
+    arc[start angle=0,end angle=180,radius=\n1/2];
+
+\draw[thick,dotted] (P1)--(P2);
+\draw[thick,dashed] (P1)--(P1')--(P2')--(P2);
+
+\path ($(A1)!0.5!(B2)$) ++(0,-0.5) node {\Large N};
+\path ($(P1)!0.5!(P2')$) node {\Large P};
+
+\path (B2) node[below left] {\small\ce{Si}};
+\path (P2) node[below left] {\small\ce{Si}};
+\path ($(P1)!0.5!(P2)$) ++(0,0.75) node[white] {\Large\ce{Al}};
+\path ($(P1)!0.5!(P2)$) ++(0,1.8) node[above] {铝粒熔融后凝固};
+
+
+\end{tikzpicture}
+\end{document}

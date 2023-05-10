@@ -1,0 +1,93 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\path 
+    (0,0) coordinate (A1) 
+    (8,2) coordinate (B2)
+    (A1-|B2) coordinate (A2)
+    (A1|-B2) coordinate (B1);
+
+\path 
+    ($(B1)!0.3!(B2)$) coordinate (M1)
+    ($(B1)!0.5!(B2)$) coordinate (M2)
+    ($(B1)!0.7!(B2)$) coordinate (M3)
+    (M1|-A1) coordinate (Q1)
+    (M2|-A1) coordinate (Q2)
+    (M3|-A1) coordinate (Q3);
+
+
+\fill[red!50!white]  (A1) rectangle node[black]{\Large P} (M1);
+\fill[blue!50!white] (A2) rectangle node[black]{\Large N} (M3);
+\fill[black!50!white] (Q1) rectangle (M3);
+
+\draw[dashed,thick] (M1) -- (Q1);
+\draw[dotted,thin] (M2) -- (Q2);
+\draw[dashed,thick] (M3) -- (Q3);
+\draw[ultra thick] (A1) rectangle (B2);
+
+\foreach \y in {0.2,0.4,0.6,0.8}
+{
+    \foreach \x in {0.33,0.67}
+    {
+        \path[white]
+            ($(Q1)!\x!(Q2)$) coordinate (Q)
+            ($(A1)!\y!(B1)$) coordinate (C)
+            (Q|-C) node {\small $-$};
+    }
+}
+
+\foreach \y in {0.2,0.4,0.6,0.8}
+{
+    \foreach \x in {0.33,0.67}
+    {
+        \path[white]
+            ($(Q2)!\x!(Q3)$) coordinate (Q)
+            ($(A1)!\y!(B1)$) coordinate (C)
+            (Q|-C) node {\small $+$};
+    }
+}
+
+\path ($(B1)!0.5!(M1)$) node[below,white] {\small 空穴--多子};
+\path ($(B2)!0.5!(M3)$) node[below,white] {\small 电子--多子};
+% \path ($(A1)!0.5!(Q1)$) node[above,white] {\small 电子--少子};
+% \path ($(A2)!0.5!(Q3)$) node[above,white] {\small 空穴--少子};
+
+\path ($(Q1)!0.5!(Q2)$) node[below] {\scriptsize 电离受主};
+\path ($(Q2)!0.5!(Q3)$) node[below] {\scriptsize 电离施主};
+
+\draw[black,thick,-latex] ($(M2)!1.3!(Q2)$) coordinate (O)
+($(O)+(0.8,0)$) -- 
+node[above] {$\Emf$} 
+node[below] {\small 内建电场}
+($(O)+(-0.8,0)$);
+
+\draw[<-,thick]
+    ($(M1)!1.75!(Q1)$) coordinate (Q1x)
+    ($(Q1x)+(-1.2,0)$)--
+    node[above] {空穴漂移}
+    ($(Q1x)+(+1.2,0)$);
+
+\draw[<-,thick]
+    ($(M3)!1.75!(Q3)$) coordinate (Q3x)
+    ($(Q3x)+(+1.2,0)$)--
+    node[above] {电子漂移}
+    ($(Q3x)+(-1.2,0)$);
+
+\draw[->,thick]
+    ($(Q1)!1.5!(M1)$) coordinate (M1x)
+    ($(M1x)+(-1.2,0)$)--
+    node[above] {空穴扩散}
+    ($(M1x)+(+1.2,0)$);
+
+\draw[->,thick]
+    ($(Q3)!1.5!(M3)$) coordinate (M3x)
+    ($(M3x)+(+1.2,0)$)--
+    node[above] {电子扩散}
+    ($(M3x)+(-1.2,0)$);
+
+\path ($(B1)!0.5!(B2)$) node[above] {\small 空间电荷区/耗尽区}; 
+
+\end{tikzpicture}
+\end{document}

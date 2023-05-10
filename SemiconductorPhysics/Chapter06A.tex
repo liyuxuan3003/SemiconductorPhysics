@@ -1,0 +1,60 @@
+\section{PN结的形成}
+
+首先的问题是，PN结是如何形成的？显然，将P型半导体和N型半导体拿些焊锡焊在一起并不会得到任何的PN结。我们需要使用一些工艺。工艺有很多种，但核心思路是一致的，即在N型半导体中通过一定方式将其局部转变为P型半导体，或反之。工艺主要有以下四种
+\begin{enumerate}
+    \item 合金法
+    \item 扩散法
+    \item 生长法
+    \item 注入法
+\end{enumerate}
+这里我们重点介绍合金法和扩散法，如\xref{fig:PN结的两种工艺}，它们分别代表了两类不同类型的PN结。
+\begin{Figure}[PN结的两种工艺]
+    \begin{FigureSub}[合金法]
+        \includegraphics[scale=0.9]{build/Chapter06A_02.fig.pdf}
+    \end{FigureSub}
+    \hspace{2cm}
+    \begin{FigureSub}[扩散法]
+        \includegraphics[scale=0.9]{build/Chapter06A_03.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+\subsection{合金法}
+\xref{fig:合金法}表示用合金法制造PN结的过程，将一小粒铝放在一块N型单晶硅上，随后将铝粒加热到一定温度，铝粒和其接触的硅薄层形成硅铝熔融体，然后降低温度，硅铝熔融体开始凝固，这时N型硅片上就形成了一含有高浓度铝的P型硅片，构成PN结，称为铝硅合金结。
+
+\uwave{合金结}（Alloy Junction）属于\uwave{突变结}，其浓度分布如\xref{fig:突变结的掺杂浓度分布}
+\begin{Figure}[突变结的掺杂浓度分布]
+    \includegraphics[scale=1]{build/Chapter06A_04.fig.pdf}
+\end{Figure}
+设交界面为$x_j$，则有
+\begin{Gather}
+    N_\text{A}(x)=N_\text{A}\quad (x<x_\text{j})\qquad
+    N_\text{D}(x)=N_\text{D}\quad (x>x_\text{j})
+\end{Gather}
+换言之，在突变结中，P型区仅有受主杂质$N_\text{A}$，N型区仅有施主杂质$N_\text{D}$，两者均是均匀分布的，交界面处，两者的浓度均会发生突变，$N_\text{A}(x)$由$N_\text{A}$变为$0$，$N_\text{D}(x)$由$0$变为$N_\text{D}$。
+
+在实际的突变结中，两边的杂质浓度差异很大，例如这里在N型基底上通过铝形成了高浓度的P型区，则P型区的掺杂将远高于N型区，如$N_\text{A}=10^{16}\si{cm^{-3}}$，而$N_\text{D}=10^{19}\si{cm^{-3}}$。简而言之，\empx{通过合金法在局部形成的掺杂区比基底的掺杂浓度要高的多}。通常，这种结称为\uwave{单边突变结}，这里P型区浓度较高，故称为P$^{+}$N结，反之若N型区浓度较高，则称为N$^{+}$P结。
+
+\subsection{扩散法}
+\xref{fig:扩散法}表示用扩散法制造PN结的过程，在N型单晶硅片上，第一步通过氧化作出一层均匀的\xce{SiO2}氧化物薄层，第二步通过光刻工艺将\xce{SiO2}刻蚀出特定的形状，使得待掺杂部分暴露出来，第三步通过扩散工艺掺入P型杂质，从而在（光刻暴露出的）特定位置形成P型区。
+
+\uwave{扩散结}（Diffused Junction）属于\uwave{缓变结}，其浓度分布如\xref{fig:扩散结的掺杂浓度分布}
+\begin{Figure}[扩散结的掺杂浓度分布]
+    \includegraphics[scale=1]{build/Chapter06A_05.fig.pdf}
+\end{Figure}
+扩散结中，基底的浓度可以视为不变的
+\begin{Equation}
+    N_\text{D}(x)=N_\text{D}
+\end{Equation}
+扩散结中，掺入的杂质（这里是受主杂质）的浓度则是随掺入深度的增加而逐渐减小的，并非是突变的，扩散是一个过程。通常，我们只关心PN结交界面$x=x_\text{j}$附近的性质，因此，无论$N_\text{A}(x)$实际的函数分布如何，我们总是可以用$x=x_\text{j}$附近的切线近似表示$N_\text{A}(x)$
+\begin{Equation}
+    N_\text{A}(x)=N_\text{D}+\alpha_\text{j}(x-x_\text{j})
+\end{Equation}
+这里$\alpha_\text{j}$是$x=x_\text{j}$处的切线斜率，称为\uwave{杂质浓度梯度}。若$\alpha_\text{j}$很大，亦可以近似为突变结。
+
+总而言之，PN结主要包含两类情形，突变结和线性缓变结
+\begin{enumerate}
+    \item 合金结是突变结。
+    \item 高表面浓度的浅扩散结（杂质浓度梯度大）是突变结。
+    \item 低表面浓度的深扩散结（杂质浓度梯度小）是线性缓变结。
+\end{enumerate}
+这两种结在性质上有一定的差异，我们将会在本章稍后更为深入的探讨。\goodbreak

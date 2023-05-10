@@ -9,3 +9,10 @@
 
 
 \newcommand{\Emf}{\mathscr{E}}
+
+\ExplSyntaxOn
+\NewDocumentCommand { \xifnum } { }
+    {
+        \fp_compare:nTF
+    }
+\ExplSyntaxOff

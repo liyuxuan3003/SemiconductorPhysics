@@ -1,0 +1,44 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[thin,gray,->]
+    (0,-1) coordinate (Y1) --
+    (0,5) coordinate(Y2) 
+    node[right] {$N(x)$};
+
+\draw[thin,gray,->]
+    (0,0) coordinate (X1) -- 
+    (5,0) coordinate(X2)
+    node[above] {$x$};
+
+\draw[red,thick] 
+    plot[domain=0.01:4,smooth,samples=200]
+    (\x,{4/(1.5*\x+1)});
+
+\path (0,4) ++(0.25,0) node[red,below right] {$N_\text{A}$};
+
+\draw[blue,thick]
+    (0,1)--(4,1) node[above] {$N_\text{D}$};
+
+\draw[ultra thin,gray,dashed] (2,1) coordinate (T) node[point] {} -- (2,0) coordinate (T');
+
+\draw[ultra thin,gray] (2,0) -- (2,-0.75);
+\draw[ultra thin,gray] (4,0) -- (4,-0.75);
+
+\draw[<->,ultra thin,gray] (0,-0.25) -- node[below] {\small $N_\text{A}>N_\text{D}$} (2,-0.25);
+\draw[<->,ultra thin,gray] (2,-0.25) -- node[below] {\small $N_\text{D}>N_\text{A}$} (4,-0.25);
+
+\path
+    (0,4.25) coordinate (XA1) 
+    (4,4.75) coordinate (XA2);
+
+\fill[red!30!white]  ($(XA1|-XA2)!0.5!(XA2)$) rectangle node[black] {P} (XA1);
+\fill[blue!30!white] ($(XA1-|XA2)!0.5!(XA1)$) rectangle node[black] {N} (XA2);
+
+\draw[gray,thin] (XA1) rectangle (XA2);
+\draw[gray,thin,dashed] ($(XA1|-XA2)!0.5!(XA2)$) -- ($(XA1-|XA2)!0.5!(XA1)$);
+
+\end{tikzpicture}
+\end{document}

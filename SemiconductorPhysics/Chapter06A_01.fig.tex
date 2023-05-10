@@ -1,0 +1,17 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\path (0,0) coordinate (A) ++(6,2) coordinate (B);
+
+\path ($(A|-B)!0.5!(B)$) coordinate (M) -- (M|-A) coordinate (M');
+
+\fill[red!50!white]  (A) rectangle node[black]{\Large P} (M);
+\fill[blue!50!white] (B) rectangle node[black]{\Large N} (M');
+
+\draw[dashed,thick] (M) -- (M');
+\draw[ultra thick] (A) rectangle (B);
+
+\end{tikzpicture}
+\end{document}

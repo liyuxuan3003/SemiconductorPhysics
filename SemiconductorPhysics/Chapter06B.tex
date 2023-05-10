@@ -1,0 +1,214 @@
+\section{PN结的结构与能带图}\nopagebreak
+
+\subsection{PN结的结构}
+试想，在PN结中，N型部分电子很多而空穴很少，P型部分空穴很多而电子很少，这就是说，载流子在PN结中存在浓度梯度，而\xref{sec:载流子的扩散运动}指出，载流子会在浓度梯度下作扩散运动
+\begin{itemize}
+    \item P型区的多子是空穴，空穴将由P区向N区扩散。
+    \item N型区的多子是电子，电子将由N区向P区扩散。
+\end{itemize}
+我们知道，当P型半导体和N型半导体各自独立存在时，两者都是电中性的，因为杂质电离产生了多少空穴和电子，就相应的有多少电荷量相反的电离受主杂质和电离施主杂质。然而在PN结中，空穴扩散流和电子扩散流从P区和N区带走了相当数量的空穴和电子，电离杂质却无法跟随其运动，将会留在原位，这就使得在PN结交界面附近出现了一些带电区
+\begin{itemize}
+    \item P型区一侧出现了由电离受主构成的\uwave{负电荷区}（与P区多子空穴带正电相反）。
+    \item N型区一侧出现了由电离施主构成的\uwave{正电荷区}（与N区多子电子带负电相反）。
+\end{itemize}
+我们通常将PN结附近的电离施主和电离受主所带的电荷称为\uwave{空间电荷}（Space Charge），而它们所存在的区域则称为\uwave{空间电荷区}（Space Charge Region）。正如我们在\xref{sec:爱因斯坦关系式}中熟悉的那样，这在PN结中，形成了一个由N区指向P区的内建电场，而载流子在内建电场的作用下将作漂移运动，显然，电子和空穴的漂移运动方向与它们的扩散运动是相反的，换言之，空间电荷区形成的内建电场将会反过来限制其自身进一步扩大。在一段时间后，电子和空穴的扩散电流和漂移电流会达成平衡，大小相等，方向相反，相互抵消。此时，流过PN结的净电流为零，空间电荷区保持一定宽度不再继续扩展，空间电荷区中存在一定的内建电场。
+
+\begin{Figure}[PN结的空间电荷区]
+    \includegraphics[scale=0.9]{build/Chapter06A_06.fig.pdf}
+\end{Figure}
+
+我们将这种热平衡状态下的PN结，称为\uwave{平衡PN结}（PN Junction in Equilibrium）。
+
+
+\subsection{PN结的能带图}
+在理解PN结的能带图前，我们不妨先来回顾一些，对于两块独立的P型半导体和N型半导体，它们的能带图是什么样的？如\xref{fig:P型和N型半导体的能带图}，两者应具有相同的价带底$E_\text{v}$和导带底$E_\text{c}$以及相同的禁带中线$E_\text{i}$\ \footnote{确切的说$E_\text{i}$是本征状态下的费米能级，根据\xref{chap:半导体中载流子的统计分布}，尽管$E_\text{i}$随着温度升高会偏离中线，但偏离的不多，可以近似相等。}。然而，两者的费米能级$E_\text{Fp},E_\text{Fn}$是不同的，我们知道，费米能级与载流子的分布是密切相关的，P区空穴较多故$E_\text{Fp}$靠近价带，N区电子较多故$E_\text{Fn}$靠近导带。
+
+\vspace{0.25cm}
+\begin{Figure}[平衡PN结的能带图]
+    \begin{FigureSub}[P型和N型半导体的能带图]
+        \includegraphics[scale=0.75]{build/Chapter06A_07.fig.pdf}
+    \end{FigureSub}
+    \\ \vspace{1cm}
+    \begin{FigureSub}[PN结的能带图]
+        \includegraphics[scale=0.75]{build/Chapter06A_08.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+现在的问题是，当P型半导体和N型半导体形成PN结后，在交界区域，这些能量将会以何种方式变化？很自然的一种想法是，原先相同的$E_\text{c},E_\text{v},E_\text{i}$仍然相同，以直线相连，原先不同的$E_\text{F}$在空间电荷区以某种平滑的方式由$E_\text{Fp}$抬升至$E_\text{Fc}$，但很遗憾的是，这并不正确。正如\xref{fig:PN结的能带图}所示的那样，恰相反！费米能级反而在PN结中变得相等！费米能级$E_\text{Fp}$和$E_\text{Fn}$在各自区域中相对$E_\text{cp},E_\text{vp}$和$E_\text{cn},E_\text{vp}$的位置亦没有变化，这就是说，能带发生了相对移动！\goodbreak
+
+我们可能会对这个结果感到不解，毕竟，为何要假设能带相对移动呢？但其实细想一下，能带移动才是更为合理的假设。因为PN结中存在由N区指向P区的内建电场，换言之，PN结中的电势不是均等的，P区电势较低，N区电势较高。尽管此刻我们尚不知道电势$V(X)$具体的数学形式\footnote{稍后有一张PN结电势$V(x)$的图像（其实就是把$E_\text{c},E_\text{v}$的趋势倒过来），再晚些我们会推导$V(X)$的表达式。}，但我们可以预见的是，若以P区电势作为电势$V(X)$的零参考点
+\begin{itemize}
+    \item 电势$V(x)$在负端，即远离空间电荷区的P区为$0$。
+    \item 电势$V(x)$在正端，即远离空间电荷区的N区为某一定值，记作$V_\text{D}$。
+    \item 电势$V(X)$在空间电荷区中，逐渐由$0$增长至$V_\text{D}$（姑且不关心这个函数的具体形式）。
+\end{itemize}
+
+而能带反映的是电子的能量，这当然要包含电子的电势能$-qV(X)$，而$-qV(X)$从负到正是逐渐减小的，这也就是为何在PN结中，N型区能带相对P型区能带会向下偏移。所以说，能带移动是合理的。但这仍然没有解释，能带移动后为何恰好对齐至费米能级一致$E_\text{Fp}=E_\text{Fn}$的位置了呢？实际上，这是平衡PN结中没有净电流的直接结果，下面我们来证明这一点。\setpeq{电流密度与费米能级的关系}
+
+我们先来计算电子电流，根据\fancyref{fml:载流子的漂移扩散}
+\begin{Equation}&[1]
+    J_\text{n}=qn\mu_\text{n}\Emf+qD_\text{n}\dv{n}{x}
+\end{Equation}
+根据\fancyref{law:爱因斯坦关系式}，将$D_\text{n}$代换
+\begin{Equation}&[2]
+    J_\text{n}=nq\mu_\text{n}\Emf+\kB T\mu_\text{n}\dv{n}{x}
+\end{Equation}
+考虑到
+\begin{Equation}&[3]
+    \dv{\ln n}{x}=\frac{1}{n}\dv{n}{x}
+\end{Equation}
+将\xrefpeq{3}代入\xrefpeq{2}
+\begin{Equation}&[4]
+    J_\text{n}=nq\mu_\text{n}\Emf+n\kB T\mu_\text{n}\dv{\ln n}{x}
+\end{Equation}
+试着提取一些公共项
+\begin{Equation}&[5]
+    J_\text{n}=nq\mu_\text{n}\qty[\Emf+\frac{\kB T}{q}\dv{\ln n}{x}]
+\end{Equation}
+根据\fancyref{fml:非平衡态下的电子浓度}
+\begin{Equation}&[6]
+    n=n_\text{i}\exp(\frac{E_\text{F}-E_\text{i}}{\kB T})
+\end{Equation}
+在\xrefpeq{6}两端取对数
+\begin{Equation}&[7]
+    \ln n=\ln n_i+\frac{E_\text{F}-E_\text{i}}{\kB T}
+\end{Equation}
+进而是
+\begin{Equation}&[8]
+    \dv{\ln n}{x}=\frac{1}{\kB T}\qty(\dv{E_\text{F}}{x}-\dv{E_\text{i}}{x})
+\end{Equation}
+将\xrefpeq{8}代入\xrefpeq{5}，得到
+\begin{Equation}&[9]
+    J_\text{n}=nq\mu_\text{n}\qty[\Emf+\frac{1}{q}\qty(\dv{E_\text{F}}{x}-\dv{E_\text{i}}{x})]
+\end{Equation}
+而根据前面的讨论，$E_\text{i}$的变化与$-qV(x)$是一致的，故
+\begin{Equation}&[10]
+    \dv{E_\text{i}}{x}=-q\dv{V(x)}{x}=-q\Emf
+\end{Equation}
+将\xrefpeq{10}代入\xrefpeq{9}中
+\begin{Equation}&[11]
+    J_\text{n}=nq\mu_\text{n}\dv{E_\text{F}}{x}
+\end{Equation}
+类似的，我们亦可以证明
+\begin{Equation}&[12]
+    J_\text{p}=p\mu_\text{p}\dv{E_\text{F}}{x}
+\end{Equation}
+而在平衡PN结中，电子和空穴的净电流$J_\text{n},J_\text{p}$均为零
+\begin{Equation}
+    J_\text{n}=J_\text{p}=0
+\end{Equation}
+因而
+\begin{Equation}
+    \dv{E_\text{F}}{x}=0\qquad E_\text{F}=C
+\end{Equation}
+这就论证了在平衡PN结中，费米能级$E_\text{F}$必须是一个常数。
+
+这里\xrefpeq{11}和\xrefpeq{12}亦有理论价值，其将电流密度与费米能级联系在了一起。
+\begin{BoxFormula}[电流密度与费米能级]
+    电子的电流密度，正比于电子浓度和费米能级的变化率的积
+    \begin{Equation}
+        J_\text{n}=nq\mu_\text{n}\dv{E_\text{F}}{x}
+    \end{Equation}
+    空穴的电流密度，正比于空穴浓度和费米能级的变化率的积
+    \begin{Equation}
+        J_\text{p}=pq\mu_\text{P}\dv{E_\text{F}}{x}
+    \end{Equation}
+\end{BoxFormula}
+
+\subsection{PN结的接触电势差}
+在本小节，我们解决一个问题，即先前的$V_D$到底是多少？我们将平衡PN结空间电荷区两端间的电势差$V_\text{D}$称为PN结的\uwave{内建电势差}或\uwave{接触电势差}（Contact Potential Difference）。
+
+在\xref{fig:PN结的能带图}中，我们看到，PN结的接触电势差$V_\text{D}$使PN结在空间电荷区中的能带发生弯曲，而因能带弯曲，电子从势能低的N区向势能高的P区运动时，必须克服这一势能“壁垒”，故空间电荷区亦被形象的称为\uwave{势垒区}（Barrier Region），势垒的高$qV_D$则称为\uwave{势垒高度}（Barrier Height）。很明显，势垒高度$qV_\text{D}$正好补偿了N区和P区原有的费米能级之差，即有
+\begin{BoxFormula}[势垒高度]
+    势垒高度补偿了N区和P区的费米能级之差，即
+    \begin{Equation}
+        qV_\text{D}=E_\text{Fn}-E_\text{Fp}
+    \end{Equation}
+\end{BoxFormula}
+那么，接触电势差$V_\text{D}$到底如何求呢？关键在于利用载流子浓度。\setpeq{接触电势差}
+
+在PN结中，载流子浓度有四个，以下分别表示：N区空穴、N区电子、P区空穴、P区电子
+\begin{Equation}&[1]
+    p_\text{N0}\qquad n_\text{N0}\qquad
+    p_\text{P0}\qquad n_\text{P0}
+\end{Equation}
+在这里我们要用的是N区和P区中的电子浓度$n_\text{N0},n_\text{P0}$，根据\fancyref{fml:导带电子浓度}
+\begin{Equation}&[2]
+    n_\text{N0}=n_\text{i}\exp(\frac{E_\text{Fn}-E_\text{i}}{\kB T})\qquad
+    n_\text{P0}=n_\text{i}\exp(\frac{E_\text{Fp}-E_\text{i}}{\kB T})
+\end{Equation}
+两式相除，取对数
+\begin{Equation}&[3]
+    \ln\frac{n_\text{N0}}{n_\text{P0}}=\frac{1}{\kB T}\qty(E_\text{Fn}-E_\text{Fp})=\frac{qV_\text{D}}{\kB T}
+\end{Equation}
+关注到$n_\text{N0}$为N型区多子浓度，而$n_\text{P0}$为P型区少子浓度
+\begin{Equation}&[4]
+    n_\text{N0}=N_\text{D}\qquad
+    n_\text{P0}=\frac{n_\text{i}^2}{N_\text{A}}
+\end{Equation}
+将\xrefpeq{4}代入\xrefpeq{3}左端
+\begin{Equation}&[5]
+    \ln\frac{n_\text{N0}}{n_\text{P0}}=\ln\frac{N_\text{D}N_\text{A}}{n_\text{i}^2}
+\end{Equation}
+联立\xrefpeq{3}和\xrefpeq{5}
+\begin{BoxFormula}[接触电势差]
+    PN结的接触电势差$V_\text{D}$满足
+    \begin{Equation}
+        V_\text{D}=\frac{\kB T}{q}\ln\frac{N_\text{D}N_\text{A}}{n_\text{i}^2}
+    \end{Equation}
+\end{BoxFormula}
+
+\xref{fml:接触电势差}表明，PN结的接触电势差由PN结自身特性确定，掺杂越多，温度越高，禁带宽度越大（$n_\text{i}$越大），接触电势差就越大。硅的禁带比锗宽，因此，硅PN结的$V_\text{D}$也比锗PN结要更大些，若$N_\text{A}=10^{17}\si{cm}^{-3},N_\text{D}=10^{15}\si{cm^{-3}}$，室温下，硅$V_\text{D}=0.70\si{V}$，锗$V_\text{D}=0.32\si{V}$。
+
+\subsection{PN结的载流子分布}
+在本小节，我们要研究在PN结中，形成空间电荷区后，载流子的浓度将会如何分布？
+\begin{BoxFormula}[PN结的平衡载流子浓度]
+    PN结在平衡状态下，电子的平衡载流子浓度为
+    \begin{Equation}&[A]
+        n(x)=n_\text{N0}\exp[\frac{qV(x)-qV_\text{D}}{\kB T}]
+    \end{Equation}
+    PN结在平衡状态下，空穴的平衡载流子浓度为
+    \begin{Equation}&[B]
+        p(x)=p_\text{P0}\exp[\frac{-qV(x)}{\kB T}]
+    \end{Equation}
+    这里$n_\text{N0}$和$p_\text{P0}$分别是P区和N区的多子浓度。
+\end{BoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:导带电子浓度}，这里$E_\text{cn}$代表N区的导带底
+    \begin{Equation}
+        \qquad\qquad
+        n(x)=N_\text{c}\exp[\frac{E_\text{F}-E_\text{c}(x)}{\kB T}]=N_\text{c}\exp[\frac{E_\text{F}-E_\text{cn}}{\kB T}]\exp[\frac{E_\text{cn}-E_\text{c}(x)}{\kB T}]
+        \qquad\qquad
+    \end{Equation}
+    引入$n_\text{N0}$，如\xref{fig:PN结的能带图}所示，取$E_\text{cp}$为零参考点，则$E_\text{c}(x)=-qV(x)$，而$E_\text{cn}=-qV_\text{D}$
+    \begin{Equation}
+        n(x)=n_\text{N0}\exp[\frac{E_\text{cn}-E_\text{c}(x)}{\kB T}]=n_\text{N0}\exp[\frac{qV(x)-qV_\text{D}}{\kB T}]
+    \end{Equation}
+    根据\fancyref{fml:导带电子浓度}，这里$E_\text{vp}$代表P区价带底
+    \begin{Equation}
+        \qquad\qquad
+        p(x)=N_\text{v}\exp[\frac{E_\text{v}(x)-E_\text{F}}{\kB T}]=N_\text{v}\exp[\frac{E_\text{vp}-E_\text{F}}{\kB T}]\exp[\frac{E_\text{v}(x)-E_\text{vp}(x)}{\kB T}]
+        \qquad\qquad
+    \end{Equation}
+    引入$p_\text{P0}$，如\xref{fig:PN结的能带图}所示，取$E_\text{vp}$为零参考点，则$E_\text{v}(x)=-qV(x)$，而$E_\text{vp}=0$
+    \begin{Equation}
+        p(x)=p_\text{P0}\exp[\frac{E_\text{v}(x)-E_\text{vp}}{\kB T}]=p_\text{P0}\exp[\frac{-qV(x)}{\kB T}]
+    \end{Equation}
+    由此，我们就得到了\xrefpeq{A}和\xrefpeq{B}。
+\end{Proof}
+
+若以$x_\text{p}$和$x_\text{n}$表示空间电荷区在P区和N区的边界，则
+\begin{Equation}
+    V(x_\text{p})=0\qquad V(x_\text{n})=V_\text{D}
+\end{Equation}
+而显然少子浓度分别满足$n_\text{P0}=n(x_\text{p})$和$p_\text{N0}=p(x_\text{n})$，将上式代入，即得以下结论。
+\begin{BoxFormula}[PN结多子浓度与少子浓度的关系]*
+    PN结中，电子在P区的少子浓度$n_\text{P0}$和其在N区的多子浓度$n_\text{N0}$的关系是
+    \begin{Equation}
+        n_\text{P0}=n(x_\text{p})=n_\text{N0}\exp[\frac{-qV(x)}{\kB T}]
+    \end{Equation}
+    PN结中，空穴在N区的少子浓度$p_\text{N0}$和其在P区的多子浓度$p_\text{P0}$的关系是
+    \begin{Equation}
+        p_\text{N0}=p(x_\text{n})=p_\text{P0}\exp[\frac{-qV(x)}{\kB T}]
+    \end{Equation}
+\end{BoxFormula}
+
