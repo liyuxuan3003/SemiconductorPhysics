@@ -1,0 +1,170 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[thick,fill=red!30!white]
+    (-2*0.7071,0) coordinate (P1) 
+    rectangle
+    node[black] {P}
+    (-6,1) coordinate (P2);
+
+\draw[thick,fill=blue!30!white]
+    (+2*0.7071,0) coordinate (N1) 
+    rectangle
+    node[black] {N}
+    (+6,1) coordinate (N2);
+
+\draw[thick,fill=gray]
+    (P1) coordinate (M1) rectangle (N1|-N2) coordinate (Q2);
+
+\path 
+    (M1-|Q2) coordinate (M2)
+    (M1|-Q2) coordinate (Q1);
+
+\draw[thin,dashed]
+    ($(M1)!0.5!(M2)$) -- ($(Q1)!0.5!(Q2)$);
+
+\foreach \x in {0.15,0.35}
+{
+    \foreach \y in {0.33,0.67}
+    {
+        \path
+            ($(M1)!\y!(Q1)$) coordinate (Y)
+            ($(M1)!\x!(M2)$) coordinate (X)
+            (X|-Y) node[white] {$-$};
+    }
+}
+
+\foreach \x in {0.65,0.85}
+{
+    \foreach \y in {0.33,0.67}
+    {
+        \path
+            ($(M1)!\y!(Q1)$) coordinate (Y)
+            ($(M1)!\x!(M2)$) coordinate (X)
+            (X|-Y) node[white] {$+$};
+    }
+}
+
+\draw[thick] 
+(-6,-1) 
+coordinate (Ecp)
+node[left] {$E_\text{cp}$} --
+(Ecp-|P1);
+
+\draw[thick] 
+(-6,-5) 
+coordinate (Evp)
+node[left] {$E_\text{vp}$} --
+(Evp-|P1);
+
+\draw[thick,red] 
+(-6,-4.5) 
+coordinate (EFp)
+node[left] {$E_\text{Fp}$} --
+++(2,0)
+coordinate (EFp');
+
+\draw[thick,dotted,blue]
+(EFp)--(EFp');
+
+\draw[dashed,gray]
+(-6,-3)
+coordinate (Eip)
+node[left] {$E_\text{ip}$} --
+(Eip-|P1);
+
+%-----------------------------
+
+\draw[thick] 
+(+6,-2.5) 
+coordinate (Ecn)
+node[right] {$E_\text{cn}$} --
+(Ecn-|N1);
+
+\draw[thick] 
+(+6,-6.5) 
+coordinate (Evn)
+node[right] {$E_\text{vn}$} --
+(Evn-|N1);
+
+\draw[thick,blue] 
+(+6,-3.0) 
+coordinate (EFn)
+node[right] {$E_\text{Fn}$} --
+++(-2,0)
+coordinate (EFn');
+
+\draw[thick,dotted,red]
+(EFn)--(EFn');
+
+\draw[dashed,gray]
+(+6,-4.5)
+coordinate (Ein)
+node[right] {$E_\text{in}$} --
+(Ein-|N1);
+
+%-----------------------------
+
+\draw[thick,blue]
+(EFp')--
+node[above left,pos=0.5] {$E_\text{Fn}$}
+(EFn-|P1)--
+node[below,pos=0.7] {$E_\text{Fn}$}
+(EFn');
+
+\draw[thick,red]
+(EFn')--
+node[below right,pos=0.5] {$E_\text{Fp}$}
+(EFp-|N1)--
+node[above,pos=0.7] {$E_\text{Fp}$}
+(EFp');
+
+
+\draw[dashed,gray]
+plot[domain=-2*0.7071:0,smooth,samples=200]
+(\x,{-3-0.375*(1.4142+\x)^2})--
+plot[domain=0:+2*0.7071,smooth,samples=200]
+(\x,{-4.5+0.375*(-1.4142+\x)^2});
+
+\draw[thick,black]
+plot[domain=-2*0.7071:0,smooth,samples=200]
+(\x,{-1-0.375*(1.4142+\x)^2})--
+plot[domain=0:+2*0.7071,smooth,samples=200]
+(\x,{-2.5+0.375*(-1.4142+\x)^2});
+
+\draw[thick,black]
+plot[domain=-2*0.7071:0,smooth,samples=200]
+(\x,{-5-0.375*(1.4142+\x)^2})--
+plot[domain=0:+2*0.7071,smooth,samples=200]
+(\x,{-6.5+0.375*(-1.4142+\x)^2});
+
+%-----------------------------
+
+\draw[thick,black,dotted] 
+(-2,-1) -- (+6,-1);
+
+\draw[thick,black,dotted] 
+(+2,-6.5) -- (-6,-6.5);
+
+\draw[<->] (-5,-5) -- 
+node[right] {$q(V_\text{D}-V)$}  (-5,-6.5);
+
+\draw[<->] (+5,-1) -- 
+node[left] {$q(V_\text{D}-V)$}  (+5,-2.5);
+
+%-----------------------------
+
+
+\foreach \x in {-6,-2*0.7071,0,+2*0.7071,+6}
+{
+    \draw[dotted,gray,thin]
+    (\x,0) -- (\x,-8);
+}
+\path (0,-8) node[below] {$0$};
+\path (-2*0.7071,-8) node[below] {$x_\text{p}$};
+\path (+2*0.7071,-8) node[below] {$x_\text{n}$};
+
+\end{tikzpicture}
+\end{document}

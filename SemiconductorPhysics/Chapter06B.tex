@@ -35,14 +35,14 @@
 \end{Figure}
 现在的问题是，当P型半导体和N型半导体形成PN结后，在交界区域，这些能量将会以何种方式变化？很自然的一种想法是，原先相同的$E_\text{c},E_\text{v},E_\text{i}$仍然相同，以直线相连，原先不同的$E_\text{F}$在空间电荷区以某种平滑的方式由$E_\text{Fp}$抬升至$E_\text{Fc}$，但很遗憾的是，这并不正确。正如\xref{fig:PN结的能带图}所示的那样，恰相反！费米能级反而在PN结中变得相等！费米能级$E_\text{Fp}$和$E_\text{Fn}$在各自区域中相对$E_\text{cp},E_\text{vp}$和$E_\text{cn},E_\text{vp}$的位置亦没有变化，这就是说，能带发生了相对移动！\goodbreak
 
-我们可能会对这个结果感到不解，毕竟，为何要假设能带相对移动呢？但其实细想一下，能带移动才是更为合理的假设。因为PN结中存在由N区指向P区的内建电场，换言之，PN结中的电势不是均等的，P区电势较低，N区电势较高。尽管此刻我们尚不知道电势$V(X)$具体的数学形式\footnote{稍后有一张PN结电势$V(x)$的图像（其实就是把$E_\text{c},E_\text{v}$的趋势倒过来），再晚些我们会推导$V(X)$的表达式。}，但我们可以预见的是，若以P区电势作为电势$V(X)$的零参考点
+我们可能会对这个结果感到不解，毕竟，为何要假设能带相对移动呢？但其实细想一下，能带移动才是更为合理的假设。因为PN结中存在由N区指向P区的内建电场，换言之，PN结中的电势不是均等的，P区电势较低，N区电势较高。尽管此刻我们尚不知道电势$V(x)$具体的数学形式\footnote{稍后有一张PN结电势$V(x)$的图像（其实就是把$E_\text{c},E_\text{v}$的趋势倒过来），再之后我们会推导$V(x)$的表达式。}，但我们可以预见的是，若以P区电势作为电势$V(x)$的零参考点
 \begin{itemize}
     \item 电势$V(x)$在负端，即远离空间电荷区的P区为$0$。
     \item 电势$V(x)$在正端，即远离空间电荷区的N区为某一定值，记作$V_\text{D}$。
-    \item 电势$V(X)$在空间电荷区中，逐渐由$0$增长至$V_\text{D}$（姑且不关心这个函数的具体形式）。
+    \item 电势$V(x)$在空间电荷区中，逐渐由$0$增长至$V_\text{D}$（姑且不关心这个函数的具体形式）。
 \end{itemize}
 
-而能带反映的是电子的能量，这当然要包含电子的电势能$-qV(X)$，而$-qV(X)$从负到正是逐渐减小的，这也就是为何在PN结中，N型区能带相对P型区能带会向下偏移。所以说，能带移动是合理的。但这仍然没有解释，能带移动后为何恰好对齐至费米能级一致$E_\text{Fp}=E_\text{Fn}$的位置了呢？实际上，这是平衡PN结中没有净电流的直接结果，下面我们来证明这一点。\setpeq{电流密度与费米能级的关系}
+而能带反映的是电子的能量，这当然要包含电子的电势能$-qV(x)$，而$-qV(x)$从负到正是逐渐减小的，这也就是为何在PN结中，N型区能带相对P型区能带会向下偏移。所以说，能带移动是合理的。但这仍然没有解释，能带移动后为何恰好对齐至费米能级一致$E_\text{Fp}=E_\text{Fn}$的位置了呢？实际上，这是平衡PN结中没有净电流的直接结果，下面我们来证明这一点。\setpeq{电流密度与费米能级的关系}
 
 我们先来计算电子电流，根据\fancyref{fml:载流子的漂移扩散}
 \begin{Equation}&[1]
@@ -204,11 +204,26 @@
 \begin{BoxFormula}[PN结多子浓度与少子浓度的关系]*
     PN结中，电子在P区的少子浓度$n_\text{P0}$和其在N区的多子浓度$n_\text{N0}$的关系是
     \begin{Equation}
-        n_\text{P0}=n(x_\text{p})=n_\text{N0}\exp[\frac{-qV(x)}{\kB T}]
+        n_\text{P0}=n(x_\text{p})=n_\text{N0}\exp[\frac{-qV_\text{D}}{\kB T}]
     \end{Equation}
     PN结中，空穴在N区的少子浓度$p_\text{N0}$和其在P区的多子浓度$p_\text{P0}$的关系是
     \begin{Equation}
-        p_\text{N0}=p(x_\text{n})=p_\text{P0}\exp[\frac{-qV(x)}{\kB T}]
+        p_\text{N0}=p(x_\text{n})=p_\text{P0}\exp[\frac{-qV_\text{D}}{\kB T}]
     \end{Equation}
 \end{BoxFormula}
+在\xref{fig:PN结的载流子浓度与电势分布}，我们可以很直观的看到PN结中载流子浓度是如何分布的。
+\begin{Figure}[PN结的载流子浓度与电势分布]
+    \begin{FigureSub}[PN结的载流子浓度]
+        \includegraphics[scale=0.75]{build/Chapter06B_01.fig.pdf}
+    \end{FigureSub}\\ \vspace{0.5cm}
+    \begin{FigureSub}[PN结的电势分布]
+        \includegraphics[scale=0.75]{build/Chapter06B_02.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
 
+\begin{itemize}
+    \item 空穴，在P区是多子，浓度较高，在N区则是少子，浓度较低。空穴浓度$p(x)$随着$x$的增加（由P区至N区），在势垒区会逐渐减小，由多子浓度$p_\text{P0}$\hspace{1ex}趋向少子浓度$p_\text{N0}$。
+    \item 电子，在N区是多子，浓度较高，在P区则是少子，浓度较低。电子浓度$n(x)$随着$x$的减少（由N区至P区），在势垒区会逐渐减小，由多子浓度$n_\text{N0}$趋向少子浓度$n_\text{P0}$。
+\end{itemize}
+
+这里可能会有疑问，在\fancyref{fml:PN结的平衡载流子浓度}中的$n(x)$和$p(x)$内还包含未知的$V(x)$，\xref{fig:PN结的载流子浓度}中$n(x),p(x)$的图像，\xref{fig:PN结的电势分布}中$V(x)$的图像，又是怎么作出来的？我们会在本章稍后解答这个问题，我们将在计算PN结电容的过程中求出$V(x)$的具体表达式。

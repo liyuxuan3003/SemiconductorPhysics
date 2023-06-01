@@ -1,0 +1,177 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+    
+\tikzset{axi/.style={very thin,gray,->}}
+
+\draw[axi]
+    (-4.5,0) coordinate (X1)
+    --
+    (+4.5,0) coordinate (X2)
+    node[above] {$x$};
+
+\draw[axi]
+    (0,0) coordinate (Y1)
+    node[point] {}
+    --
+    (0,4) coordinate (Y2)
+    node[right,blue] {$n\vphantom{p}$}
+    node[left , red] {$p$};
+
+\draw[red!60!white,thick]
+    plot[samples=100,domain=-4:-1,smooth] 
+    (\x,{3*1}) --
+    plot[samples=100,domain=-1:0,smooth]
+    (\x,{3*exp(-0.5*(1+\x)*(1+\x))}) --
+    plot[samples=100,domain=0:1,smooth]
+    (\x,{3*exp(0.5*(-1-2*\x+\x*\x))}) --
+    plot[samples=100,domain=1:4,smooth]
+    (\x,{3/e});
+
+\draw[red]
+    plot[samples=100,domain=-4:-0.707107,smooth] 
+    (\x,{3*1}) --
+    plot[samples=100,domain=-0.707107:0,smooth]
+    (\x,{3*0.778801*exp(-0.5*(\x)*(1.41421+\x))}) --
+    plot[samples=100,domain=0:0.707107,smooth]
+    (\x,{3*0.778801*exp(0.5*(\x)*(-1.41421+\x))}) --
+    plot[samples=100,domain=0.707107:4,smooth]
+    (\x,{3*(1/e+0.484012*exp(-\x))}); 
+
+\draw[red!30!white]
+    plot[samples=100,domain=-4:-1.22474,smooth] 
+    (\x,{3*1}) --
+    plot[samples=100,domain=-1.22474:0,smooth]
+    (\x,{3*0.472367*exp(-0.5*(\x)*(2.44949+\x))}) --
+    plot[samples=100,domain=0:1.22474,smooth]
+    (\x,{3*0.472367*exp(0.5*(\x)*(-2.44949+\x))}) --
+    plot[samples=100,domain=1.22474:4,smooth]
+    (\x,{3*(1/e-0.492625*exp(-\x))}); 
+
+\draw[blue!60!white,thick]
+    plot[samples=100,domain=-4:-1,smooth] 
+    (\x,{3/e}) --
+    plot[samples=100,domain=-1:0,smooth]
+    (\x,{3*exp(-0.5+\x+\x*\x/2)}) --
+    plot[samples=100,domain=0:1,smooth]
+    (\x,{3*exp(-0.5*(-1+\x)*(-1+\x))}) --
+    plot[samples=100,domain=1:4,smooth]
+    (\x,{3*1}); 
+
+\draw[blue]
+    plot[samples=100,domain=-4:-0.707107,smooth] 
+    (\x,{3*(0.367879+0.484012*exp(\x))}) --
+    plot[samples=100,domain=-0.707107:0,smooth]
+    (\x,{3*0.778801*exp(0.5*(\x)*(1.41421+\x))}) --
+    plot[samples=100,domain=0:0.707107,smooth]
+    (\x,{3*0.778801*exp(-0.5*(\x)*(-1.41421+\x))}) --
+    plot[samples=100,domain=0.707107:4,smooth]
+    (\x,{3*1}); 
+
+\draw[blue!30!white]
+    plot[samples=100,domain=-4:-1.22474,smooth] 
+    (\x,{3*(0.367879-0.492625*exp(\x))}) --
+    plot[samples=100,domain=-1.22474:0,smooth]
+    (\x,{3*0.472367*exp(0.5*(\x)*(2.44949+\x))}) --
+    plot[samples=100,domain=0:1.22474,smooth]
+    (\x,{3*0.472367*exp(-0.5*(\x)*(-2.44949+\x))}) --
+    plot[samples=100,domain=1.22474:4,smooth]
+    (\x,{3*1}); 
+
+\path
+    (0,3*0.606531) node[point] {}
+    (0,3*0.472367) node[point] {}
+    (0,3*0.778801) node[point] {};
+
+\path
+(-0.707106,3) node[point=red,name=R1] {}
+(-1,3) node[point=red!60!white,name=R2] {}
+(-1.22474,3) node[point=red!30!white,name=R3] {};
+
+\path
+(+0.707106,3) node[point=blue,name=B1] {}
+coordinate(B1)
+(+1,3) node[point=blue!60!white,name=B2] {}
+coordinate(B2)
+(+1.22474,3) node[point=blue!30!white,name=B3] {};
+
+\path
+(+0.707106,3*0.606531) node[point=red,name=R1'] {}
+(+1,3*0.367879) node[point=red!60!white,name=R2'] {}
+(+1.22474,3*0.22313) node[point=red!30!white,name=R3'] {};
+
+\path
+(-0.707106,3*0.606531) node[point=blue,name=B1'] {}
+(-1,3*0.367879) node[point=blue!60!white,name=B2'] {}
+(-1.22474,3*0.22313) node[point=blue!30!white,name=B3'] {};
+
+\draw[gray,dotted,thin] (R1)--(B1')--(R1|-X2)
+node[point] {} node[above right] {\tiny $+$}
+-- ++(0,-1);
+\draw[gray,dotted,thin] (R2)--(B2')--(R2|-X2)
+node[point] {} node[below,black] {$x_\text{p}$}
+-- ++(0,-2);
+\draw[gray,dotted,thin] (R3)--(B3')--(R3|-X2)
+node[point] {} node[above left] {\tiny $-$}
+-- ++(0,-3);
+
+\draw[gray,dotted,thin] (B1)--(R1')--(B1|-X2)
+node[point] {} node[above left] {\tiny $+$}
+-- ++(0,-1);
+\draw[gray,dotted,thin] (B2)--(R2')--(B2|-X2)
+node[point] {} node[below,black] {$x_\text{n}$}
+-- ++(0,-2);
+\draw[gray,dotted,thin] (B3)--(R3')--(B3|-X2)
+node[point] {} node[above right] {\tiny $-$}
+-- ++(0,-3);
+
+\draw[red] (-4,2.5) -- ++(0.5,0) 
+node[right] {$p$~\footnotesize 正偏};
+\draw[red!60!white,thick] (-4,2.1) -- ++(0.5,0) 
+node[right] {$p$~\footnotesize 平衡};
+\draw[red!30!white] (-4,1.7) -- ++(0.5,0) 
+node[right] {$p$~\footnotesize 反偏};
+
+\draw[blue] (+4,2.5) -- ++(-0.5,0) 
+node[left] {$n$~\footnotesize 正偏};
+\draw[blue!60!white,thick] (+4,2.1) -- ++(-0.5,0) 
+node[left] {$n$~\footnotesize 平衡};
+\draw[blue!30!white] (+4,1.7) -- ++(-0.5,0) 
+node[left] {$n$~\footnotesize 反偏};
+
+\draw[fill=red!80!white]  (-4,-1.5) rectangle (-0.707106,-1);
+\draw[fill=blue!80!white] (+4,-1.5) rectangle (+0.707106,-1);
+\draw[fill=gray] (-0.707106,-1) rectangle (+0.707106,-1.5);
+
+\draw[white,-latex] (-0.5,-1.42) -- node[above] {\small $V_{+}$} (+0.5,-1.42);
+
+\draw[fill=red!60!white]  (-4,-2.5) rectangle (-1,-2);
+\draw[fill=blue!60!white] (+4,-2.5) rectangle (+1,-2);
+\draw[fill=gray] (-1,-2) rectangle (+1,-2.5);
+
+\draw[fill=red!30!white]  (-4,-3.5) rectangle (-1.22474,-3);
+\draw[fill=blue!30!white] (+4,-3.5) rectangle (+1.22474,-3);
+\draw[fill=gray] (-1.22474,-3) rectangle (+1.22474,-3.5);
+
+\draw[white,latex-] (-0.5,-3.42) -- node[above] {\small $V_{-}$} (+0.5,-3.42);
+
+\draw[black,latex-] (-1,-0.75) -- node[above] {\small $V_{D}$} (+1,-0.75);
+
+\draw (0,-1.5) node[below] {\footnotesize 正偏PN结};
+\draw (0,-2.5) node[below] {\footnotesize 平衡PN结};
+\draw (0,-3.5) node[below] {\footnotesize 反偏PN结};
+
+\foreach \x in {-1.25,-2.25,-3.25}
+{
+    \path (-3,\x) node[white] {P};
+    \path (+3,\x) node[white] {N};
+}
+
+\path (-4,3) node[red!60!white,above] {$p_\text{P0}$};
+\path (-4,3/e) node[blue!60!white,below] {$n_\text{P0}$};  
+\path (+4,3/e) node[red!60!white,below] {$p_\text{N0}$};
+\path (+4,3) node[blue!60!white,above] {$n_\text{N0}$};  
+
+\end{tikzpicture}
+\end{document}

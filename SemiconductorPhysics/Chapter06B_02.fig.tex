@@ -1,0 +1,97 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+    
+\tikzset{axi/.style={very thin,gray,->}}
+
+\draw[axi]
+    (-4.5,0) coordinate (X1)
+    --
+    (+4.5,0) coordinate (X2)
+    node[above] {$x$};
+
+\draw[axi]
+    (0,0) coordinate (Y1)
+    node[point] {}
+    --
+    (0,4) coordinate (Y2)
+    node[right,black] {$V(x)$};
+
+\draw[black!60!white,thick]
+    plot[samples=100,domain=-4:-1,smooth] 
+    (\x,{2*0}) --
+    plot[samples=100,domain=-1:0,smooth]
+    (\x,{2*(0.5*(1+\x)*(1+\x))}) --
+    plot[samples=100,domain=0:1,smooth]
+    (\x,{2*(0.5+\x-\x*\x/2)}) --
+    plot[samples=100,domain=1:4,smooth]
+    (\x,{2*1})
+    node[above left] {\small $V(x)$~\footnotesize 平衡};
+
+\draw[black]
+    plot[samples=100,domain=-4:-0.707107,smooth] 
+    (\x,{2*0}) --
+    plot[samples=100,domain=-0.707107:0,smooth]
+    (\x,{2*0.5*(0.5+1.41421*\x+\x*\x)}) --
+    plot[samples=100,domain=0:0.707107,smooth]
+    (\x,{2*(0.25+0.707107*\x-0.5*\x*\x)}) --
+    plot[samples=100,domain=0.707107:4,smooth]
+    (\x,{2*0.5})
+    node[above left] {\small $V(x)$~\footnotesize 正偏};
+
+\draw[black!30!white]
+    plot[samples=100,domain=-4:-1.22474,smooth] 
+    (\x,{2*0}) --
+    plot[samples=100,domain=-1.22474:0,smooth]
+    (\x,{2*(0.5*(1.5+2.44949*\x+\x*\x))}) --
+    plot[samples=100,domain=0:1.22474,smooth]
+    (\x,{2*(0.75+1.22474*\x-0.5*\x*\x)}) --
+    plot[samples=100,domain=1.22474:4,smooth]
+    (\x,{2*1.5})
+    node[above left] {\small $V(x)$~\footnotesize 反偏};
+
+\draw[black!60!white,<->,very thin]
+    (2,2*1) -- node[left,pos=0.2] {\small$V_\text{D}$} (2,0);
+
+
+\draw[gray,dotted,thin] (-1.22474,0) node[point=black!30!white,name=L3] {} -- ++(0,-3) ;
+\draw[gray,dotted,thin] (-1,0) node[point=black!60!white,name=L2] {} -- ++(0,-2) ;
+\draw[gray,dotted,thin] (-0.707107,0) node[point=black,name=L1] {} -- ++(0,-1) ;
+
+\draw[gray,dotted,thin] (+1.22474,1.5*2) node[point=black!30!white,name=R3] {} -- (R3|-X2) node[point=black!30!white] {} -- ++(0,-3) ;
+\draw[gray,dotted,thin] (+1,1.0*2) node[point=black!60!white,name=R2] {} -- (R2|-X2) node[point=black!60!white] {} -- ++(0,-2) ;
+\draw[gray,dotted,thin] (+0.707107,0.5*2) node[point=black,name=R1] {} -- (R1|-X2) node[point=black] {} -- ++(0,-1) ;
+% \path (+1,1.0*2) coordinate(R2) node[point=black!60!white] {};
+% \path (+0.707107,0.5*2) coordinate(R1) node[point=black] {};
+
+\draw[fill=red!80!white]  (-4,-1.5) rectangle (-0.707106,-1);
+\draw[fill=blue!80!white] (+4,-1.5) rectangle (+0.707106,-1);
+\draw[fill=gray] (-0.707106,-1) rectangle (+0.707106,-1.5);
+
+\draw[white,-latex] (-0.5,-1.42) -- node[above] {\small $V_{+}$} (+0.5,-1.42);
+
+\draw[fill=red!60!white]  (-4,-2.5) rectangle (-1,-2);
+\draw[fill=blue!60!white] (+4,-2.5) rectangle (+1,-2);
+\draw[fill=gray] (-1,-2) rectangle (+1,-2.5);
+
+\draw[fill=red!30!white]  (-4,-3.5) rectangle (-1.22474,-3);
+\draw[fill=blue!30!white] (+4,-3.5) rectangle (+1.22474,-3);
+\draw[fill=gray] (-1.22474,-3) rectangle (+1.22474,-3.5);
+
+\draw[white,latex-] (-0.5,-3.42) -- node[above] {\small $V_{-}$} (+0.5,-3.42);
+
+\draw[black,latex-] (-1,-0.75) -- node[above] {\small $V_{D}$} (+1,-0.75);
+
+\draw (0,-1.5) node[below] {\footnotesize 正偏PN结};
+\draw (0,-2.5) node[below] {\footnotesize 平衡PN结};
+\draw (0,-3.5) node[below] {\footnotesize 反偏PN结};
+
+\foreach \x in {-1.25,-2.25,-3.25}
+{
+    \path (-3,\x) node[white] {P};
+    \path (+3,\x) node[white] {N};
+}
+
+\end{tikzpicture}
+\end{document}

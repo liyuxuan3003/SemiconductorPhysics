@@ -1,0 +1,214 @@
+\section{PN结的电流电压特性}
+在平衡PN结中，存在着具有一定宽度（空间上）和高度（能量上）的势垒，在势垒中出现了内建电场，载流子的扩散电流和漂移电流相互抵消，没有净电流通过PN结。本节讨论PN结的电流电压特性，就相当于是要讨论PN结在外加电压的非平衡状态下，将会如何工作？
+
+简而言之，本节的目标是：\empx{研究外加电场作用下非平衡PN结的性质}。
+
+\subsection{正向偏压下PN结的定性分析}
+当对PN结外加正向偏压$V$时（即，P区接正极，N区接负极），能带变化如\xref{fig:正向偏压下的能带结构}所示。
+\begin{Figure}[正向偏压下的能带结构]
+    \includegraphics[scale=0.75]{build/Chapter06A_09.fig.pdf}
+\end{Figure}
+\begin{itemize}
+    \item 势垒区内载流子浓度很小，电阻很大。
+    \item 势垒区外载流子浓度很大，电阻很小。
+\end{itemize}
+因此，正向偏压$V$基本降落在势垒区，正向偏压在势垒区中产生了与内建电场方向相反的电场，从而削弱了内建电场，因此势垒区宽度减小，并且势垒高度由$qV_\text{D}$减小至$q(V_\text{D}-V)$。
+
+势垒区的电场减弱，破坏了载流子的扩散运动和漂移运动原有的平衡，电场导致漂移，电场减弱，势垒区的扩散流就将大于漂移流。这样一来，当少子扩散通过势垒区后在势垒区边界出的浓度$n(x_\text{p})$和$p(x_\text{n})$，比相应的平衡少子浓度$n_\text{P0}, p_\text{P0}$要高。而这一部分多出来的少子就分别成为了P区和N区的非平衡载流子，它们将分别形成由势垒区边界$x_\text{p}$和$x_\text{n}$向P区和N区内部的电子扩散流和空穴扩散流。在扩散过程中，非平衡少子将逐渐与多子复合，最终将减小至$n_\text{P0}$和$p_\text{N0}$，理论上来说，扩散过程需要蔓延无限长的距离，但通常可以认为经过数倍扩散长度$L_\text{n}$和$L_\text{p}$的距离后，扩散流中的少子就被基本复合殆尽了，这一段区域即称为\uwave{扩散区}。
+
+在\xref{chap:非平衡载流子}中，我们曾讨论过光注入的非平衡载流子，而在这里，这种通过对PN结外加正向偏压，使得PN结的势垒区边界出现的非平衡载流子，相应的就称为电注入的非平衡载流子。
+
+\subsection{反向偏压下PN结的定性分析}
+当对PN结外加反向偏压$V$时（即，P区接负极，N区接正极），能带变化如\xref{fig:反向偏压下的能带结构}所示。
+
+\begin{Figure}[反向偏压下的能带结构]
+    \includegraphics[scale=0.75]{build/Chapter06A_10.fig.pdf}
+\end{Figure}
+
+正向偏压和反相偏压下，PN结的特性有相似之处，我们下面对比着来看。
+
+关于PN结势垒的变化，如\xref{fig:PN结的电势分布}所示
+\begin{itemize}
+    \item 正向偏压下，电场方向与内建电场相反，势垒宽度减小，势垒高度减小至$q(V_\text{D}-V)$。
+    \item 反相偏压下，电场方向与内建电场相同，势垒宽度增大，势垒高度增大至$q(V_\text{D}+V)$。
+\end{itemize}\goodbreak
+
+关于PN结载流子浓度的变化，如\xref{fig:PN结的载流子浓度}所示
+\begin{itemize}
+    \item 正向偏压下，势垒区的扩散流强于漂移流，势垒边缘的少数载流子浓度$n(x_\text{p})$和$p(x_\text{n})$高于两端的少子浓度$n_\text{P0}$和$p_\text{N0}$，非平衡载流子将由PN结的势垒边缘向两端扩散。
+    \item 反向偏压下，势垒区的扩散流弱于漂移流，势垒边缘的少数载流子浓度$n(x_\text{p})$和$p(x_\text{n})$低于两端的少子浓度$n_\text{P0}$和$p_\text{N0}$，非平衡载流子将由PN结的两端向势垒边缘扩散。
+\end{itemize}
+其实关于反向偏压下的载流子浓度，我们也可以这么理解，势垒区的扩散流弱于漂移流，漂移驱动的是少子，由于扩散流无法提供足够的少子，漂移将从PN结两端（即P区和N区的内部）进一步获得少子。这被形象的称为少数载流子的抽取或吸出。而在极端情况下，即假若反向电压很大，此时少数载流子几乎被抽取殆尽，在势垒区边界附近的少子浓度可以认为是零。
+
+\subsection{非平衡PN结的能带图}
+\xref{fig:正向偏压下的能带结构}和\xref{fig:反向偏压下的能带结构}中，注意到PN结在外加电压时，费米能级$E_\text{F}$分裂为了$E_\text{Fp},E_\text{Fn}$准费米能级\footnote{这里有必要澄清一下$E_\text{Fp},E_\text{Fn}$，在本章伊始，由\xref{fig:P型和N型半导体的能带图}引出\xref{fig:PN结的能带图}的过程中，记号$E_\text{Fn},E_\text{Fp}$是代表P区和N区的费米能级，我们看到，两块分离的P型和N型半导体$E_\text{Fn}\neq E_\text{Fp}$，两者形成PN结后则有$E_\text{Fn}=E_\text{Fp}$，即能带偏移，使P区和N区具有一致的费米能级。而当\xref{fig:PN结的能带图}作为平衡PN结引出正偏\xref{fig:正向偏压下的能带结构}和反偏\xref{fig:反向偏压下的能带结构}时，此时，记号$E_\text{Fn},E_\text{Fp}$的意义则分别转向表示电子和空穴的准费米能级，在平衡PN结中两者相等（平衡态的标志即统一的费米能级），在非平衡PN结中两者则不总是相等。}
+\begin{itemize}
+    \item 平衡区内有$E_\text{Fp}=E_\text{Fn}$，这很合理，平衡区和扩散区的分界即扩散的非平衡载流子的浓度可以忽略不计处，平衡区不存在非平衡载流子，而平衡态的标志即统一的费米能级。
+    \item 平衡区中不妨记$E_\text{F}=E_\text{Fp}=E_\text{Fn}$，注意到P区和N区的费米能级$E_\text{F}$是不同的
+    \begin{itemize}
+        \item 正向偏压下，势垒减小为$V_\text{D}-V$，N区能带随之上移，N区$E_\text{F}$将大于P区。
+        \item 反相偏压下，势垒增大为$V_\text{D}+V$，N区能带随之下移，N区$E_\text{F}$将小于P区。
+    \end{itemize}
+    \item 扩散区，由于有尚未复合完全的非平衡少数载流子的存在，费米能级发生分裂
+    \begin{itemize}
+        \item 正向偏压下，在P区，少子电子浓度因扩散增加，故$E_\text{Fn}$上移接近导带。
+        \item 反向偏压下，在P区，少子电子浓度因抽取减小，故$E_\text{Fn}$下移远离导带。
+        \item 正向偏压下，在N区，少子空穴浓度因扩散增加，故$E_\text{Fp}$下移接近价带。
+        \item 反向偏压下，在N区，少子空穴浓度因抽取减小，故$E_\text{Fp}$上移远离价带。
+    \end{itemize}
+    \item 扩散区中准费米能级以线性方式变化，尚不清楚这是实际情况，还只是作图上的简化。
+    \item 势垒区远小于扩散区\footnote{实际如此，\xref{fig:正向偏压下的能带结构}和\xref{fig:反向偏压下的能带结构}中势垒区和扩散区的长度未按此要求绘制。}，故可以近似认为费米能级在势垒区不变。
+\end{itemize}
+这里我们可能会有疑问，注意到在反向偏压时，如\xref{fig:反向偏压下的能带结构}所示，准费米能级已经跑到价带或导带中了，此时难道不该适用\xref{sec:简并半导体}中简并半导体的理论了吗？这是图像观察不仔细所致的，这里，进入价带的是电子准费米能级，进入导带的是空穴准费米能级，反而是更加非简并了。\goodbreak
+
+\subsection{非平衡PN结的载流子浓度}
+在定性计算非平衡PN结的载流子浓度前，我们还要做出几点理想化的假设
+\begin{enumerate}
+    \item 小注入条件：注入的少数载流子浓度比平衡多数载流子浓度小得多。
+    \item 突变耗尽层条件：耗尽层外的半导体是电中性的，即外加电压和接触电势差完全降落在耗尽层上，因此，注入的非平衡少数载流子在P区和N区的运动是纯扩散运动。
+    \item 玻尔兹曼边界条件：耗尽层两端，载流子分布满足玻尔兹曼统计分布。
+\end{enumerate}
+在本小节，我们只需要计算载流子作为少子在扩散区的分布，因为\fancyref{fml:PN结的平衡载流子浓度}在载流子进入对方扩散区前都是仍然适用的，只不过要将$qV_D$替换\footnote{应指出的是，在\fancyref{fml:PN结多子浓度与少子浓度的关系}中的$qV_\text{D}$无需替换为$q(V_\text{D}-V)$，该关系不随外加电压而变。}为$q(V_\text{D}-V)$
+\begin{Align}[10pt]
+    n(x)&=\begin{cases}
+        \mal{n_\text{N0}\exp[\frac{qV(X)-q(V_\text{D}-V)}{\kB T}]},&x\geq x_\text{p}\\
+        \mal{n_\text{P}(x)},&x<x_\text{p}
+    \end{cases}\\
+    p(x)&=\begin{cases}
+        \mal{p_\text{P0}\exp[\frac{-qV(x)}{\kB T}]},&\hspace{5.4em}x\leq x_\text{n}\\
+        \mal{p_\text{N}(x)},&\hspace{5.4em}x>x_\text{n}
+    \end{cases}
+\end{Align}
+这里我们用$V$的正负来表示正偏压和负偏压，若$V$为正即正偏压，若$V$为负即负偏压。
+
+这里我们要计算的就是$n_\text{P}(x)$和$p_\text{N}(x)$，平衡时两者即$n_\text{P0}$和$p_\text{N0}$的常数，当外加偏压时，两者分别是由PN结势垒边界的浓度$n(x_\text{p})$和$p(x_\text{n})$向PN结两端的$n_\text{P0}$和$p_\text{N0}$的扩散过程。
+
+\begin{BoxFormula}[PN结外加偏压时的少子浓度]
+    PN结外加偏压$V$时，在N区，空穴的载流子浓度为
+    \begin{Equation}
+        p_\text{N}(x)=p_\text{N0}+p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}-x}{L_\text{p}})
+    \end{Equation}
+    PN结外加偏压$V$时，在P区，电子的载流子浓度为
+    \begin{Equation}
+        n_\text{P}(x)=n_\text{P0}+n_\text{P0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x-x_\text{p}}{L_\text{n}})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:非平衡态下的载流子浓度乘积}
+    \begin{Equation}&[1]
+        np=n_\text{i}^2\exp\qty(\frac{E_\text{Fn}-E_\text{Fp}}{\kB T})
+    \end{Equation}
+    势垒区P区边界$x=x_\text{P}$处，如\xref{fig:正向偏压下的能带结构}和\xref{fig:反向偏压下的能带结构}所示，有$E_\text{Fn}-E_\text{Fp}=qV$，故
+    \begin{Equation}&[2]
+        n_\text{P}(x_\text{p})p_\text{P}(x_\text{p})=n_\text{i}^2\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    这里$p_\text{P}(x_\text{P})$作为P区多数载流子，可以作为常数$p_\text{P0}$代入
+    \begin{Equation}&[3]
+        n_\text{P}(x_\text{p})p_\text{P0}=n_\text{i}^2\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    而考虑到$n_\text{i}^2=n_\text{P0}p_\text{P0}$
+    \begin{Equation}&[5]
+        n_\text{P}(x_\text{p})=n_\text{P0}\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    所以说，注入P区边界的非平衡少数载流子浓度为
+    \begin{Equation}&[6]
+        \delt{n_\text{P}}(x_\text{p})=n_\text{P0}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    类似的，注入N区边界的非平衡少数载流子浓度为
+    \begin{Equation}&[7]
+        \delt{p_\text{N}}(x_\text{n})=p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    这两式子就是连续性方程求解所需的边界条件了。
+    
+    根据\fancyref{eqt:连续性方程}，在稳定态下，在N区中扩散的非平衡空穴的连续性方程为
+    \begin{Equation}&[8]
+        D_\text{p}\dv[2]{\delt{p_\text{N}}}{x}-\mu_\text{p}\Emf\dv{\delt{p_\text{N}}}{x}-\mu_\text{p}p_\text{N}\dv{\Emf}{x}-\frac{\delt{p_\text{N}}}{\tau_\text{p}}=0
+    \end{Equation}
+    在我们的假设下，外加电场和内建电场都仅存在于势垒区，扩散区无电场，故
+    \begin{Equation}&[9]
+        D_\text{P}\dv[2]{\delt{p_\text{N}}}{x}-\frac{\delt{p_\text{N}}}{\tau_\text{p}}=0
+    \end{Equation}
+    这是一个最简单的二阶微分方程，其通解为（其中$L_\text{p}=\sqrt{D_\text{p}\tau_\text{p}}$是扩散长度）
+    \begin{Equation}&[10]
+        \delt{p}_\text{N}(x)=A\exp(-\frac{x}{L_\text{p}})+B\exp(\frac{x}{L_\text{p}})
+    \end{Equation}
+    由于$\delt{p}_\text{N}$是在正半轴的N区上，故$B=0$舍去正指数项
+    \begin{Equation}&[11]
+        \delt{p}_\text{N}(x)=A\exp(-\frac{x}{L_\text{p}})
+    \end{Equation}
+    令$x=x_\text{n}$
+    \begin{Equation}&[12]
+        \delt{p}_\text{N}(x_\text{n})=A\exp(-\frac{x_\text{n}}{L_\text{p}})
+    \end{Equation}
+    将\xrefpeq{12}和\xrefpeq{7}联立
+    \begin{Equation}&[13]
+        A\exp(-\frac{x_\text{n}}{L_\text{p}})=p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    解得常数$A$
+    \begin{Equation}&[14]
+        A=p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}}{L_\text{p}})
+    \end{Equation}
+    将\xrefpeq{14}代回\xrefpeq{11}
+    \begin{Equation}
+        \delt{p_\text{N}}(x)=p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}-x}{L_\text{p}})
+    \end{Equation}
+    而$p_\text{N}(x)=p_\text{N0}+\delt{p}_\text{N}(x)$，故
+    \begin{Equation}
+        p_\text{N}(x)=p_\text{N0}+p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}-x}{L_\text{p}})
+    \end{Equation}
+    类似的可以得到
+    \begin{Equation}
+        n_\text{P}(x)=n_\text{P0}+n_\text{P0}\qty[\exp(\frac{qV}{\kB T}-1)]\exp(\frac{x-x_\text{p}}{L_\text{n}})
+    \end{Equation}
+    这里$x_\text{n}-x$变为$x-x_\text{p}$与\xrefpeq{10}舍去正指数项还是负指数项有关。
+\end{Proof}
+\xref{fig:PN结的载流子浓度}极为生动的展现本小节的工作，即正偏和反偏下PN结的载流子分布将如何变化？
+
+\subsection{PN结的电流电压特性}
+当在PN结上加一定电压时，在PN结上就会通过一定的电流，这些电流就来自\xref{subsec:非平衡PN结的载流子浓度}中我们计算的少子扩散流。很明显，通过PN结的总电流密度$J$就等于势垒边界$x_\text{n}$和$x_\text{p}$处的空穴扩散电流密度$J_\text{p}(x_\text{n})$和电子扩散电流密度$J_\text{n}(x_\text{p})$，当然，我们会说，为什么偏偏选取势垒边界处的电流密度来计算？实际上，扩散过程伴随着复合，扩散流其实是越来越弱的，但根据电流连续性原理，这些电流不可能凭空消失，实际上，随着载流子的复合，少子的扩散电流逐渐转化为多子的漂移电流，因此，选取哪个截面都一样，那就不妨选取最便捷的势垒边界了。
+
+\begin{BoxEquation}[肖克利方程]
+    \uwave{肖克利方程}（Shockley Equation）描述了理想PN结的电流电压特性
+    \begin{Equation}
+        J=J_\text{s}\qty[\exp\qty(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    其中$J_\text{s}$为
+    \begin{Equation}
+        J_\text{s}=\frac{qD_\text{n}n_\text{P0}}{L_\text{n}}+\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}
+    \end{Equation}
+\end{BoxEquation}
+
+\begin{Proof}
+    根据\xref{fml:载流子的漂移扩散}和\fancyref{fml:PN结外加偏压时的少子浓度}，计算空穴扩散流$J_\text{p}$
+    \begin{Equation}&[1]
+        J_\text{p}(x)=-qD_\text{p}\dv{p_\text{N}}{x}=\frac{qD_\text{p}}{L_\text{p}}p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}-x}{L_\text{p}})
+    \end{Equation}
+    根据\xref{fml:载流子的漂移扩散}和\fancyref{fml:PN结外加偏压时的少子浓度}，计算电子扩散流$J_\text{n}$
+    \begin{Equation}&[2]
+        J_\text{n}(x)=qD_\text{n}\dv{n_\text{P}}{x}=\frac{qD_\text{p}}{L_\text{p}}n_\text{P0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x-x_\text{p}}{L_\text{n}})
+    \end{Equation}
+    在\xrefpeq{1}中代入$x=x_\text{n}$
+    \begin{Equation}
+        J_\text{p}(x_\text{n})=\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    在\xrefpeq{2}中代入$x=x_\text{p}$
+    \begin{Equation}
+        J_\text{n}(x_\text{p})=\frac{qD_\text{n}n_\text{P0}}{L_\text{n}}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    因此
+    \begin{Equation}*
+        J=J_\text{p}(x_\text{n})+J_\text{n}(x_\text{p})=\qty(\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}+\frac{qD_\text{n}n_\text{P0}}{L_\text{n}})\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    若引入$J_\text{s}$作为代换变量
+    \begin{Equation}*
+        J=J_\text{s}\qty[\exp(\frac{qV}{\kB T})-1]\qedhere
+    \end{Equation}
+\end{Proof}
+
+根据\fancyref{eqt:肖克利方程}
+\begin{itemize}
+    \item 正向导通：PN结在正向偏压下，电流将随电压指数增大，故称为正向导通。
+    \item 反向截止：PN结在反向偏压下，电流将趋于$-J_\text{s}$的定值，这表明，反向电流密度为是与外界常量无关的常数（称为反向饱和电流）。由于$J_\text{s}$很小，因此称PN结反向截止。
+\end{itemize}
+这表明，\empx{PN结具有单向导电性}，正向导通，反向截止，这种特性也称为\uwave{整流效应}。
