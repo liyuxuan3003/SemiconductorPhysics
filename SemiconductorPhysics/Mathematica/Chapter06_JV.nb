@@ -1,0 +1,222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8141,        214]
+NotebookOptionsPosition[      7586,        197]
+NotebookOutlinePosition[      7999,        214]
+CellTagsIndexPosition[      7956,        211]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<MaTeX`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Unprotect", "[", "MaTeX`Developer`Texify", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"MaTeX`Developer`Texify", "[", 
+   RowBox[{"TextCell", "[", 
+    RowBox[{"code_", ",", "___"}], "]"}], "]"}], ":=", 
+  RowBox[{"ToString", "[", "code", "]"}]}]}], "Input",
+ CellChangeTimes->{3.8945768545220795`*^9},
+ CellLabel->
+  "In[274]:=",ExpressionUUID->"a6cd5ae6-99aa-4b3f-9fe3-f638e8c53a8d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"JIdeal", "=", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", "V", "}"}], ",", 
+     RowBox[{
+      RowBox[{"Exp", "[", "V", "]"}], "-", "1"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"JRD", "=", 
+   RowBox[{"Function", "[", 
+    RowBox[{
+     RowBox[{"{", "V", "}"}], ","}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"LogPlot", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"JIdeal", "[", "V", "]"}], ",", 
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{"JIdeal", "[", 
+        RowBox[{"-", "V"}], "]"}], ")"}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"V", ",", "0", ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "1"}]], ",", 
+      SuperscriptBox["10", "5"]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"GridLines", "\[Rule]", "All"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.894576863349307*^9, 3.8945768909590206`*^9}, {
+   3.8945769271137204`*^9, 3.894577172749629*^9}, {3.8945772267574253`*^9, 
+   3.894577239057441*^9}, {3.8945773065909348`*^9, 3.8945773357871494`*^9}, {
+   3.894577390410045*^9, 3.894577464143401*^9}, {3.8945775444322762`*^9, 
+   3.89457760748603*^9}, {3.8945776390219183`*^9, 3.8945777283907475`*^9}, {
+   3.8945778542630987`*^9, 3.894577912877103*^9}, 3.8945779542982693`*^9, {
+   3.8945780032074995`*^9, 3.894578013300118*^9}, {3.8945780560046115`*^9, 
+   3.8945780671768312`*^9}, {3.8945781180566797`*^9, 3.894578212416271*^9}, {
+   3.894578244407123*^9, 3.894578374773554*^9}, {3.894578450475706*^9, 
+   3.8945785368997746`*^9}, {3.8945785873635626`*^9, 
+   3.8945786130576534`*^9}, {3.894578685379136*^9, 3.894578686158532*^9}, {
+   3.894578753906452*^9, 3.8945788328305564`*^9}, {3.894578870555362*^9, 
+   3.8945789406687264`*^9}, {3.8945790167474203`*^9, 3.894579086125286*^9}, {
+   3.8945791981698675`*^9, 3.894579209763793*^9}, {3.8945792704261723`*^9, 
+   3.894579653339057*^9}, {3.894579730591869*^9, 3.8945797556840725`*^9}, {
+   3.894579830933758*^9, 3.894579831072866*^9}, {3.8945798842875757`*^9, 
+   3.894579900337496*^9}},ExpressionUUID->"ad33234a-ac7e-4010-b9da-\
+8a2db853287c"],
+
+Cell[BoxData[
+ RowBox[{"LogPlot", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"JIdeal", "[", "V", "]"}], ",", 
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{"JIdeal", "[", 
+        RowBox[{"-", "V"}], "]"}], ")"}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"V", ",", "0", ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox["10", 
+       RowBox[{"-", "1"}]], ",", 
+      SuperscriptBox["10", "8"]}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameTicks", "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", 
+             RowBox[{"-", "1"}]], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{-1}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "0"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{0}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "1"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{1}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "2"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{2}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "3"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{3}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "4"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{4}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "5"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{5}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "6"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{6}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "7"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{7}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SuperscriptBox["10", "8"], ",", 
+            RowBox[{"MaTeX", "[", 
+             RowBox[{"\"\<10^{8}\>\"", ",", 
+              RowBox[{"Magnification", "\[Rule]", "0.8"}]}], "]"}]}], "}"}]}],
+          "}"}], ",", "None"}], "}"}], ",", "Automatic"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"GridLines", "\[Rule]", "All"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.894579621320573*^9},ExpressionUUID->"8b8e2b26-1798-4e92-89cb-\
+aa46819322be"]
+},
+WindowSize->{951., 474.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (2022\:5e742\:67084\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f52cf3ab-d8e6-4eef-acc6-bd357ea2eedc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 635, 16, 86, "Input",ExpressionUUID->"a6cd5ae6-99aa-4b3f-9fe3-f638e8c53a8d"],
+Cell[1196, 38, 2405, 52, 189, "Input",ExpressionUUID->"ad33234a-ac7e-4010-b9da-8a2db853287c"],
+Cell[3604, 92, 3978, 103, 389, "Input",ExpressionUUID->"8b8e2b26-1798-4e92-89cb-aa46819322be"]
+}
+]
+*)
+

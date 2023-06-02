@@ -1,0 +1,314 @@
+\section{PN结的非理想因素}
+
+实验测量表明，\fancyref{eqt:肖克利方程}给出的理想PN结的电流电压方程式，在小注入条件下，与锗PN结的实验结果符合的较好，但是，与硅PN结的实验结果偏离较大。这表明在实际的PN结中，还存在诸多非理想因素，会使电流电压关系偏离理想状态，具体而言
+\begin{itemize}
+    \item 在正向偏压较小时，实验测得的正向电流比理论值偏大。
+    \item 在正向偏压较大时，实验测得的正向电流比理论值偏小。
+    \item 在反向偏压时，实验测得的反向电流是不饱和的，随着反向偏压路由增大。
+\end{itemize}
+引发上述的因素很多，这里主要讨论势垒区的产生与复合和大注入的影响。
+
+\subsection{势垒区的产生电流}
+在反向偏压下，势垒区内的电场加强，原先，势垒区中的复合率与产生率是平衡的，但是，在强电场的作用下，复合中心产生的电子空穴对来不及复合，就被强电场驱走了，也就是说势垒区内载流子的产生率大于复合率，具有净产生率，从而形成另一部分反向电流，即产生电流。
+
+\begin{BoxFormula}[势垒区的产生电流]
+    反向偏压下，势垒区的\uwave{产生电流密度}为
+    \begin{Equation}
+        J_\text{g}=\frac{qn_\text{i}X_\text{D}}{2\tau}
+    \end{Equation}
+    反向电流$J_\text{R}$是产生电流$J_\text{g}$与反向扩散电流$J_\text{RD}$的和，在P$^{+}$N结中
+    \begin{Equation}
+        J_\text{R}=J_\text{g}+J_\text{RD}=
+        \frac{qD_\text{p}n_\text{i}^2}{L_\text{p}N_\text{D}}+
+        \frac{qn_\text{i}X_\text{D}}{2\tau}
+    \end{Equation}
+    其中$X_\text{D}$为势垒宽度。
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:净复合率与复合中心能级}
+    \begin{Equation}&[1]
+        U=\frac{N_\text{t}r(np-n_\text{i}^2)}{n+p+2n_\text{i}\cosh(E_\text{t}-E_\text{i}/\kB T)}
+    \end{Equation}
+    近似认为复合中心能级$E_\text{t}$在费米能级$E_\text{F}$附近，即$E_\text{t}=E_\text{F}$
+    \begin{Equation}&[2]
+        U=\frac{N_\text{t}r(np-n_\text{i}^2)}{n+p+2n_\text{i}}
+    \end{Equation}
+    近似认为势垒区$n,p\ll n_\text{i}$
+    \begin{Equation}&[3]
+        U=-\frac{N_\text{t}rn_\text{i}^2}{2n_\text{i}}=-\frac{N_\text{t}rn_\text{i}}{2}
+    \end{Equation}
+    实际上\xref{fml:净复合率与复合中心能级}本身也是近似公式，其近似条件使$\tau=1/N_\text{t}r$，故
+    \begin{Equation}&[4]
+        U=-\frac{n_\text{i}}{2\tau}
+    \end{Equation}
+    这个负的净复合率，其实就是净产生率
+    \begin{Equation}&[5]
+        G=-U=\frac{n_\text{i}}{2\tau}
+    \end{Equation}
+    产生电流密度$J_\text{g}$应为净产生率$G$，乘以电荷量$q$和势垒宽度$X_\text{D}$
+    \begin{Equation}&[6]
+        J_\text{g}=qGX_\text{D}
+    \end{Equation}
+    将\xrefpeq{4}代入\xrefpeq{6}
+    \begin{Equation}
+        J_\text{g}=\frac{qn_\text{i}X_\text{D}}{2\tau}
+    \end{Equation}
+    这就得到了产生电流密度$J_\text{g}$的表达式。\goodbreak
+    
+    而反向扩散电流则依据\fancyref{eqt:肖克利方程}
+    \begin{Equation}
+        J_\text{RD}=J_\text{s}=\frac{qD_\text{n}n_\text{P0}}{L_\text{n}}+\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}
+    \end{Equation}
+    在P$^{+}$N结中，只需要考虑空穴扩散
+    \begin{Equation}
+        J_\text{RD}=\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}
+    \end{Equation}
+    由于$n_\text{N0}p_\text{N0}=n_\text{i}^2$，同时在N区$n_\text{N0}=N_\text{D}$，有
+    \begin{Equation}
+        J_\text{RD}=\frac{qD_\text{p}n_\text{i}^2}{L_\text{p}N_\text{D}}
+    \end{Equation}
+    这就得到了反向扩散电流密度$J_\text{RD}$的表达式。
+\end{Proof}
+
+\fancyref{fml:势垒区的产生电流}指出，PN结的反向电流$J_\text{R}$包含势垒区产生电流$J_\text{g}$与反向扩散电流$J_\text{RD}$两部分，后者属于原先理想模型的范畴。由于$J_\text{g}$与$J_\text{RD}$分别与$n_\text{i}$和$n_\text{i}^2$成正比，且\fancyref{fml:本征半导体的载流子浓度}指出$n_\text{i}$与禁带宽度$E_\text{g}$负相关，因此
+\begin{itemize}
+    \item 锗的禁带宽度$E_\text{g}$较小，故$n_\text{i}$较大，而考虑到$J_\text{g}\propto n_\text{i}$和$J_\text{RD}\propto n_\text{i}^2$，有$J_\text{g}\ll J_\text{RD}$，反向电流中反向扩散电流占主导地位，所以，锗PN结的反向电流与理想特性基本相符。
+    \item 硅的禁带宽度$E_\text{g}$较大，故$n_\text{i}$较小，而考虑到$J_\text{g}\propto n_\text{i}$和$J_\text{RD}\propto n_\text{i}^2$，有$J_\text{g}\gg J_\text{RD}$，反向电流中势垒产生电流占主导地位，所以，硅PN结的反向电流将偏离理想特性。而我们知道，势垒宽度$X_\text{D}$将随反向偏压的增加逐渐变宽，且有$J_\text{g}\propto X_\text{D}$，因此，势垒区的产生电流$J_\text{g}$占还会随反向偏压的增加而增加，即，硅PN结的反向电流是非饱和的。
+\end{itemize}
+
+简而言之，禁带宽度小，则$J_\text{RD}$占主导，近似理想，禁带宽度大，则$J_\text{g}$占主导。
+
+\subsection{势垒区的复合电流}
+在正向偏压下，势垒区存在大量从P区和N区注入的载流子，但实际上，这些载流子会在势垒区中会复合一部分，因此，P区和N区就要注入额外的空穴和电子来弥补这种损失，这就是所谓的复合电流\cite{W10}。因此，复合电流并非因为复合而产生的电流，恰相反，复合电流是弥补复合造成的损失导致的电流。便于记忆，我们可以将复合电流和产生电流对应起来看
+\begin{itemize}
+    \item 正向偏压下出现的非理想因素，是势垒区的复合电流。
+    \item 反向偏压下出现的非理想因素，是势垒区的产生电流。
+\end{itemize}
+
+求解复合电流的过程与产生电流类似，但略微复杂些。
+
+\begin{BoxFormula}[势垒区的复合电流]*
+    正向偏压下，势垒区的\uwave{复合电流密度}为
+    \begin{Equation}
+        J_\text{R}=\frac{qn_\text{i}X_\text{D}}{2\tau}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+    正向电流$J_\text{F}$是复合电流$J_\text{r}$与正向扩散电流$J_\text{FD}$的和，在P$^{+}$N结中
+    \begin{Equation}
+        \qquad\qquad\quad
+        J_\text{F}=J_\text{r}+J_\text{FD}=
+        \frac{qn_\text{i}X_\text{D}}{2\tau}\exp(\frac{qV}{2\kB T})+
+        \frac{qD_\text{p}n_\text{i}^2}{L_\text{p}N_\text{D}}\exp(\frac{qV}{\kB T})
+        \qquad\qquad\quad
+    \end{Equation}
+    其中$X_\text{D}$为势垒宽度。
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:净复合率与复合中心能级}
+    \begin{Equation}&[1]
+        U=\frac{N_\text{t}r(np-n_\text{i}^2)}{n+p+2n_\text{i}\cosh(E_\text{t}-E_\text{i}/\kB T)}
+    \end{Equation}
+    近似认为复合中心能级$E_\text{t}$在费米能级$E_\text{F}$附近，即$E_\text{t}=E_\text{F}$
+    \begin{Equation}&[2]
+        U=\frac{N_\text{t}r(np-n_\text{i}^2)}{n+p+2n_\text{i}}
+    \end{Equation}
+    但有所不同的是，这里不能再近似认为$n,p\ll n_\text{i}$，这可能是因为，如\xref{fig:PN结的载流子浓度}所示，势垒区的载流子浓度，在反偏时减小，在正偏时增加，而这里讨论复合电流时PN结是正偏的。
+
+    根据\fancyref{fml:非平衡态下的载流子浓度积}
+    \begin{Equation}&[3]
+        np=n_\text{i}^2\exp(\frac{E_\text{Fn}-E_\text{Fp}}{\kB T})
+    \end{Equation}
+    在PN结的势垒区中，准费米能级之差$E_\text{Fn}-E_\text{Fp}$即外加偏压乘元电荷$qV$
+    \begin{Equation}&[4]
+        np=n_\text{i}^2\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    在$n=p$处，电子和空穴相遇的机会最大，该处净复合率最大。作为估算，我们可以认为势垒区中各处的净复合率$U$都等于$n=p$处的最大净复合率$U_{\max}$，而$n=p$时由\xrefpeq{4}
+    \begin{Equation}&[5]
+        n=p=n_\text{i}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+    将\xrefpeq{4}和\xrefpeq{5}代入\xrefpeq{3}
+    \begin{Equation}&[6]
+        U_{\max}=
+        \frac{N_\text{t}r[n_\text{i}^2\exp(qV/\kB T)-n_\text{i}^2]}{2[n_\text{i}\exp(qV/2\kB T)+n_\text{i}]}
+    \end{Equation}
+    不妨提出$n_\text{i}$
+    \begin{Equation}&[7]
+        U_{\max}=
+        \frac{N_\text{t}rn_\text{i}[\exp(qV/\kB T)-1]}{2[\exp(qV/2\kB T)+1]}
+    \end{Equation}
+    当$qV\gg\kB T$时
+    \begin{Equation}&[8]
+        U_{\max}=
+        \frac{N_\text{t}rn_\text{i}\exp(qV/\kB T)}{2\exp(qV/2\kB T)}
+    \end{Equation}
+    即
+    \begin{Equation}&[9]
+        U_{\max}=
+        \frac{N_\text{t}rn_\text{i}}{2}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+    和计算产生电流时一样，代入$\tau=1/N_\text{t}r$
+    \begin{Equation}&[9]
+        U_{\max}=
+        \frac{n_\text{i}}{2\tau}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+    复合电流密度$J_\text{r}$应为净复合率$U$，乘以元电荷$q$和势垒宽度$X_\text{D}$
+    \begin{Equation}&[10]
+        J_\text{r}=qU_{\max}X_\text{D}
+    \end{Equation}
+    将\xrefpeq{9}代入\xrefpeq{10}
+    \begin{Equation}&[11]
+        J_\text{r}=\frac{qn_\text{i}X_\text{D}}{2\tau}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+    这就得到了复合电流密度$J_\text{r}$的表达式。
+
+    而正向扩散电流则依据\fancyref{eqt:肖克利方程}
+    \begin{Equation}&[12]
+        J_\text{FD}=J_\text{s}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    这里$J_\text{s}=J_\text{RD}$，代入\fancyref{fml:势垒区的产生电流}中的结果（对于P$^{+}$N结）
+    \begin{Equation}&[13]
+        J_\text{FD}=\frac{qD_\text{p}n_\text{i}^2}{L_\text{p}N_\text{D}}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    当$qV\gg\kB T$时
+    \begin{Equation}
+        J_\text{FD}=\frac{qD_\text{p}n_\text{i}^2}{L_\text{p}N_\text{D}}\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    这就得到了正向扩散电流密度$J_\text{FD}$的表达式。
+\end{Proof}
+
+\fancyref{fml:势垒区的复合电流}告诉我们，在正向偏压下
+\begin{itemize}
+    \item 扩散电流$J_\text{FD}$的特点是与$\exp(qV/\kB T)$成正比。
+    \item 复合电流$J_\text{r}$的特点是与$\exp(qV/2\kB T)$成正比。
+\end{itemize}
+因此，可以用以下经验公式表示正向电流密度
+\begin{Equation}
+    J_\text{F}\propto\exp(\frac{qV}{m\kB T})
+\end{Equation}
+当扩散电流$J_\text{RD}$占主导时$m=1$，当复合电流$J_\text{r}$占主导时$m=2$。
+
+除此之外，扩散电流与复合电流的比值是
+\begin{Equation}
+    \frac{J_\text{FD}}{J_\text{r}}=
+    \frac{qD_\text{p}n_\text{i}^2/L_\text{p}N_\text{D}}{qn_\text{i}X_\text{D}/2\tau}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+即
+\begin{Equation}
+    \frac{J_\text{FD}}{J_\text{r}}=
+    \frac{2\tau n_\text{i}D_\text{p}}{L_\text{p}N_\text{D}X_\text{D}}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+根据\fancyref{def:扩散长度}，这里$D_\text{p}=\sqrt{L_\text{p}\tau}$
+\begin{Equation}
+    \frac{J_\text{FD}}{J_\text{r}}=\frac{2n_\text{i}}{N_\text{D}X_\text{D}}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+由此可见，$J_\text{FD}/J_\text{r}$与$n_\text{i}$和外加电压$V$有关
+\begin{itemize}
+    \item 当外加偏压$V$较小时，$J_\text{FD}/J_\text{r}$较小，复合电流占主导地位。
+    \item 当外加偏压$V$较大时，$J_\text{FD}/J_\text{r}$较大，扩散电流占主导地位。
+\end{itemize}
+由于锗的禁带宽度较小，而$n_\text{i}$较小，因此复合电流在锗PN结中总是可以忽略。
+
+\subsection{大注入情况}
+过去我们对PN结的讨论，都是在小注入情况的背景下进行的
+\begin{itemize}
+    \item 小注入是指，注入的非平衡载流子远小于该区多子浓度的情况。
+    \item 大注入是指，注入的非平衡载流子接近或超过该区多子浓度的情况。
+\end{itemize}
+随着正向偏压增大，注入的非平衡载流子相应增多，PN结的状态就会逐渐由小注入转变为大注入。在本小节，我们将讨论大注入情况带来的非理想特性，主要以P$^{+}$N结为例进行研究。
+
+由于P$^{+}$N结的正向电流是由P$^{+}$区注入N区的空穴电流，因此我们只需要讨论空穴扩散区，即N区内的情况。当大注入时，首先，电注入到达势垒区边界的空穴浓度$\delt{p_\text{n}}(x_\text{n})$很大，接近或超过N区多子浓度$n_\text{N0}=N_\text{D}$，而事实是，当$\delt{p_\text{N}}(x_\text{n})$在N区扩散并形成稳定的浓度分布$\delt{p_\text{N}}$时，这会破坏N区的电中性，为保持电中性，其实会有相同分布的$\delt{n_\text{N}}$产生，过去在小注入情况下，由于$\delt{p_\text{N}}=\delt{n_\text{N}}$相对$n_\text{N0}$很小，$\delt{n_\text{N}}$可以忽略，但，在大注入情况下，两者来到了同一数量级，$\delt{n_\text{N}}$的影响需要被妥善考虑，这就是大注入在定量分析上的影响。
+
+根据我们刚刚的讨论，应有\setpeq{大注入}
+\begin{Equation}&[1]
+    \delt{p_\text{N}}=\delt{n_\text{N}}
+\end{Equation}
+所以，两者的梯度也应当是相等的
+\begin{Equation}&[2]
+    \dv{\delt{p_\text{N}}}{x}=\dv{\delt{n_\text{N}}}{x}
+\end{Equation}
+然而，非平衡电子$\delt{p_\text{N}}$的产生虽然平衡了注入的非平衡空穴$\delt{n_\text{N}}$，但因为电子离开了原来的位置，这会产生一个内建电场，由电子产生的内建电场，自然将会使电子自身的漂移作用与扩散作用抵消，维持$\delt{n_\text{N}}$的稳定分布，即$J_\text{n}=0$。然而，该内建电场会反过来使得空穴的运动加速。这我们会在后面更详细的讨论，而眼下一个更重要的问题，由于现在势垒区和扩散区都具有内建电场，我们就不能仅认为外加电场$V$降落在势垒区了，而要
+\begin{Equation}&[3]
+    V=V_\text{J}+V_\text{P}
+\end{Equation}
+其中，$V_\text{J}$和$V_\text{P}$是外加电压分别在势垒区和空穴扩散区的分压。
+
+现计算大注入时流过$x=x_\text{n}$截面处的电流密度，根据\fancyref{fml:载流子的漂移扩散}
+\begin{Gather}[10pt]
+    J_\text{p}=q\mu_\text{p}p_\text{N}(x_\text{n})\Emf(x_\text{n})-\eval{qD_\text{p}\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}\xlabelpeq{4}\\
+    J_\text{n}=q\mu_\text{n}n_\text{N}(x_\text{n})\Emf(x_\text{n})+\eval{qD_\text{n}\dv{\delt{n_\text{N}}}{x}}_{x=x_\text{n}}\xlabelpeq{5}
+\end{Gather}
+根据前面的讨论$J_\text{n}=0$，由\xrefpeq{5}可知
+\begin{Equation}&[6]
+    \Emf(x_\text{n})=-\frac{qD_\text{n}}{q\mu_\text{n}n_\text{N}(x_\text{n})}\eval{\dv{\delt{n_\text{N}}}{x}}_{x=x_\text{n}}
+\end{Equation}
+即
+\begin{Equation}&[7]
+    \Emf(x_\text{n})=-\frac{D_\text{n}}{\mu_\text{n}n_\text{N}(x_\text{n})}\eval{\dv{\delt{n_\text{N}}}{x}}_{x=x_\text{n}}
+\end{Equation}
+根据\fancyref{law:爱因斯坦关系式}
+\begin{Equation}&[8]
+    \frac{D_\text{n}}{\mu_\text{n}}=
+    \frac{D_\text{p}}{\mu_\text{p}}=
+    \frac{\kB T}{q}
+\end{Equation}
+以及\xrefpeq{2}，\xrefpeq{7}可以表示为
+\begin{Equation}&[9]
+    \Emf(x_\text{n})=-\frac{D_\text{p}}{\mu_\text{p}n_\text{N}(x_\text{n})}\eval{\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}
+\end{Equation}
+将\xrefpeq{9}代回\xrefpeq{4}
+\begin{Equation}&[10]
+    J_\text{p}=-qD_\text{p}\qty[\frac{p_\text{N}(x_\text{n})}{n_\text{N}(x_\text{n})}+1]\eval{\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}
+\end{Equation}
+这表明，当扩散区存在内建电场时，空穴电流密度在形式上仍然可以表达为原先扩散电流的形式，但是由于电场的漂移作用，空穴的扩散系数由$D_\text{p}$增大至$D_\text{p}[1+p_\text{N}(x_\text{n})/n_\text{N}(x_\text{n})]$。
+
+在大注入时，可以近似认为$n_\text{N}(x_\text{n})=\delt{n_\text{N}}(x_\text{n})$和$p_\text{N}(x_\text{n})=\delt{p_\text{N}}(x_\text{n})$，故
+\begin{Equation}&[11]
+    J_\text{p}=-2qD_\text{p}\eval{\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}
+\end{Equation}
+
+这表明，大注入时，空穴的扩散系数由$D_\text{p}$增大至$2D_\text{p}$，扩散电流和漂移电流各占一半。
+
+而我们可以证明（搞不太清楚为啥）
+\begin{Equation}&[12]
+    p_\text{N}(x_\text{n})=p_\text{N0}\exp(\frac{qV_\text{J}}{\kB T})\qquad
+    n_\text{N}(x_\text{n})=n_\text{N0}\exp(\frac{qV_\text{P}}{\kB T})
+\end{Equation}
+因此
+\begin{Equation}&[13]
+    p_\text{N}(x_\text{n})n_\text{N}(x_\text{n})=n_\text{N0}p_\text{N0}\exp[\frac{q(V_\text{J}+V_\text{P})}{\kB T}]=n_\text{i}^2\exp(\frac{qV}{\kB T})
+\end{Equation}
+因为$p_\text{N}(x_\text{n})=n_\text{N}(x_\text{n})$
+\begin{Equation}&[14]
+    p_\text{N}(x_\text{n})=n_\text{N}(x_\text{n})=n_\text{i}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+将空穴扩散区内的扩散视为线性分布，即
+\begin{Equation}&[15]
+    \eval{\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}=\frac{p_\text{N}(x_\text{n})-p_\text{N0}}{L_\text{p}}
+\end{Equation}
+由于$p_\text{N}(x_\text{n})\gg p_\text{N0}$，将\xrefpeq{14}代入\xrefpeq{15}
+\begin{Equation}&[16]
+    \eval{\dv{\delt{p_\text{N}}}{x}}_{x=x_\text{n}}=\frac{n_\text{i}^2}{L_\text{p}}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+将\xrefpeq{16}代入\xrefpeq{11}
+\begin{Equation}
+    J_\text{p}=-\frac{2qD_\text{p}n_\text{i}}{L_\text{p}}\exp(\frac{qV}{2\kB T})
+\end{Equation}
+在P$^{+}$N结中，$J_\text{F}$实际就是$J_\text{p}$，因此
+\begin{BoxFormula}[大注入情况]
+    对于P$^{+}$N结，大注入情况下的电流电压关系为\footnote[2]{为什么这里电流是负的？}
+    \begin{Equation}
+        J_\text{F}=-\frac{2qD_\text{p}n_\text{i}}{L_\text{p}}\exp(\frac{qV}{2\kB T})
+    \end{Equation}
+\end{BoxFormula}
+综上，考虑复合电流和大注入后，当P$^{+}$N结加正向偏压时，电流电压关系可以表示为
+\begin{Equation}
+    J_\text{F}\propto\exp(\frac{qV}{m\kB T})
+\end{Equation}
+其中$m$在$1$至$2$间取值
+\begin{itemize}
+    \item 当电压很小时，复合电流占主导，此时$m=2$。
+    \item 当电压适中时，扩散电流占主导，此时$m=1$。
+    \item 当电压很大时，适用大注入情况，此时$m=2$。
+\end{itemize}
+由于复合电流和大注入时$m=2$，即$J_\text{F}$的变化在这两个阶段慢于理想模型下的扩散电流，因此，以电压适中的扩散电流段为中心，电压很小时实际值偏高，电压很大时实际值偏低。
