@@ -1,0 +1,25 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[gray,ultra thin,->]
+(-3,0) -- (3,0) node[above] {$x$};
+
+\draw[gray,ultra thin,->]
+
+(0,-1.5) -- (0,1.5) node[right] {$\Emf(x)=-\dv*{V}{x}$};
+
+\draw[fill=black,fill opacity=0.1] plot[domain=-2.5:2.5,samples=200,smooth] (\x,{0.16*(\x*\x-(5)^2/4)});
+
+\path (-2.5,0) node[above] {$-X_\text{D}/2$} node[point] {};
+\path (+2.5,0) node[above] {$X_\text{D}/2$} node[point] {};
+
+\draw (0,-1) node[point] {} node[below right] {$\Emf_\text{m}$};
+
+\draw[gray,ultra thin] (-3.25,-1.85) rectangle (+3.25,1.85);
+
+\path (0,-0.4) node {$-V_\text{D}$};
+
+\end{tikzpicture}
+\end{document}

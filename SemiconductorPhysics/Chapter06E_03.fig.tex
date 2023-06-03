@@ -1,0 +1,25 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[gray,ultra thin,->]
+(-3,0) -- (3,0) node[above] {$x$};
+
+\draw[gray,ultra thin,->](0,-1.5) -- (0,1.5) node[right] {$V(x)$};
+
+\draw plot[domain=-2.5:0,smooth,samples=200]
+(\x,{(1/2.5^2)*((\x*\x+2.5^2)/2+\x*(2.5))});
+
+\draw plot[domain=0:2.5,smooth,samples=200]
+(\x,{1+(1/2.5^2)*(-(\x*\x+2.5^2)/2+\x*(2.5))});
+
+\draw[very thin,latex-latex,gray] (+2.5,1) node[point=black] {} -- node[left] {$V_\text{D}$} (2.5,0);
+
+\path (-2.5,0) node[below left] {$x_\text{p}$} node[point] {};
+\path (+2.5,0) node[below right] {$x_\text{n}$} node[point] {};
+
+\draw[gray,ultra thin] (-3.25,-1.85) rectangle (+3.25,1.85);
+
+\end{tikzpicture}
+\end{document}

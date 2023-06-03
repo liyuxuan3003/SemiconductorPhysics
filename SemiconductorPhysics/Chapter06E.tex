@@ -1,0 +1,608 @@
+\section{PN结电容}
+PN结具有整流效应，但是它又包含着破坏整流效应的因素。当PN结在低频电压下，整流特性很好，但是，当电压频率增大，整流特性将变坏。频率为什么会对PN结的整流作用产生影响？这就因为，\empx{PN结具有电容特性}。那么，PN结为什么会有电容？PN结的电容大小与哪些因素有关？这就是本节要解决的问题，此外，本节还将推导出电势和势垒宽度的表达式。
+
+\subsection{PN结电容的分类}
+
+PN结电容包含势垒电容和扩散电容两部分，但无论是哪一部分，它们都会随外加电压的变化而变化，换言之，它们是可变电容，因此，我们常用微分电容的概念来表示PN结的电容，即
+\begin{Equation}
+    C=\dv{Q}{V}
+\end{Equation}
+
+\subsubsection{势垒电容}
+当PN结外加正向偏压时，势垒区的电场随正向偏压而减弱，势垒区的宽度变窄，空间电荷数量减小。空间电荷的实质是由不能移动的杂质离子组成，因此，空间电荷的减少是由于N区的电子和P区的空穴中和了势垒区中的一部分电离施主和电离受主，形象的说，我们可以认为，当外加正向偏压增加时，有一部分电子和空穴“存入”势垒区。相反，当外加正向偏压减弱时，势垒区宽度增大，施主和受主重新电离，这部分电子和空穴将被“取出”势垒区。总而言之，PN结外加电压的变化，引起了电子和空穴在势垒区的“存入”和“取出”作用，相当于一个电容器的充电和放电。这就构成了\uwave{势垒电容}（Barrier Capacitance），以$C_\text{T}$表示。
+
+但需要指出的是，势垒电容中的$Q$实际是指势垒区中的空间电荷。
+
+
+\subsubsection{扩散电容}
+当PN结外加正向偏压时，扩散区将存在非平衡少数载流子$\delt{p_\text{N}}$和$\delt{n_\text{P}}$的分布，而为了保持电中性，扩散区也会产生相应数量的非平衡多数载流子$\delt{n_\text{N}}$和$\delt{p_\text{P}}$，这些非平衡载流子的数量将随外加电压的变化而变，这就构成了\uwave{扩散电容}（Diffusion Capacitance），以$C_\text{D}$表示。
+
+\subsection{突变结的势垒电容}
+在本小节，我们将依次讨论突变结的电场分布与电势分布、势垒宽度、势垒电容。
+
+根据\xref{subsec:合金法}的内容，对于突变结，其势垒区的空间电荷密度为
+\begin{Equation}[突变结]
+    \rho(x)=\begin{cases}
+        -qN_\text{A},&x_\text{p}<x<0\\
+        +qN_\text{D},&0<x<x_\text{n}
+    \end{cases}
+\end{Equation}\nopagebreak
+左半P区，产生空穴的电离受主$N_\text{A}$带负电。右半N区，产生电子的电离施主$N_\text{D}$带正电。\goodbreak
+
+% 势垒区的宽度为
+% \begin{Equation}
+%     X_\text{D}=x_\text{n}-x_\text{p}
+% \end{Equation}
+% 势垒区的正负电荷总量应相等，因为半导体整体满足电中性条件
+% \begin{Equation}
+%     Q=-qN_\text{A}x_\text{p}=qN_\text{D}x_\text{n}
+% \end{Equation}
+% 这里的$Q$是势垒区中单位面积上所鸡肋的
+
+\begin{BoxFormula}[突变结的电场分布]*
+    在突变结中，电场分布满足
+    \begin{Equation}
+        \Emf(x)=\begin{cases}
+            \Emf_1(x)=\mal{\frac{qN_\text{A}(x_\text{p}-x)}{\varepsilon_\text{r}\varepsilon_0}},&x_\text{p}<x<0\\[4mm]
+            \Emf_2(x)=\mal{\frac{qN_\text{D}(x-x_\text{n})}{\varepsilon_\text{r}\varepsilon_0}},&0<x<x_\text{n}
+        \end{cases}
+    \end{Equation}
+    在$x=0$处，电场取最大值
+    \begin{Equation}
+        \Emf_\text{m}=\frac{qN_\text{A}x_\text{p}}{\varepsilon_\text{r}\varepsilon_0}=-\frac{qN_\text{D}x_\text{n}}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    根据电磁学中的泊松方程$\laplacian V=-\rho/\varepsilon_\text{r}\varepsilon_0$，改写为一维形式，代入\xrefeq{突变结}
+    \begin{Equation}&[1]
+        \dv[2]{V_1}{x}=\frac{qN_\text{A}}{\varepsilon_\text{r}\varepsilon_0}\qquad
+        \dv[2]{V_2}{x}=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    这里$V_1,V_2$分别为负电荷区$x_\text{p}<x<0$和正电荷区$0<x<x_\text{n}$的电势。
+
+    将\xrefpeq{1}积分一次得
+    \begin{Equation}&[2]
+        \dv{V_1}{x}=\qty(\frac{qN_\text{A}}{\varepsilon_\text{r}\varepsilon_0})x+C_1\qquad
+        \dv{V_2}{x}=-\qty(\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0})x+C_2
+    \end{Equation}
+    由于$\Emf=-\dv*{V}{x}$
+    \begin{Equation}&[3]
+        \Emf_1(x)=-\qty(\frac{qN_\text{A}}{\varepsilon_\text{r}\varepsilon_0})x-C_1\qquad
+        \Emf_2(x)=\qty(\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0})x-C_2
+    \end{Equation}
+    由于势垒区边界的电场为零
+    \begin{Equation}&[3.5]
+        \Emf_1(x_\text{p})=0\qquad
+        \Emf_2(x_\text{n})=0
+    \end{Equation}
+    即
+    \begin{Equation}&[4]
+        \qquad\qquad\qquad
+        \Emf_1(x_\text{p})=-\qty(\frac{qN_\text{A}}{\varepsilon_\text{r}\varepsilon_0})x_\text{p}-C_1=0\qquad
+        \Emf_2(x_\text{n})=\qty(\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0})x_\text{n}-C_2=0
+        \qquad\qquad\qquad
+    \end{Equation}
+    定出积分常数
+    \begin{Equation}&[5]
+        C_1=-\frac{qN_\text{A}x_\text{p}}{\varepsilon_\text{r}\varepsilon_0}\qquad
+        C_2=\frac{qN_\text{D}x_\text{n}}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    将\xrefpeq{5}代入\xrefpeq{3}
+    \begin{Equation}*
+        \Emf_1(x)=\mal{\frac{qN_\text{A}(x_\text{p}-x)}{\varepsilon_\text{r}\varepsilon_0}}\qquad
+        \Emf_2(x)=\mal{\frac{qN_\text{D}(x-x_\text{n})}{\varepsilon_\text{r}\varepsilon_0}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{BoxFormula}[突变结的电势分布]
+    在突变结中，电势分布满足
+    \begin{Equation}
+        V(x)=
+        \begin{cases}
+            \mal{V_1(x)=\frac{qN_\text{A}}{2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{p})^2},&x_\text{p}<x<0\\[4mm]
+            \mal{V_2(x)=V_\text{D}-\frac{qN_\text{A}}{2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{n})^2},&0<x<x_\text{n}
+        \end{cases}
+    \end{Equation}
+    其中接触电势差$V_\text{D}$为
+    \begin{Equation}
+        V_\text{D}=\frac{q(N_\text{A}x_\text{p}^2+N_\text{D}x_\text{n}^2)}{2\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    顺承\fancyref{fml:突变结的电场分布}的结果，考虑到$\Emf=-\dv*{V}{x}$
+    \begin{Equation}&[1]
+        \dv{V_1}{x}=\frac{qN_\text{A}(x-x_\text{p})}{\varepsilon_\text{r}\varepsilon_0}\qquad
+        \dv{V_2}{x}=-\frac{qN_\text{D}(x-x_\text{n})}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    积分得
+    \begin{Equation}
+        \qquad\qquad\qquad
+        V_1(x)=\frac{qN_\text{A}}{2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{p})^2+D_1\qquad
+        V_2(x)=-\frac{qN_\text{D}}
+        {2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{n})^2+D_2
+        \qquad\qquad\qquad
+    \end{Equation}
+    电势的参考点是可以选取的，按我们前面的习惯，取P型区一侧的电势为零
+    \begin{Equation}
+        V_1(x_\text{p})=0\qquad
+        V_2(x_\text{n})=V_\text{D}
+    \end{Equation}
+    这里$V_\text{D}$仍然是待定的常数，但它的意义是明确的，即接触电势差。
+
+    这样一来，容易定出$D_1=0, D_2=V_\text{D}$
+    \begin{Equation}
+        V_1(x)=\frac{qN_\text{A}}{2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{p})^2\qquad
+        V_2(x)=V_\text{D}-\frac{qN_\text{D}}
+        {2\varepsilon_\text{r}\varepsilon_0}(x-x_\text{n})^2
+    \end{Equation}
+    电势在$x=0$处应当连续
+    \begin{Equation}
+        V_1(0)=V_2(0)
+    \end{Equation}
+    从而
+    \begin{Equation}
+        \frac{qN_\text{A}}{2\varepsilon_\text{r}\varepsilon_0}x_\text{p}^2=
+        V_\text{D}-\frac{qN_\text{D}}
+        {2\varepsilon_\text{r}\varepsilon_0}x_\text{n}^2
+    \end{Equation}
+    得到
+    \begin{Equation}*
+        V_\text{D}=\frac{q(N_\text{A}x_\text{p}^2+N_\text{D}x_\text{n}^2)}{2\varepsilon_\text{r}\varepsilon_0}\qedhere
+    \end{Equation}
+\end{Proof}
+
+由此可见，如\xref{fig:突变结}所示，突变结的电势是线性函数，在$x=0$处取最大值，向势垒区两端逐渐减小，在势垒区边缘$x=x_\text{n}, x=x_\text{p}$减小至零，电场始终为负，这代表电场总是会由N区指向P区。突变结的电势是抛物线，确切的说，是一个开口向上的抛物型的右半与一个开口向下的抛物线的左半的衔接，先前\xref{fig:PN结的载流子浓度与电势分布}等中的$V(x)$均是参照此处突变结的结果绘制的。
+
+\begin{Figure}[突变结]
+    \begin{FigureSub}[突变结的电荷密度]
+        \includegraphics[width=4.5cm]{build/Chapter06E_01.fig.pdf}
+    \end{FigureSub}
+    \begin{FigureSub}[突变结的电场]
+        \includegraphics[width=4.5cm]{build/Chapter06E_02.fig.pdf}
+    \end{FigureSub}
+    \begin{FigureSub}[突变结的电势]
+        \includegraphics[width=4.5cm]{build/Chapter06E_03.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+接下来，我们计算突变结的势垒宽度
+\begin{BoxFormula}[突变结的势垒宽度]
+    在突变结中，势垒宽度满足
+    \begin{Equation}
+        X_\text{D}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}}
+    \end{Equation}
+\end{BoxFormula}
+\begin{Proof}
+    根据\fancyref{fml:突变结的电势分布}
+    \begin{Equation}&[1]
+        V_\text{D}=\frac{q(N_\text{A}x_\text{p}^2+N_\text{D}x_\text{n}^2)}{2\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    势垒宽度$X_\text{D}$可以表示为
+    \begin{Equation}&[2]
+        X_\text{D}=x_\text{n}-x_\text{p}
+    \end{Equation}
+    另一方面，由于负电荷区的电荷$-qN_\text{A}x_\text{p}$与正电荷区的电荷$qN_\text{D}x_\text{n}$应相同，保持电中性
+    \begin{Equation}&[3]
+        N_\text{D}x_\text{n}=-N_\text{A}x_\text{p}
+    \end{Equation}
+    联立\xrefpeq{2}和\xrefpeq{3}
+    \begin{Equation}&[4]
+        \begin{pmatrix}
+            1&-1\\
+            N_\text{D}&N_\text{A}
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_\text{n}\\
+            x_\text{p}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            X_\text{D}\\
+            0
+        \end{pmatrix}
+    \end{Equation}
+    即
+    \begin{Equation}&[5]
+        D=\begin{vmatrix}
+            1&-1\\
+            N_\text{D}&N_\text{A}
+        \end{vmatrix}=N_\text{D}+N_\text{A}\qquad
+        D_\text{n}=
+        \begin{vmatrix}
+            X_\text{D}&-1\\
+            0&N_\text{A}
+        \end{vmatrix}=N_\text{A}X_\text{D}\qquad
+        D_\text{p}=
+        \begin{vmatrix}
+            1&X_\text{D}\\
+            N_\text{D}&0
+        \end{vmatrix}=-N_\text{D}X_\text{D}
+    \end{Equation}
+    通过\xrefpeq{2}和\xrefpeq{3}不难解出
+    \begin{Equation}&[6]
+        x_\text{n}=\frac{D_\text{n}}{D}=\frac{N_\text{A}X_\text{D}}{N_\text{D}+N_\text{A}}\qquad
+        x_\text{p}=\frac{D_\text{p}}{D}=-\frac{N_\text{D}X_\text{D}}{N_\text{D}+N_\text{A}}
+    \end{Equation}
+    由此易得
+    \begin{Equation}&[7]
+        \qquad\qquad
+        N_\text{D}x_\text{n}^2+
+        N_\text{A}x_\text{p}^2=
+        \frac{N_\text{D}N_\text{A}^2X_\text{D}^2+N_\text{A}N_\text{D}^2X_\text{D}^2}{(N_\text{D}+N_\text{A})^2}
+        =
+        \frac{N_\text{D}N_\text{A}X_\text{D}^2(N_\text{D}+N_\text{A})}
+        {(N_\text{D}+N_\text{A})^2}
+        \qquad\qquad
+    \end{Equation}
+    即
+    \begin{Equation}&[8]
+        N_\text{D}x_\text{n}^2+
+        N_\text{A}x_\text{p}^2=
+        \frac{N_\text{D}N_\text{A}X_\text{D}^2}
+        {N_\text{D}+N_\text{A}}
+    \end{Equation}
+    将\xrefpeq{8}代入\xrefpeq{1}中，即得
+    \begin{Equation}&[9]
+        V_\text{D}=\frac{qN_\text{D}N_\text{A}X_\text{D}^2}{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})}
+    \end{Equation}
+    由\xrefpeq{9}，反解出$X_\text{D}$
+    \begin{Equation}&[10]
+        X_\text{D}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})V_\text{D}}{qN_\text{A}N_\text{D}}}
+    \end{Equation}
+    这是平衡状态下的PN结，而外加偏压时，势垒由$V_\text{D}$变为$V_\text{D}-V$
+    \begin{Equation}
+        X_\text{D}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}}
+    \end{Equation}
+    这就求得了势垒宽度。
+\end{Proof}
+
+在进一步讨论势垒宽度之前，我们先来看一个重要的事实，刚刚推导中有
+\begin{Equation}
+    N_\text{D}x_\text{n}=-N_\text{A}x_\text{p}
+\end{Equation}
+这是电中性的要求，而这告诉我们
+\begin{itemize}
+    \item 对于P$^{+}$N结，P区掺杂远大于N区，即$N_\text{A}\gg N_\text{D}$，则有$x_\text{p}\ll x_\text{n}$，势垒主要在N区。
+    \item 对于N$^{+}$P结，P区掺杂远小于N区，即$N_\text{A}\ll N_\text{D}$，则有$x_\text{p}\gg x_\text{n}$，势垒主要在P区。
+\end{itemize}
+换言之，重掺杂侧势垒宽度小，轻掺杂侧势垒宽度大，势垒区主要向轻掺杂区生长。
+
+对于P$^{+}$N结，由于$N_\text{A}\gg N_\text{D}$，有$x_\text{p}\ll x_\text{n}$，故$X_\text{D}=+x_\text{n}$
+\begin{Equation}
+    V_\text{D}=\frac{qN_\text{D}X_\text{D}^2}{2\varepsilon_\text{r}\varepsilon_0}\qquad
+    X_\text{D}=+x_\text{n}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(V_\text{D}-V)}{qN_\text{D}}}
+\end{Equation}
+对于N$^{+}$P结，由于$N_\text{A}\ll N_\text{D}$，有$x_\text{p}\gg x_\text{n}$，故$X_\text{D}=-x_\text{p}$
+\begin{Equation}
+    V_\text{D}=\frac{qN_\text{A}X_\text{D}^2}{2\varepsilon_\text{r}\varepsilon_0}\qquad
+    X_\text{D}=-x_\text{p}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(V_\text{D}-V)}{qN_\text{A}}}
+\end{Equation}
+这表明，在外加电压一定时，单边突变PN结的势垒宽度随轻掺杂侧的浓度增大而减小。
+
+需要指出的是，这里$V_\text{D}$关于$X_\text{D}$的表达式是仅在平衡状态下成立的，对于一个掺杂浓度一定的PN结，其$V_\text{D}$是一个确定的值，而$X_\text{D}$则会随外加偏压而变化（即将$V_\text{D}$替换为$V_\text{D}-V$）。
+
+再让我们回到最一般的$X_\text{D}$的表达式
+\begin{Equation}
+    X_\text{D}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}}
+\end{Equation}
+在掺杂一定的时候，改变外加电压$V$
+\begin{itemize}
+    \item 当加正向电压时，有$V>0$，此时势垒宽度$X_\text{D}$相较平衡时减小。
+    \item 当加反向电压时，有$V<0$，此时势垒宽度$X_\text{D}$相较平衡时增大。
+\end{itemize}
+且这种变化正比于$V_\text{D}-V$的平方根，这就解释了\xref{fig:PN结的载流子浓度与电势分布}中势垒宽度随外加电压$V$的变化了。
+
+\begin{BoxFormula}[突变结的势垒电容]
+    在突变结中，势垒电容满足
+    \begin{Equation}
+        C_\text{T}=A
+        \sqrt{\frac{\varepsilon_\text{r}\varepsilon_0qN_\text{A}N_\text{D}}
+        {2(N_\text{D}+N_\text{A})(V_\text{D}-V)}}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    势垒宽度$X_\text{D}$可以表示为
+    \begin{Equation}&[1]
+        X_\text{D}=x_\text{n}-x_\text{p}
+    \end{Equation}
+    势垒区单位面积上的电荷量可以表示为
+    \begin{Equation}&[2]
+        |Q_0|=qN_\text{D}x_\text{n}=-qN_\text{A}x_\text{p}
+    \end{Equation}
+    即有
+    \begin{Equation}&[3]
+        x_\text{n}=\frac{|Q_0|}{qN_\text{D}}\qquad
+        x_\text{p}=-\frac{|Q_0|}{qN_\text{A}}
+    \end{Equation}
+    将\xrefpeq{3}代入\xrefpeq{1}中
+    \begin{Equation}
+        X_\text{D}=\frac{Q_0(N_\text{A}+N_\text{D})}{qN_\text{A}N_\text{D}}
+    \end{Equation}
+    即
+    \begin{Equation}
+        |Q_0|=\frac{N_\text{A}N_\text{D}qX_\text{D}}{N_\text{A}+N_\text{D}}
+    \end{Equation}
+    就$X_\text{D}$代入\fancyref{fml:突变结的势垒宽度}
+    \begin{Equation}
+        |Q_0|=\frac{N_\text{A}N_\text{D}q}{N_\text{A}+N_\text{D}}\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}}
+    \end{Equation}
+    整理得
+    \begin{Equation}
+        |Q_0|=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0N_\text{A}N_\text{D}q(V_\text{D}-V)}{N_\text{A}+N_\text{D}}}
+    \end{Equation}
+    依照微分电容的定义，单位面积的势垒电容为
+    \begin{Equation}
+        C_\text{T0}=\abs{\dv{Q_0}{V}}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0N_\text{A}N_\text{D}q}{N_\text{A}+N_\text{D}}}\qty(\frac{1}{2}\frac{1}{\sqrt{V_\text{D}-V}})
+    \end{Equation}
+    即
+    \begin{Equation}
+        C_\text{T0}=\sqrt{\frac{\varepsilon_\text{r}\varepsilon_0N_\text{A}N_\text{D}q}{2(N_\text{A}+N_\text{D})(V_\text{D}-V)}}
+    \end{Equation}
+    进而，考虑截面积为$A$
+    \begin{Equation}*
+        C_\text{T}=AC_\text{T0}=A
+        \sqrt{\frac{\varepsilon_\text{r}\varepsilon_0qN_\text{A}N_\text{D}}
+        {2(N_\text{D}+N_\text{A})(V_\text{D}-V)}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+根据\fancyref{fml:突变结的势垒宽度}
+\begin{Equation}
+    X_\text{D}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}}
+\end{Equation}
+根据\fancyref{fml:突变结的势垒电容}
+\begin{Equation}
+    C_\text{T}=A
+    \sqrt{\frac{\varepsilon_\text{r}\varepsilon_0qN_\text{A}N_\text{D}}
+    {2(N_\text{D}+N_\text{A})(V_\text{D}-V)}}
+\end{Equation}
+我们可以试着将$X_\text{D}$代入$C_\text{T}$
+\begin{Equation}
+    C_\text{T}=\frac{A\varepsilon_\text{r}\varepsilon_0}{X_\text{D}}
+\end{Equation}
+这一结果于平行板电容器的公式在形式上一致。因此，可以将势垒电容等效为一个间距为势垒宽度$X_\text{D}$的平行板电容器，但是，PN结势垒电容中的势垒宽度$X_\text{D}$与外加电压有关，并不是一个恒量，因此，PN结势垒电容是随外加电压变化的非线性电容。这是有所不同的。
+
+而对于单边的P$^{+}$N结或N$^{+}$P结，\fancyref{fml:突变结的势垒电容}可以简化为
+\begin{Equation}
+    C_\text{T}=A\sqrt{\frac{\varepsilon_\text{r}N_\text{D}}{2(V_\text{D}-V)}}\qquad
+    C_\text{T}=A\sqrt{\frac{\varepsilon_\text{r}N_\text{A}}{2(V_\text{D}-V)}}
+\end{Equation}
+这就表明，对于单边PN结
+\begin{itemize}
+    \item 突变结的势垒电容，正比于结的面积，正比于轻掺杂一侧的杂质浓度的平方根，由此可见，减小结面积以及轻掺杂一侧的杂质浓度是减小势垒电容，提高整流效果的有效途径。
+    \item 突变结的势垒电容，反比于与电压$V_\text{D}-V$的平方根，因此，反向偏压越大，势垒电容就越小，反向偏压若随时间变化，则势垒电容也随时间变化，利用该特性可以制作变容器件。正向偏压的情况不予讨论，原因是推导$C_\text{T}$的过程使用了耗尽层近似，即假设外加电压完全降落在耗尽层，然而通过\xref{sec:PN结的非理想因素}，我们知道这对于正向偏压是不成立的，因此正向偏压时$C_\text{T}$的公式不适用，通常以$4C_\text{T}(0)$作为正向偏压时的势垒电容的经验值。
+\end{itemize}
+以上结论在半导体器件的设计和生产中具有重要的意义。
+
+\subsection{缓变结的势垒电容}
+在本小节，我们将依次讨论线性缓变结的电场分布与电势分布、势垒宽度，势垒电容。
+
+根据\xref{subsec:扩散法}的内容，对于线性缓变结，器势垒区的空间电荷密度为
+\begin{Equation}[缓变结]
+    \rho(x)=q(N_\text{D}-N_\text{A})=q\alpha_\text{j}x
+\end{Equation}
+其中$\alpha_\text{j}$为杂质的浓度梯度，很明显，由于势垒区正负空间电荷总量相等，线性缓变结的势垒区边界$x=\pm X_\text{D}/2$必然是对称分布的。这是线性缓变结与突变结间的一个重要的区别。
+
+\begin{BoxFormula}[缓变结的电场分布]
+    在线性缓变结中，电场分布满足
+    \begin{Equation}
+        \Emf=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(x^2-\frac{X_\text{D}^2}{4})
+    \end{Equation}
+    在$x=0$处，电场取最大值
+    \begin{Equation}
+        \Emf_\text{m}=-\frac{q\alpha_\text{j}X_\text{D}^2}{8\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据泊松方程，代入\xrefeq{缓变结}
+    \begin{Equation}&[1]
+        \dv[2]{V}{x}=-\frac{q\alpha_\text{j}x}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    将\xrefpeq{1}积分一次得
+    \begin{Equation}&[2]
+        \dv{V}{x}=-\frac{q\alpha_\text{j}x^2}{2\varepsilon_\text{r}\varepsilon_0}+C
+    \end{Equation}
+    由于$\Emf=-\dv*{V}{x}$
+    \begin{Equation}&[3]
+        \Emf(x)=\frac{q\alpha_\text{j}x^2}{2\varepsilon_\text{r}\varepsilon_0}-C
+    \end{Equation}
+    由于势垒区边界的电场为零
+    \begin{Equation}&[4]
+        \Emf\qty(\pm\frac{X_\text{D}}{2})=0
+    \end{Equation}
+    解得
+    \begin{Equation}&[5]
+        C=\frac{q\alpha_\text{j}X_\text{D}^2}{8\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    将\xrefpeq{5}代入\xrefpeq{3}
+    \begin{Equation}
+        \Emf(x)=\frac{q\alpha_\text{j}x^2}{2\varepsilon_\text{r}\varepsilon_0}-\frac{q\alpha_\text{j}X_\text{D}^2}{8\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    即
+    \begin{Equation}*
+        \Emf=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(x^2-\frac{X_\text{D}^2}{4})\qedhere
+    \end{Equation}
+\end{Proof}
+
+\begin{BoxFormula}[缓变结的电势分布]
+    在线性缓变结中，电势分布满足
+    \begin{Equation}
+        V(x)=\frac{qa_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(-\frac{x^3}{3}+\frac{xX_\text{D}^2}{4})
+    \end{Equation}
+    其中接触电势差$V_\text{D}$为
+    \begin{Equation}
+        V_\text{D}=\frac{q\alpha_\text{j}X_\text{D}^3}{12\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    顺承\fancyref{fml:缓变结的电场分布}的结果，考虑到$\Emf=-\dv{V}{x}$
+    \begin{Equation}
+        \dv{V}{x}=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(-x^2+\frac{X_\text{D}^2}{4})
+    \end{Equation}
+    积分得
+    \begin{Equation}
+        V(x)=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(-\frac{x^3}{3}+\frac{xX_\text{D}^2}{4})+D
+    \end{Equation}
+    电势的参考点是可以选取的，这里改设$x=0$为电势参考顶啊
+    \begin{Equation}
+        V\qty(0)=0
+    \end{Equation}
+    因此$D=0$
+    \begin{Equation}
+        V(x)=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(-\frac{x^3}{3}+\frac{xX_\text{D}}{4})
+    \end{Equation}
+    而接触电势差
+    \begin{Equation}
+        V_\text{D}=V\qty(\frac{X_\text{D}}{2})-V\qty(-\frac{X_\text{D}}{2})
+    \end{Equation}
+    注意到
+    \begin{Equation}
+        \qquad\qquad
+        V\qty(\frac{X_\text{D}}{2})=\frac{q\alpha_\text{j}}{2\varepsilon_\text{r}\varepsilon_0}\qty(-\frac{X_\text{D}^3}{24}+\frac{X_\text{D}^3}{8})=\frac{q\alpha_\text{j}X_\text{D}^3}{24\varepsilon_\text{r}\varepsilon_0}\qquad
+        V\qty(-\frac{X_\text{D}}{2})=
+        -V\qty(\frac{X_\text{D}}{2})
+        \qquad\qquad
+    \end{Equation}
+    因此
+    \begin{Equation}*
+        V_\text{D}=\frac{q\alpha_\text{j}X_\text{D}^3}{12\varepsilon_\text{r}\varepsilon_0}\qedhere
+    \end{Equation}
+\end{Proof}
+
+由此可见，如\xref{fig:缓变结}所示，线性缓变结的电场和电势分别是二次函数和三次函数。
+
+到这里，“电荷密度--电场--电势”这条线已经非常清楚了，它们依次是二阶、一阶、零阶的导数
+\begin{itemize}
+    \item 对于突变结，依次是“阶跃函数--一次函数--二次函数”。
+    \item 对于线性缓变结，依次是“一次函数--二次函数--三次函数”。
+\end{itemize}
+
+\begin{Figure}[缓变结]
+    \begin{FigureSub}[缓变结的电荷密度]
+        \includegraphics[width=4.5cm]{build/Chapter06E_04.fig.pdf}
+    \end{FigureSub}
+    \begin{FigureSub}[缓变结的电场]
+        \includegraphics[width=4.5cm]{build/Chapter06E_05.fig.pdf}
+    \end{FigureSub}
+    \begin{FigureSub}[缓变结的电势]
+        \includegraphics[width=4.5cm]{build/Chapter06E_06.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+接下来，我们计算线性缓变结结的势垒宽度，这相较突变结容易很多
+\begin{BoxFormula}[缓变结的势垒宽度]
+    在线性缓变结中，势垒宽度满足
+    \begin{Equation}
+        X_\text{D}=\sqrt[3]{\frac{12\varepsilon_\text{r}\varepsilon_{0}(V_\text{D}-V)}{q\alpha_\text{j}}}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:缓变结的电势分布}
+    \begin{Equation}
+        V_\text{D}=\frac{q\alpha_\text{j}X_\text{D}^3}{12\varepsilon_\text{r}}
+    \end{Equation}
+    将$X_\text{D}$反表示
+    \begin{Equation}
+        X_\text{D}=\sqrt[3]{\frac{12\varepsilon_\text{r}\varepsilon_{0}V_\text{D}}{q\alpha_\text{j}}}
+    \end{Equation}
+    当有外加电压时，将$V_\text{D}$替换为$V_\text{D}-V$
+    \begin{Equation}*
+        X_\text{D}=\sqrt[3]{\frac{12\varepsilon_\text{r}\varepsilon_{0}(V_\text{D}-V)}{q\alpha_\text{j}}}\qedhere
+    \end{Equation}
+\end{Proof}
+之所以简单了很多，是因为线性缓变结总是对称的。
+
+\begin{BoxFormula}[缓变结的势垒电容]
+    在线性缓变结中，势垒电容满足
+    \begin{Equation}
+        C_\text{T}=A\sqrt[3]{\frac{q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{12(V_\text{V}-V)}}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    由于线性缓变结的$\rho(x)$不是常量，故$|Q_0|$需要通过积分计算
+    \begin{Equation}&[1]
+        |Q_0|=\Int[0][X_\text{D}/2]\rho(x)\dx=\Int[0][X_\text{D}/2]q\alpha_\text{j}x\dx=\frac{q\alpha_\text{j}X_\text{D}^2}{8}
+    \end{Equation}
+    就$X_\text{D}$代入\fancyref{fml:缓变结的势垒宽度}
+    \begin{Equation}
+        |Q_0|=\frac{q\alpha_\text{j}}{8}\sqrt[3]{\qty[\frac{12\varepsilon_\text{r}\varepsilon_{0}(V_\text{D}-V)}{q\alpha_\text{j}}]^2}
+    \end{Equation}
+    即
+    \begin{Equation}
+        |Q_0|=\sqrt[3]{\frac{9q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{32}}(V_\text{D}-V)^{2/3}
+    \end{Equation}
+    求导即得
+    \begin{Equation}
+        C_\text{T0}=\abs{\dv{Q_0}{V}}=\sqrt[3]{\frac{9q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{32}}\qty(\frac{2}{3}\frac{1}{\sqrt[3]{V_\text{D}-V}})
+    \end{Equation}
+    合并
+    \begin{Equation}
+        C_\text{T0}=\sqrt[3]{\frac{q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{12(V_\text{D}-V)}}
+    \end{Equation}
+    进而，考虑截面积为$A$
+    \begin{Equation}*
+        C_\text{T}=AC_\text{T0}=A\sqrt[3]{\frac{q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{12(V_\text{D}-V)}}\qedhere
+    \end{Equation}
+\end{Proof}
+
+根据\fancyref{fml:缓变结的势垒宽度}
+\begin{Equation}
+    X_\text{D}=\sqrt[3]{\frac{12\varepsilon_\text{r}\varepsilon_{0}(V_\text{D}-V)}{q\alpha_\text{j}}}
+\end{Equation}
+根据\fancyref{fml:缓变结的势垒电容}
+\begin{Equation}
+    C_\text{T}=A\sqrt[3]{\frac{q\alpha_\text{j}\varepsilon_\text{r}^2\varepsilon_0^2}{12(V_\text{V}-V)}}
+\end{Equation}
+我们可以试着将$X_\text{D}$代入$C_\text{T}$
+\begin{Equation}
+    C_\text{T}=\frac{A\varepsilon_\text{r}\varepsilon_0}{X_\text{D}}
+\end{Equation}
+这表明，无论是突变结还是线性缓变结，形式上都可以表示为平行板电容器。
+
+\subsection{扩散电容}
+在\xref{subsec:PN结电容的分类}中我们已经指出，PN结加正向偏压时，由于少子的注入，在扩散区内，都有一定数量的少子和等量的多子的积累，且它们的浓度随正向偏压变化，从而形成了扩散电容。
+\begin{BoxFormula}[扩散电容]
+    在PN结中，扩散电容满足
+    \begin{Equation}
+        C_\text{D}=\frac{Aq^2(n_\text{P0}L_\text{n}+p_\text{N0}L_\text{p})}{\kB T}\exp(\frac{qV}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:PN结外加偏压时的少子浓度}，在N区
+    \begin{Equation}&[1]
+        \delt{p_\text{N}}(x)=p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x_\text{n}-x}{L_\text{p}})
+    \end{Equation}
+    根据\fancyref{fml:PN结外加偏压时的少子浓度}，在P区
+    \begin{Equation}&[2]
+        \delt{n_\text{P}}(x)=n_\text{P0}\qty[\exp(\frac{qV}{\kB T})-1]\exp(\frac{x-x_\text{p}}{L_\text{n}})
+    \end{Equation}
+    将\xrefpeq{1}和\xrefpeq{2}分别在各自的扩散区内积分，即得单位面积的载流子总电荷量
+    \begin{Gather}[12pt]
+        |Q_\text{p0}|=\Int[x_\text{n}][\infty]q\delt{p_\text{N}(x)}\dx=qL_\text{p}p_\text{N0}\qty[\exp(\frac{qV}{\kB T})-1]\\
+        |Q_\text{n0}|=\Int[-\infty][x_\text{p}]q\delt{n_\text{P}(x)}\dx=qL_\text{n}n_\text{P0}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Gather}
+    单位面积的P区扩散电容和N区扩散电容即分别是
+    \begin{Gather}[12pt]
+        C_\text{Dp0}=\abs{\dv{Q_\text{p0}}{V}}=
+        \qty(\frac{q^2p_\text{N0}L_\text{p}}{\kB T})\exp(\frac{qV}{\kB T})\\
+        C_\text{Dn0}=\abs{\dv{Q_\text{n0}}{V}}=
+        \qty(\frac{q^2n_\text{P0}L_\text{n}}{\kB T})\exp(\frac{qV}{\kB T})
+    \end{Gather}
+    单位面积的总扩散电容，是上述两者和
+    \begin{Equation}
+        C_\text{D0}=C_\text{Dp0}+C_\text{Dn0}=
+        \frac{q^2(p_\text{N0}L_\text{p}+n_\text{P0}L_\text{n})}{\kB T}\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    考虑截面积$A$
+    \begin{Equation}*
+        C_\text{D}=AC_\text{D0}=\frac{Aq^2(n_\text{P0}L_\text{n}+p_\text{N0}L_\text{p})}{\kB T}\exp(\frac{qV}{\kB T})\qedhere
+    \end{Equation}
+\end{Proof}
+
+\fancyref{fml:扩散电容}指出，扩散电容$C_\text{D}$随正向偏压以指数关系增加，而前面我们提到，势垒电容$C_\text{T}$在正向偏压上通常视作$4C_\text{T}(0)$的常值，因此，在较大的正向偏压下，扩散电容便起主要作用。除此之外，扩散电容的推导基于非平衡载流子的稳态分布，这仅适用于低频情况，有进一步的分析指出，扩散电容会随着频率的增加而减小，即，高频下扩散电容会减小。

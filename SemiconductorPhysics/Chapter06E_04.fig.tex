@@ -1,0 +1,48 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[gray,ultra thin,->]
+(-3,0) -- (3,0) node[above] {$x$};
+
+\draw[gray,ultra thin,->]
+
+(0,-1.5) -- (0,1.5) node[right] {$\rho(x)=\dv*[2]{V}{x}$};
+
+\fill[black!10!white] (-2.5,-1) -- (0,0) -- (-2.5,0) -- cycle;
+\fill[black!10!white] (+2.5,+1) -- (0,0) -- (+2.5,0) -- cycle;
+
+\foreach \x in {-2.2,-1.7,...,-1.2}
+{
+    \path (\x,-0.25) node {\tiny $-$};
+}
+
+\foreach \x in {+2.2,+1.7,...,+1.2}
+{
+    \path (\x,+0.25) node {\tiny $+$};
+}
+
+\foreach \x in {-2.2}
+{
+    \path (\x,-0.55) node {\tiny $-$};
+}
+
+\foreach \x in {+2.2}
+{
+    \path (\x,+0.55) node {\tiny $+$};
+}
+
+
+\draw[thick] (-2.5,-1) -- (+2.5,+1);
+
+\draw[very thin] (-2.5,-1)--(-2.5,0);
+\draw[very thin] (+2.5,+1)--(+2.5,0);
+
+\path (-2.5,0) node[above] {$-X_\text{D}/2$} node[point] {};
+\path (+2.5,0) node[below] {$X_\text{D}/2$} node[point] {};
+
+\draw[gray,ultra thin] (-3.25,-1.85) rectangle (+3.25,1.85);
+
+\end{tikzpicture}
+\end{document}
