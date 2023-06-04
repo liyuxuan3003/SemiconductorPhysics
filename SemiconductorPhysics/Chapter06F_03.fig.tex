@@ -1,0 +1,22 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw[dashed,gray,thin] 
+(-2,0) node[left] {$E$} --(2,0);
+
+\draw (-0.5,0) node[below left] {$A$} node[point] {} -- (-0.5,2) -- (0.5,0) node[below right] {$B$} node[point] {};
+
+\draw[gray,ultra thin] (-0.5,2) -- ++(-0.5,0);
+\draw[gray,ultra thin] (-0.5,0) -- ++(0,-0.5) node[below] {};
+\draw[gray,ultra thin] (+0.5,0) -- ++(0,-0.5) node[below] {};
+
+\draw[gray,latex-latex,very thin]
+(-0.75,2) -- node[left] {$E_\text{g}$} (-0.75,0);
+
+\draw[gray,latex-latex,very thin]
+(-0.5,-0.25) -- node[below] {$\delt{x}$} (+0.5,-0.25); 
+
+\end{tikzpicture}
+\end{document}

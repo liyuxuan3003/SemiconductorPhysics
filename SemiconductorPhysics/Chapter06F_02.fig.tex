@@ -1,0 +1,45 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\draw (0,1)
+node[left] {$E_\text{c}$}
+-- ++(3,0)
+-- ++(2,-3) 
+-- ++(3,0) 
+node[right] {$E_\text{c}$}; 
+
+\draw (0,0)
+node[left] {$E_\text{v}$}
+-- ++(3,0)
+-- ++(2,-3) 
+-- ++(3,0) 
+node[right] {$E_\text{v}$};
+
+\draw (4,-1.5) node[point,name=A] {} node[below left] {$A$};
+\draw (4.67,-1.5) node[point,name=B] {} ++(0.07,0) node[below left] {$B$};
+
+\draw[latex-latex,very thin,gray] (A) -- node[left,pos=1] {$E_\text{g}$} ++(0,1);
+
+\draw[dashed,gray,thin] 
+($(A)+(-3,0)$) node[left] {$E$}
+-- (A) -- (B) -- ($(A)+(3,0)$) node[above] {$>E_\text{c}$};
+
+\draw[gray,ultra thin] (3,0) -- (3,-4);
+\draw[gray,ultra thin] (5,-3) -- (5,-4);
+
+\draw[gray,ultra thin] (A) -- (4,-3.25);
+\draw[gray,ultra thin] (B) -- (4.67,-3.25);
+
+\draw[gray,very thin,latex-latex] (4,-2.75) -- node[below] {$\delt{x}$} (4.67,-2.75);
+
+\draw[gray,very thin,latex-latex] (3,-3.5) -- node[below] {$X_\text{D}$} (5,-3.5);
+
+\draw[gray,dotted,thin] (3,1) -- (8,1);
+\draw[gray,very thin,latex-latex] (6,1) -- node[right,pos=0.4] {$q(V_\text{D}+V)$} (6,-2);
+
+\draw[gray,ultra thin] (-1,1.5) rectangle (9,-4.5);
+
+\end{tikzpicture}
+\end{document}

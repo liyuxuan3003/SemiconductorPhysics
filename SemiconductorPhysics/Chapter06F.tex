@@ -1,0 +1,93 @@
+\section{PN结击穿}
+实验发现，当对PN结施加的反向偏压增大到某一数值$V_\text{BR}$是，反向电流将突然迅速增大，该现象称为PN结的\uwave{击穿}（Breakdown），而$V_\text{BR}$则称为\uwave{击穿电压}（Breakdown Voltage）。
+
+在PN结击穿中，主要可以分为三种类型：雪崩击穿、隧道击穿、热电击穿。
+
+\subsection{雪崩击穿}
+\uwave{雪崩击穿}（Avalanche Breakdown）是指，当反向偏压很大时，势垒区中的电场很强，势垒区内的电子和空穴由于受到强电场的漂移作用，具有很大的动能，它们与势垒区内的晶格原子发生碰撞时，将价键上的电子碰撞出来，产生电子--空穴对，同时，产生的电子和空穴会继续在强电场的作用下加速，从而产生第二代、第三代、第四代的载流子。类似于核裂变反应，载流子将迅速倍增，这称为载流子的\uwave{倍增效应}。在倍增效应的作用下，载流子的数目像雪崩一样增加的越来越快，载流子数目的迅速增加也导致反向电流迅速增大，最终导致PN结的击穿。
+
+\subsection{齐纳击穿}
+\uwave{齐纳击穿}（Zener Breakdown）也称为\uwave{隧道击穿}，“齐纳”得名于该现象的发现者，“隧道”则解释了原理，齐纳击穿基于的正是量子力学中的隧道效应。在\xref{fig:反向偏压较大}（这里简便起见将能带弯曲绘制为折线）或先前我们用于示意反向偏压的\xref{fig:反向偏压下的能带结构}中，我们看到，当PN结上的反向偏压较大时，N区的导带顶甚至可以低于P区的价带底（观察\xref{fig:反向偏压较小}至\xref{fig:反向偏压较大}的变化）。
+
+\begin{Figure}[齐纳击穿]
+    \begin{FigureSub}[反向偏压较小]
+        \includegraphics[scale=0.8]{build/Chapter06F_01.fig.pdf}
+    \end{FigureSub}\\ \vspace{0.5cm}
+    \begin{FigureSub}[反向偏压较大]
+        \includegraphics[scale=0.8]{build/Chapter06F_02.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+这就产生了一种很有趣的情况，我们知道，所谓载流子的产生，无非就是一个电子从价带跃迁至导带，这通常需要$E_\text{g}$的能量越过禁带，然而，在\xref{fig:反向偏压较大}的能带中，由于能带的弯曲，我们注意到$A,B$两个点虽然分别位于价带顶和导带底，但两者的能量却在同一条线上。尽管如\xref{fig:PN结的三角形势垒}所示，从$A$至$B$仍然要跨过高$E_\text{g}$宽$\delt{x}$的三角形势垒，这在经典力学中是不可能发生的，但是，量子力学的原理告诉我们，只要起始点的能量高于或等于终末点的能量，无论路径上是否有势垒，电子都有概率通过，这就是\uwave{隧穿效应}（Tunneling Effect），电子就像打了隧道一样，从底部通过了高于其能量的势垒。所以只要反向偏压能使得N区导带顶低于P区的价带顶，隧穿就有可能会发生，无论$E_\text{g}$和$\delt{x}$的取值如何。但是只有当$E_\text{g}$和$\delt{x}$比较小即势垒较低且较窄时，隧穿才能有较大概率发生，产生较大的隧道电流，形成隧道击穿。
+
+\begin{Figure}[PN结的三角形势垒]
+    \includegraphics{build/Chapter06F_03.fig.pdf}
+\end{Figure}
+
+量子力学证明，上述隧道概率是\setpeq{隧道效应}
+\begin{Equation}&[1]
+    P=\exp{-\frac{2}{\hbar}(2\mne)^{1/2}\Int[x_1][x_2][E(x)-E]^{1/2}\dx}
+\end{Equation}
+
+其中$E(x)$表示点$x$处的势垒高度，而$E$为电子能量，$x_1,x_2$分别为势垒区的边界。
+
+这里不妨令$E=0$，且记$x_1=0$而$x_2=\delt{x}$即\xref{fig:PN结的三角形势垒}中$A,B$的位置。而$E(x)$则设为
+\begin{Equation}&[2]
+    E(x)=q\Emf x
+\end{Equation}
+这是近似认为在$x$处有一$\Emf$的恒定电场（实际上由\xref{sec:PN结电容}，我们知道势垒区电场并非恒定）。
+
+将\xrefpeq{2}和相关量代入\xrefpeq{1}
+\begin{Equation}&[3]
+    P=\exp{-\frac{2}{\hbar}(2\mne)^{1/2}\Int[0][\delt{x}](q\Emf x)^{1/2}\dx}
+\end{Equation}
+计算积分得
+\begin{Equation}&[4]
+    P=\exp{-\frac{4}{3\hbar}(2\mne)^{1/2}(q\Emf)^{1/2}(\delt{x})^{3/2}}
+\end{Equation}
+由于$\delt{x}=E_\text{g}/q\Emf$
+\begin{Equation}&[5]
+    P=\exp[-\frac{4}{3\hbar}(2\mne)^{1/2}(E_\text{g})^{3/2}\frac{1}{q\Emf}]
+\end{Equation}
+由此可见，势垒中的电场$\Emf$越大，隧穿的概率就越大。\xrefpeq{5}亦可以改写为
+\begin{Equation}
+    P=\exp[-\frac{4}{3\hbar}(2\mne)^{1/2}(E_\text{g})^{1/2}\delt{x}]
+\end{Equation}
+这表明，隧穿概率与隧穿长度$\delt{x}$负相关。而由\xref{fig:反向偏压较大}易知（这里$V$对于反向电压取负值）
+\begin{Equation}
+    \frac{E_\text{g}}{\delt{x}}=\frac{q(V_\text{D}-V)}{X_\text{D}}
+\end{Equation}
+即
+\begin{Equation}
+    \delt{x}=\frac{E_\text{g}}{q}\frac{X_\text{D}}{V_\text{D}-V}
+\end{Equation}
+而代入\fancyref{fml:突变结的势垒宽度}
+\begin{Equation}
+    \delt{x}=\frac{E_\text{g}}{q}\frac{1}{V_\text{D}-V}\qty[\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})(V_\text{D}-V)}{qN_\text{A}N_\text{D}}]^{1/2}
+\end{Equation}
+化简得到
+\begin{Equation}
+    \delt{x}=\frac{E_\text{g}}{q}\qty[\frac{2\varepsilon_\text{r}\varepsilon_0(N_\text{A}+N_\text{D})}{qN_\text{A}N_\text{D}(V_\text{D}-V)}]^{1/2}
+\end{Equation}
+若引入$N=N_\text{A}N_\text{D}/(N_\text{A}+N_\text{D})$和$V_\text{A}=V_\text{D}-V$
+\begin{Equation}
+    \delt{x}=\frac{E_\text{g}}{q}\qty(\frac{2\varepsilon_\text{r}\varepsilon_0}{qNV_\text{A}})^{1/2}
+\end{Equation}
+因此，$(NV_\text{A})$越大，隧穿长度$\delt{x}$越小，隧穿概率$P$就越大，隧道击穿就越容易发生，这表明，隧道击穿需要一定的$NV_\text{A}$值，它既可以是$N$小$V_\text{A}$大，也可以是$N$大$V_\text{A}$小。轻掺杂时需要增大反向偏压才能发生隧道击穿，但这同时使得雪崩击穿也很容易发生，因此，轻掺时雪崩击穿是主要的。增大掺杂可以减小隧道击穿的电压，因而，重掺时隧道击穿是主要的。
+
+\begin{itemize}
+    \item 当$V_\text{BR}>6E_\text{g}/q$时，通常为雪崩击穿。
+    \item 当$V_\text{BR}<4E_\text{g}/q$时，通常为隧道击穿。
+\end{itemize}
+
+\subsection{热电击穿}
+热电击穿实际是前两种击穿的一种伴随现象，当反向电流急剧增大时，PN结会产生大量的热，若没有良好的散热条件，PN结的温度会急剧升高。根据\fancyref{eqt:肖克利方程}
+\begin{Equation}
+    J_\text{s}=\frac{qD_\text{n}n_\text{P0}}{L_\text{n}}+\frac{qD_\text{p}p_\text{N0}}{L_\text{p}}    
+\end{Equation}
+运用$n_\text{P0}=n_\text{i}^2/p_\text{P0}=n_\text{i}^2/N_\text{A}$和$n_\text{N0}=n_\text{i}^2/n_\text{N0}=n_\text{i}^2/N_\text{D}$
+\begin{Equation}
+    J_\text{s}=\qty(\frac{qD_\text{n}}{L_\text{n}N_\text{A}}+\frac{qD_\text{p}}{L_\text{p}N_\text{D}})n_\text{i}^2
+\end{Equation}
+而根据\fancyref{fml:载流子的浓度乘积}，有$n_\text{i}^2\propto T^3\exp[-E_\text{g}/\kB T]$，因此随着PN结温度的增加，PN结的反向饱和电流$J_\text{s}$将急剧增大，这反过来会进一步导致温度的增加，最终导致击穿。这就是所谓的\uwave{热电击穿}（Thermal Breakdown）。实际上，雪崩击穿和隧道击穿本身都是一个安全可逆的电学过程，使击穿具有破坏性的是其附带的热电击穿，其在加剧击穿的同时产生的大量热会最终将PN结熔毁，造成不可逆的损坏。故通常我们不会让PN结在击穿状态下工作。但有特制的隧道PN结，其可以安全地发生隧道击穿，且不会伴随热电击穿。
+
