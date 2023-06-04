@@ -1,0 +1,128 @@
+\section{金属半导体接触及其能级图}
+
+\subsection{金属和半导体的功函数}
+在讨论金属和半导体的接触之前，我们要首先弄清金属的能级状况，如\xref{fig:金属和半导体的能级图}所示。
+\begin{Figure}[金属和半导体的能级图]
+    \begin{FigureSub}[金属的能级图]
+        \includegraphics[scale=0.9]{build/Chapter07A_01.fig.pdf}
+    \end{FigureSub}
+    \hspace{1cm}
+    \begin{FigureSub}[半导体的能级图]
+        \includegraphics[scale=0.9]{build/Chapter07A_02.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+
+金属的能级图如\xref{fig:金属的能级图}所示，在\xref{sec:半导体中的能带结构}中，我们曾提到过，金属作为导体，其价带和导带是重合的。因此，金属中并没有禁带、价带顶、导带底之类的概念，但是，金属中仍然可以适用费米能级$(E_\text{F})_\text{m}$的想法，在温度作用下，部分$(E_\text{F})_\text{m}$以下的电子有可能跃迁到$(E_\text{F})_\text{m}$以上的能级，但是，绝大部分电子仍然不能脱离金属逸出体外。这表明，金属内部的电子是在一个势阱中运动，势阱底部即是费米能级$(E_\text{F})_\text{m}$，势阱边沿的能级以$E_0$表示，称为\uwave{真空能级}。
+
+金属的真空能级和其费米能级的差，称为金属的\uwave{功函数}（Work Function）。
+
+\begin{BoxDefinition}[金属的功函数]
+    金属的功函数$W_\text{m}$，定义为其真空能级和费米能级之差
+    \begin{Equation}
+        W_\text{m}=E_0-(E_\text{F})_\text{m}
+    \end{Equation}
+\end{BoxDefinition}
+
+金属的功函数的意义是，一个起始能量为费米能级的电子，由金属内部逸出所需的最小能量。
+
+金属的功函数通常在几个电子伏的数量级，功函数随原子序数递增具有周期性变化，其中
+\begin{itemize}
+    \item 铯的功函数最小，为$1.93\si{eV}$。
+    \item 铂的功函数最大，为$5.36\si{eV}$。
+\end{itemize}
+
+半导体的能级图如\xref{fig:半导体的能级图}，其也可以有真空能级的概念，当然也可以定义功函数。
+
+\begin{BoxDefinition}[半导体的功函数]
+    半导体的功函数$W_\text{s}$，定义为其真空能级和费米能级之差
+    \begin{Equation}
+        W_\text{s}=E_0-(E_\text{F})_\text{s}
+    \end{Equation}
+\end{BoxDefinition}
+
+半导体中还定义有电子亲合能的概念
+\begin{BoxDefinition}[半导体的电子亲合能]
+    半导体的电子亲合能$\chi$，定义为其真空能级和导带底之差
+    \begin{Equation}
+        \chi=E_0-E_\text{c}
+    \end{Equation}
+\end{BoxDefinition}
+\begin{BoxFormula}[功函数的电子亲合能表示]
+    半导体的功函数$W_\text{s}$可以用电子亲合能表示为
+    \begin{Equation}
+        W_\text{s}=\chi+[E_\text{c}-(E_\text{F})_\text{s}]=\chi+E_\text{n}
+    \end{Equation}
+    其中$E_\text{n}$代表导带底和费米能级的间距。
+\end{BoxFormula}
+
+简而言之，这里共有$W_\text{s}, \chi, E_\text{n}$三个量，$W_\text{s}$是真空能级与费米能级之差，而$\chi, E_\text{n}$则分别是其中的两段：真空能级与导带底之差、导带底与费米能级之差。因此有$W_\text{s}=\chi+E_\text{n}$成立。
+
+\subsection{金属和半导体的接触电势差}
+现在，设想有一块金属和一块N型半导体，现在我们试着将它们逐渐接触，如\xref{tab:金属半导体接触能级图}所示。
+\begin{Table}[金属半导体接触能级图]{|c|c|c|c|}
+\xcell<c>[1em][0em]
+{\includegraphics[height=4.25cm]{build/Chapter07A_03.fig.pdf}}&
+\xcell<c>[1em][0em]
+{\includegraphics[height=4.25cm]{build/Chapter07A_04.fig.pdf}}&
+\xcell<c>[1em][0em]
+{\includegraphics[height=4.25cm]{build/Chapter07A_05.fig.pdf}}&
+\xcell<c>[1em][0em]
+{\includegraphics[height=4.25cm]{build/Chapter07A_06.fig.pdf}}\\
+接触前&间隙较大&间隙较小&紧密接触\\
+\end{Table}
+
+通常来说，金属和半导体的功函数$W_\text{m}, W_\text{s}$是不同的，可能$W_\text{m}>W_\text{s}$，可能$W_\text{m}<W_\text{s}$。这里我们以前者为例讨论，即$W_\text{m}>W_\text{s}$，金属的功函数大于半导体的功函数。相应的，金属的费米能级$(E_\text{F})_\text{m}$低于半导体的费米能级$(E_\text{F})_\text{s}$。这是金属和半导体接触前的情况，如果用一根导线将金属和半导体连接起来，它们就成为了一个统一的电子系统。由于原先$(E_\text{F})_\text{s}$比$(E_\text{F})_\text{m}$高，因此电子将由半导体向金属流动，金属表面带负电，半导体表面带正电，整个系统仍然保持电中性，此时，金属电势降为$V_\text{m}$，半导体电势升为$V_\text{s}$，这将导致半导体的能带下移，直至最终半导体的费米能级$(E_\text{F})_\text{s}$与金属的费米能级$(E_\text{F})_\text{m}$到达同一水平，此时电子不再流动。
+
+金属和半导体的费米能级相差$W_\text{m}-W_\text{s}$，这将由两者间的电势差补偿，称为接触电势差。
+
+在间隙较大时，接触电势差完全落在金属和半导体表面间的导线上，即
+\begin{Equation}
+    W_\text{m}-W_\text{s}=q(V_\text{s}-V_\text{m})
+\end{Equation}
+
+在间隙较小时，这种想法就不完全正确了，这是因为，半导体中自由电荷密度是有限制的，因此，半导体带的正电荷实际是分布在表面相当厚的一层表面层内的，称为空间电荷区\footnote{没错，就是PN结势垒的那个空间电荷区，后面我们会看到金半接触与PN结有许多相似之处，共用一些名词便不奇怪了。}。而空间电荷区内也存在电场，能带在表面附近将向上弯曲，因此，接触电势差实际上，一部分降落在金属和半导体间，一部分降落在空间电荷区。设半导体内部的电势比表面高$V_\text{D}$，则有
+\begin{Equation}
+    W_\text{m}-W_\text{s}=q(V_\text{s}-V_\text{m})+qV_\text{D}
+\end{Equation}
+这里值得说明的是，在这种情况下$W_\text{s}$到底是什么？如\xref{tab:金属半导体接触能级图}所示，此时$W_\text{s}=\chi+E_\text{n}$仍然是成立的，但是$W_\text{s}$被拆成了分离的两段，第一段$E_\text{n}$是内部的导带底和费米能级的间距，第二段$\chi$是表面的导带底和真空能级的间距，中间被$qV_\text{D}$隔开。而$W_\text{s}=E_0-(E_\text{F})_\text{s}$不再成立。
+
+随着间隙的持续减小，在接触电势差$W_\text{m}-W_\text{s}$中，金属和半导体间$q(V_\text{s}-V_\text{m})$的部分会越来越少，空间电荷区$qV_\text{D}$的部分则会越来越多，直至最终两者直接接触。此时，金属和半导体的表面成为等电势面，即$q(V_\text{s}-V_\text{m})=0$，接触电势差弯曲落在空间电荷区上，即有
+\begin{Equation}
+    W_\text{m}-W_\text{s}=qV_\text{D}
+\end{Equation}
+我们之后将总是考虑这种直接接触的极限情形。
+
+值得注意的是，在这种极限情形下，由于金属和半导体表面等势，真空能级将会重新统一，但同时，真空能级也将失去其实际意义，因为现在，电子由金属到达半导体，不再需要先逸出金属表面再通过导线到达半导体，电子的能级只要能超过半导体表面处的导带底所在的能级，其就可以进入半导体。故之后，我们将不再绘制真空能级，而是绘制到表面处的导带底为止。
+
+这种情况下，金属一边的势垒高度（即金属费米能级至半导体表面的导带底）为
+\begin{Equation}
+    q\phi_\text{ns}=qV_\text{D}+E_\text{n}
+\end{Equation}
+这里$q\phi_\text{ns}$亦可以表示为
+\begin{Equation}
+    q\phi_\text{ns}=W_\text{m}-W_\text{s}+E_\text{n}
+\end{Equation}
+以上都是在$W_\text{m}>W_\text{s}$的假设下讨论，现将其与$W_\text{m}<W_\text{s}$的情况对比一下，如\xref{fig:半导体的阻挡层与反阻挡层}所示。
+\begin{Figure}[半导体的阻挡层与反阻挡层]
+    \begin{FigureSub}[阻挡层（$W_\text{m}>W_\text{s}$）;阻挡层]
+        \includegraphics{build/Chapter07A_07.fig.pdf}
+    \end{FigureSub}
+    \hspace{0.5cm}
+    \begin{FigureSub}[反阻挡层（$W_\text{m}<W_\text{s}$）;反阻挡层]
+        \includegraphics{build/Chapter07A_10.fig.pdf}
+    \end{FigureSub}
+\end{Figure}
+我们知道，能带的弯曲$qV_\text{D}=W_\text{m}-W_\text{s}$
+\begin{itemize}
+    \item 若$W_\text{m}>W_\text{s}$，则有$qV_\text{D}>0$，半导体的能带在表面向上弯曲，如\xref{fig:阻挡层}所示。
+    \item 若$W_\text{m}<W_\text{s}$，则有$qV_\text{D}<0$，半导体的能带在表面向下弯曲，如\xref{fig:反阻挡层}所示。
+\end{itemize}
+这里\xref{fig:半导体的阻挡层与反阻挡层}中，对于那些符号变化的量，均采用单向键头的标识，其含义是，箭头由一个能级指向另一个能级，则代表该量从定义上是后者减前者，具体而言
+\begin{itemize}
+    \item 若箭头由下向上指，则为“上减下”，即该量的值为正。
+    \item 若键头由上向下指，则为“下减上”，即该量的值为负。
+\end{itemize}
+
+我们注意到，当$W_\text{m}>W_\text{s}$能带向上弯曲时，很明显，越靠近表面，半导体的导带底距离费米能级的距离就越远，该区域的电子便很少（空间电荷区正是这些电子离开后形成的），是一个\textbf{高电阻的区域}，阻碍电流通过，称为\uwave{阻挡层}。相反，当$W_\text{m}<W_\text{s}$能带向下弯曲时，此时半导体的表面，是一个\textbf{高电导的区域}，对于半导体和金属的接触几乎没有影响，称为\uwave{反阻挡层}。
+
+以上是对于N型半导体而言的，若对于P型半导体，阻挡层和反阻挡层的条件将恰好相反。

@@ -1,0 +1,63 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+    
+\path
+    (0,0) coordinate (A)
+    (3,0) coordinate (B);
+
+\draw[very thick]
+    (0,0) coordinate (E0)
+    node[left] {$E_0$}
+    --
+    (E0-|B)
+    coordinate(E0');
+
+\draw[thick]
+    (0,-1.5) coordinate (Ec)
+    node[left] {$E_\text{c}$}
+    --
+    (Ec-|B)
+    coordinate(Ec');
+
+\draw[green,thick]
+    (0,-2) coordinate (EFm)
+    node[left] {$(E_\text{F})_\text{s}$}
+    --
+    (EFm-|B)
+    coordinate (EFm');
+
+\draw[thick]
+    (0,-4) coordinate (Ev)
+    node[left] {$E_\text{v}$}
+    --
+    (Ev-|B)
+    coordinate(Ev');
+
+\draw[dashed,gray]
+    (B) -- ++(0,-6) coordinate (B');
+
+\draw[black!50!green,very thin,latex-latex]
+    ($(E0)!0.5!(E0')$)
+    -- node[left] {$W_\text{s}$}
+    ($(EFm)!0.5!(EFm')$);
+
+\draw[gray,latex-latex]
+    ($(E0)!0.85!(E0')$)
+    -- node[left] {$\chi$}
+    ($(Ec)!0.85!(Ec')$);
+
+\draw[gray,latex-latex]
+    ($(Ec)!0.85!(Ec')$)
+    -- node[left] {$E_\text{n}$}
+    ($(EFm)!0.85!(EFm')$);
+
+\draw[fill=blue!80!white]
+    (B') rectangle
+    node[white] {半导体}
+    ($(B'-|A)+(0,0.75)$);
+
+
+\end{tikzpicture}
+\end{document}

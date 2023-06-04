@@ -1,0 +1,78 @@
+\documentclass{xStandalone}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzset{E0/.style={very thick}}
+\tikzset{EF/.style={green,thick}}
+\tikzset{EX/.style={thick}}
+\tikzset{L/.style={gray,latex-latex,very thin}}
+\tikzset{LW/.style={L,green!50!black}}
+\tikzset{B/.style={gray,dashed}}
+\tikzset{A/.style={gray,dotted,thin}}
+    
+\path
+    (0,0) coordinate (A)
+    ++(1,0) coordinate (B)
+    ++(0,0) coordinate (C)
+    ++(3,0) coordinate (D);
+
+\path
+    (0,-2)    coordinate (EFm)
+    (0,0.5)    coordinate (Ecx)
+    (0,-0.5)    coordinate (Ec)
+    (0,-1.5)    coordinate (EFs)
+    (0,-3.5)    coordinate (X);
+
+\foreach \x in {EFm,Ecx,Ec,EFs,X}
+{
+    \foreach \y in {A,B,C,D}
+    {
+        \path (\x-|\y) coordinate (\x\y);
+    }
+}
+
+\draw[B] (EcxB) -- (XB);
+
+\draw[EF] (EFmB) -- (EFmA)
+node[left] {$(E_\text{F})_\text{m}$};
+
+\draw[EF] (EFsC) -- (EFsD)
+node[right] {$(E_\text{F})_\text{s}$};
+
+\draw[A,green] (EFmB)--(EFmD);
+
+\draw[EX] (EcxC) 
+to[out=-75,in=180] ($(EcC)+(1.5,0)$)
+coordinate (EcC')
+-- (EcD)
+node[right] {$E_\text{c}$};
+
+\draw[A] (EcC') -- (EcC);
+\draw[A] (EcxA)--(EcxC) -- (EcxD);
+
+\draw[L,latex-]
+($(EcxC)!0.45!(EcxD)$)--
+node[right] {$q(V_\text{D}-V)$}
+($(EcC)!0.45!(EcD)$);
+
+\draw[L]
+($(EcD)!0.75!(EcC)$)--
+node[right] {$E_\text{n}=q\phi_\text{n}$}
+($(EFsD)!0.75!(EFsC)$);
+
+\draw[L,latex-]
+($(EcxA)!0.5!(EcxB)$)--
+node[left] {$q\phi_\text{ns}$}
+($(EFmA)!0.5!(EFmB)$);
+
+\draw[L,-latex]
+($(EFmC)!0.45!(EFmD)$)--
+node[right] {$qV$}
+($(EFsC)!0.45!(EFsD)$);
+
+\draw[gray,ultra thin]
+($(X)+(-1.3,-0.1)$) rectangle ($(EcxD)+(1.2,0.1)$);
+
+\end{tikzpicture}
+\end{document}
