@@ -1,0 +1,469 @@
+\section{金属半导体接触整流理论}
+
+这里我们所讨论的整流理论，是指阻挡层的整流理论。在\xref{sec:金属半导体接触及其能级图}中，我们看到，处于平衡态的阻挡层，是没有净电流通过的。这是因为，从半导体进入金属的电子流和从金属进入半导体的电子流，大小相等，方向相反，构成动态平衡。现在的问题是，若在金属和半导体间加上电压，阻挡层会发生什么变化？这里我们规定，金属作为正极，N型半导体作为负极
+\begin{itemize}
+    \item 若金属接高电位，而N型半导体接低电位，则此时的电压$V$记为正。
+    \item 若金属接低电位，而N型半导体接高电位，则此时的电压$V$记为负。
+\end{itemize}
+这是N型半导体的情况，而对于P型半导体，两者刚好相反。
+
+关于金属半导体接触时正负极的判断，可以这样记忆，金半接触可以视为将PN结中的一端替换为金属，金属替换P型即为正极，金属替换N型即为负极。后面会看到，金半接触不仅是正负极的方向可以仿照相应的PN结判断，金半接触也具有与PN结几乎相同的整流性质。
+
+由于阻挡层是一个高阻区，因此外加电压$V$主要降落在阻挡层上，电子势垒将由$qV_\text{D}$变为
+\begin{Equation}
+    q(V_\text{D}-V)
+\end{Equation}
+如\xref{tab:金属半导体接触的整流理论}所示
+\begin{itemize}
+    \item 当外加正电压时，电子势垒将降低，半导体侧的费米能级相应上移。
+    \item 当外加负电压时，电子势垒将升高，半导体侧的费米能级相应下移。
+\end{itemize}
+\begin{Table}[金属半导体接触的整流理论]{|c|c|c|}
+    \xcell<c>[1em][0em]
+    {\includegraphics[width=4.5cm]{build/Chapter07A_07.fig.pdf}}&
+    \xcell<c>[1em][0em]
+    {\includegraphics[width=4.5cm]{build/Chapter07A_09.fig.pdf}}&
+    \xcell<c>[1em][0em]
+    {\includegraphics[width=4.5cm]{build/Chapter07A_08.fig.pdf}}\\
+    $V=0$&$V>0$&$V<0$\\
+\end{Table}
+
+当外加正向电压时，由于电子势垒降低，半导体至金属的运动更容易了，半导体至金属的电子流将占优势，形成正向电流（金属至半导体）。同时，正向电压越大，正向电流也会越大。
+
+当外加反向电压时，由于电子势垒升高，半导体至金属的电子流将逐渐减小至零，此时，金属至半导体的电子流将占优势，形成反向电流。由于金属势垒$q\phi_\text{ns}$并不随外加反向电压变化，因此金属至半导体的电子流是恒定的，换言之，反向电流将随反向电压的增大趋于定值。
+
+以上讨论表明，金属半导体接触具有与PN结相似的整流特性。
+
+以上这些尚且只是定性地讨论，接下来我们将介绍扩散理论和热电子发射理论，两者分别适用于阻挡层较厚和阻挡层较薄的情况，从而定量地求出金半接触时的电流电压特性表达式。
+
+\subsection{扩散理论}
+\uwave{扩散理论}适用于阻挡层较厚的情形，当势垒宽度远大于电子的平均自由程，电子通过势垒时会充分发生碰撞，因此，电子可以视为连续的浓度分布，通过扩散方法进行研究。金半接触中的势垒区可以近似为一个耗尽层，耗尽层中载流子极为稀少，空间电荷完全由电离杂质的电荷形成，如\xref{fig:金半接触的耗尽层}所示，其中$x_\text{d}$代表耗尽层的厚度。扩散理论的思路与PN结类似，首先通过泊松方程求出势垒的电场分布和电势分布，进而求出势垒宽度，最终计算势垒的电流密度。
+
+\begin{Figure}[金半接触的耗尽层]
+    \includegraphics{build/Chapter07B_01.fig.pdf}
+\end{Figure}
+
+第一步，我们来计算势垒的电势分布。
+\begin{BoxFormula}[金半接触的势垒电势]
+    金属半导体接触的势垒区电势分布为
+    \begin{Equation}
+        V(x)=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}\qty(\frac{x^2}{2}-xx_\text{d})-\phi_\text{ns}\qquad 0\leq x\leq x_\text{d}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    势垒区带正电，且电荷均来自电离杂质，因而有泊松方程
+    \begin{Equation}
+        \dv[2]{V}{x}=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}
+    \end{Equation}
+    第一次积分，并考虑到边界$x=x_\text{d}$处电场应减为零
+    \begin{Equation}
+        \dv{V}{x}=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}x+C\qquad
+        \eval{\dv{V}{x}}_{x=x_\text{d}}=0
+    \end{Equation}
+    定出$C=(qN_\text{D}/\varepsilon_\text{r}\varepsilon_0)x_\text{d}$
+    \begin{Equation}
+        \dv{V}{x}=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}(x-x_\text{d})
+    \end{Equation}
+    第二次积分，并将金属费米能级作为电势参考点（参见\xref{tab:金属半导体接触的整流理论}），因此$V(0)=-\phi_\text{ns}$
+    \begin{Equation}
+        V(x)=-\frac{qN_\text{D}\varepsilon_\text{r}\varepsilon_0}{\frac{x^2}{2}-xx_\text{d}}+D\qquad V(0)=-\phi_\text{ns}
+    \end{Equation}
+    定出$D=-\phi_\text{ns}$
+    \begin{Equation}
+        V(x)=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}\qty(\frac{x^2}{2}-xx_\text{d})-\phi_\text{ns}
+    \end{Equation}
+    这就求得了势垒区的电势分布。
+\end{Proof}
+
+第二步，我们来计算势垒宽度。
+\begin{BoxFormula}[金半接触的势垒宽度]
+    金属半导体接触的势垒宽度为
+    \begin{Equation}
+        x_\text{d}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0}{qN_\text{D}}(V_\text{D}-V)}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:金半接触的势垒电势}
+    \begin{Equation}&[1]
+        V(x_\text{d})=\frac{qN_\text{D}}{2\varepsilon_\text{r}\varepsilon_0}x_\text{d}^2-\phi_\text{ns}
+    \end{Equation}
+    而另外一方面，从\xref{tab:金属半导体接触能级图}中可以看出
+    \begin{Equation}&[2]
+        V(x_\text{d})=-(V+\phi_\text{n})
+    \end{Equation}
+    这里$\phi_\text{n}$是作为$E_\text{n}$对应的势$E_\text{n}=q\phi_\text{n}$引入的。而\xref{tab:金属半导体接触能级图}亦指出$\phi_\text{ns}=\phi_\text{n}+V_\text{D}$
+    \begin{Equation}&[3]
+        V(x_\text{d})=-(V+\phi_\text{ns}-V_\text{D})
+    \end{Equation}
+    即
+    \begin{Equation}&[4]
+        V(x_\text{d})=V_\text{D}-V-\phi_\text{ns}
+    \end{Equation}
+    联立\xrefpeq{1}和\xrefpeq{4}
+    \begin{Equation}
+        \frac{qN_\text{D}}{2\varepsilon_\text{r}\varepsilon_0}x_\text{d}^2-\phi_\text{ns}=V_\text{D}-V-\phi_\text{ns}
+    \end{Equation}
+    约去$-\phi_\text{ns}$
+    \begin{Equation}
+        \frac{qN_\text{D}}{2\varepsilon_\text{r}\varepsilon_0}x_\text{d}^2=V_\text{D}-V
+    \end{Equation}
+    这就得到
+    \begin{Equation}*
+        x_\text{d}=\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0}{qN_\text{D}}(V_\text{D}-V)}\qedhere
+    \end{Equation}
+\end{Proof}
+
+第三步，我们来计算势垒电流密度。
+\begin{BoxFormula}[扩散理论的电流密度]
+    金属半导体接触的势垒电流密度，依照扩散理论
+    \begin{Equation}
+        J=J_\text{sD}\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    其中$J_\text{sD}$为
+    \begin{Equation}
+        J_\text{sD}=\frac{q^2D_\text{n}n_0}{\kB T}\sqrt{\frac{2qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}(V_\text{D}-V)}\exp(-\frac{qV_\text{D}}{\kB T})
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    根据\fancyref{fml:载流子的漂移扩散}
+    \begin{Equation}&[1]
+        J=q_\text{n}\mu_\text{n}\Emf+qD_\text{n}\dv{n}{x}
+    \end{Equation}
+    运用\fancyref{law:爱因斯坦关系式}
+    \begin{Equation}&[2]
+        J=qD_\text{n}\qty(\frac{qn}{\kB T}\Emf+\dv{n}{x})
+    \end{Equation}
+    考虑到$\Emf=-\dv*{V}{x}$
+    \begin{Equation}&[3]
+        J=qD_\text{n}\qty(-\frac{qn}{\kB T}\dv{V}{x}+\dv{n}{x})
+    \end{Equation}
+    两端同乘$\exp[-qV(x)/\kB T]$
+    \begin{Equation}&[4]
+        \qquad\qquad
+        J\exp[-\frac{qV(x)}{\kB T}]=
+        qD_\text{n}\qty\Bigg{
+            -\frac{qn}{\kB T}\dv{V}{x}\exp[-\frac{qV(x)}{\kB T}]+\dv{n}{x}\exp[-\frac{qV(x)}{\kB T}]
+        }
+        \qquad\qquad
+    \end{Equation}
+    将第一项用导数改写
+    \begin{Equation}&[5]
+        \qquad\qquad
+        J\exp[-\frac{qV(x)}{\kB T}]=
+        qD_\text{n}\qty\Bigg{
+            n\dv{x}\exp[-\frac{qV(x)}{\kB T}]+
+            \dv{n}{x}\exp[-\frac{qV(x)}{\kB T}]
+        }
+        \qquad\qquad
+    \end{Equation}
+    反向运用导数的乘积法则
+    \begin{Equation}&[6]
+        J\exp[-\frac{qV(x)}{\kB T}]=
+        qD_\text{n}
+        \dv{x}\qty\Bigg{
+            n\exp[-\frac{qV(x)}{\kB T}]
+        }
+    \end{Equation}
+    同时对\xrefpeq{6}两端积分
+    \begin{Equation}&[7]
+        J\Int[0][x_\text{d}]
+        \exp\qty[-\frac{qV(x)}{\kB T}]\dx=
+        qD_\text{n}n(x)
+        \eval{\exp\qty[-\frac{qV(x)}{\kB T}]}_0^{x_\text{d}}
+    \end{Equation}
+    这里的重点之一是右式的计算
+    \begin{Equation}&[8]
+        \qquad\qquad
+        F=\eval{n(x)\exp\qty[-\frac{qV(x)}{\kB T}]}_0^{x_\text{d}}=
+        n(x_\text{d})\exp[-\frac{qV(x_\text{d})}{\kB T}]-
+        n(0)\exp[-\frac{qV(0)}{\kB T}]
+        \qquad\qquad
+    \end{Equation}
+    我们考虑到$x_\text{d}$是势垒区边界，并认为$x=0$处的电子浓度与平衡态时相同
+    \begin{Equation}&[9]
+        n(x_\text{d})=n_0\qquad
+        n(0)=n_0\exp[-\frac{qV_\text{D}}{\kB T}]
+    \end{Equation}
+    我们也注意到（参见\xref{tab:金属半导体接触的整流理论}）
+    \begin{Equation}&[10]
+        V(x_\text{d})=-\phi_\text{ns}+(V_\text{D}-V)\qquad
+        V(0)=-\phi_\text{ns}
+    \end{Equation}
+    将\xrefpeq{9}和\xrefpeq{10}代入\xrefpeq{8}
+    \begin{Equation}&[11]
+        \qquad\qquad\qquad
+        F=n_0\exp[\frac{q\phi_\text{ns}-q(V_\text{D}-V)}{\kB T}]-n_0\exp[-\frac{qV_\text{D}}{\kB T}]\exp[\frac{q\phi_\text{ns}}{\kB T}]
+        \qquad\qquad\qquad
+    \end{Equation}
+    整理
+    \begin{Equation}&[12]
+        F=n_0\exp[\frac{q\phi_\text{ns}-qV_\text{D}}{\kB T}]\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    将\xrefpeq{12}代回\xrefpeq{7}
+    \begin{Equation}&[13]
+        \qquad\qquad
+        J\Int[0][x_\text{d}]\exp[-\frac{qV(x)}{\kB T}]\dx=qD_\text{n}n_0\exp[\frac{q\phi_\text{ns}-qV_\text{D}}{\kB T}]\qty[\exp(\frac{qV}{\kB T})-1]
+        \qquad\qquad
+    \end{Equation}
+    解出$J$还需要求出\xrefpeq{13}左端的积分，这个积分看起来很简单，但由于$V(x)$的存在，这个积分其实并不好积，根据\fancyref{fml:金半接触的势垒电势}，此处$V(x)$的表达式为
+    \begin{Equation}&[14]
+        V(x)=-\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}\qty(\frac{x^2}{2}-xx_\text{d})-\phi_\text{ns}
+    \end{Equation}
+    由于$V(x)$在负指数上，积分主要取决于$x=0$附近的值，而$x=0$附近有$x^2/2\ll xx_\text{d}$
+    \begin{Equation}&[15]
+        V(x)=\frac{qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}xx_\text{d}-\phi_\text{ns}
+    \end{Equation}
+    因此
+    \begin{Equation}&[16]
+        \Int[0][x_\text{d}]\exp[-\frac{qV(x)}{\kB T}]\dx=
+        \Int[0][x_\text{d}]\exp[-\frac{q^2N_\text{d}xx_\text{d}}{\kB T\varepsilon_\text{r}\varepsilon_0}+\frac{q\phi_\text{ns}}{\kB T}]\dx
+    \end{Equation}
+    即
+    \begin{Equation}&[17]
+        \qquad\qquad
+        \Int[0][x_\text{d}]\exp[-\frac{qV(x)}{\kB T}]\dx=
+        -\frac{\kB T\varepsilon_\text{r}\varepsilon_0}{q^2N_\text{D}x_\text{d}}
+        \exp(\frac{q\phi_\text{ns}}{\kB T})
+        \eval{\exp(-\frac{q^2N_\text{d}xx_\text{d}}{\kB T\varepsilon_\text{r}\varepsilon_0})}_0^{x_\text{d}}
+        \qquad\qquad
+    \end{Equation}
+    或
+    \begin{Equation}&[18]
+        \qquad\qquad
+        \Int[0][x_\text{d}]\exp[-\frac{qV(x)}{\kB T}]\dx=
+        \frac{\kB T\varepsilon_\text{r}\varepsilon_0}{q^2N_\text{D}x_\text{d}}
+        \exp(\frac{q\phi_\text{ns}}{\kB T})
+        \qty[1-\exp(-\frac{q^2N_\text{d}x_\text{d}^2}{\kB T\varepsilon_\text{r}\varepsilon_0})]
+        \qquad\qquad
+    \end{Equation}
+    关于\xrefpeq{18}的最后一项中的$x_\text{d}$，代入\fancyref{fml:金半接触的势垒宽度}
+    \begin{Equation}&[19]
+        \exp(-\frac{q^2N_\text{d}x_\text{d}^2}{\kB T\varepsilon_\text{r}\varepsilon_0})=
+        \exp(-\frac{q(V_\text{D}-V)}{2\kB T})\ll 1
+    \end{Equation}
+    这里$\ll 1$的原因是考虑到$q(V_\text{D}-V)\gg\kB T$，因此\xrefpeq{18}可以简化为
+    \begin{Equation}&[20]
+        \Int[0][x_\text{d}]\exp[-\frac{qV(x)}{\kB T}]\dx=
+        \frac{\kB T\varepsilon_\text{r}\varepsilon_0}{q^2N_\text{D}x_\text{d}}
+        \exp(\frac{q\phi_\text{ns}}{\kB T})
+    \end{Equation}
+    将\xrefpeq{20}代回\xrefpeq{13}，即得
+    \begin{Equation}&[21]
+        \qquad\qquad
+        J\cdot\frac{\kB T\varepsilon_\text{r}\varepsilon_0}{q^2N_\text{D}x_\text{d}}
+        \exp(\frac{q\phi_\text{ns}}{\kB T})=qD_\text{n}n_0\exp[\frac{q\phi_\text{ns}-qV_\text{D}}{\kB T}]\qty[\exp(\frac{qV}{\kB T})-1]
+        \qquad\qquad
+    \end{Equation}
+    整理
+    \begin{Equation}&[22]
+        J=\frac{q^3N_\text{D}D_\text{n}n_0x_\text{d}}{\kB T\varepsilon_\text{r}\varepsilon_0}\exp(-\frac{qV_\text{D}}{\kB T})\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    就\xrefpeq{22}的$x_\text{d}$再代入\fancyref{fml:金半接触的势垒宽度}
+    \begin{Equation}&[23]
+        \qquad\qquad
+        \frac{q^3N_\text{D}D_\text{n}n_0x_\text{d}}{\kB T\varepsilon_\text{r}\varepsilon_0}=\frac{q^3N_\text{D}D_\text{n}n_0}{\kB T\varepsilon_\text{r}\varepsilon_0}\sqrt{\frac{2\varepsilon_\text{r}\varepsilon_0}{qN_\text{D}}(V_\text{D}-V)}=
+        \frac{q^2D_\text{n}n_0}{\kB T\varepsilon_\text{r}\varepsilon_0}\sqrt{\frac{2qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}(V_\text{D}-V)}
+        \qquad\qquad
+    \end{Equation}
+    将\xrefpeq{23}代回\xrefpeq{22}
+    \begin{Equation}*
+        J=\frac{q^2D_\text{n}n_0}{\kB T\varepsilon_\text{r}\varepsilon_0}\sqrt{\frac{2qN_\text{D}}{\varepsilon_\text{r}\varepsilon_0}(V_\text{D}-V)}\exp(-\frac{qV_\text{D}}{\kB T})\qty[\exp(\frac{qV}{\kB T})-1]\qedhere
+    \end{Equation}
+\end{Proof}
+
+\subsection{热电子发射理论}
+\uwave{热电子发射理论}适用于阻挡层较薄的情形，当势垒宽度远小于电子的平均自由程，电子显然就不能再用扩散理论研究了。由于势垒很薄，此时，势垒的形状不重要，势垒的高度将其决定性作用。半导体内部的电子只要有足够的能量超越势垒的顶点，就可以自由通过阻挡层进入金属。因此，电流的计算，就归结为计算超越势垒的载流子数目，这就是热电子发射理论。
+
+\begin{BoxFormula}[热电子发射理论的电流密度]
+    金属半导体接触的电流密度，依照热电子发射理论
+    \begin{Equation}
+        J=J_\text{sT}\qty[\exp(\frac{qV}{\kB T})-1]
+    \end{Equation}
+    其中$J_\text{sT}$为
+    \begin{Equation}
+        J_\text{sT}=A^{*}T^2\exp\qty(-\frac{q\phi_\text{ns}}{\kB T})
+    \end{Equation}
+    其中$A^{*}$称为\uwave{有效理查逊常数}
+    \begin{Equation}
+        A^{*}=\frac{qm_\text{n}^{*}\kB^2}{2\pi^2\hbar^3}
+    \end{Equation}
+\end{BoxFormula}
+
+\begin{Proof}
+    假定势垒高度$qV_\text{D}\gg\kB T$。由于通过势垒交换的电子数，只占了半导体中总电子数的很小一部分，这样，半导体内的电子浓度可以视为无关电流大小的常数。根据\fancyref{fml:玻尔兹曼分布}和\fancyref{fml:导带底的状态密度}，单位体积中能量在$E$至$E+\dd{E}$间的电子数为
+    \begin{Equation}&[1]
+        \qquad\qquad\qquad
+        \dd{n}=\frac{1}{V}g_\text{c}(E)f(E)\dd{E}=
+        \frac{(2\mne)^{3/2}}{2\pi^2\hbar^3}
+        (E-E_\text{c})^{1/2}
+        \exp(\frac{E_\text{F}-E}{\kB T})\dd{E}
+        \qquad\qquad\qquad
+    \end{Equation}
+    稍作转化
+    \begin{Equation}&[2]
+        \dd{n}=\frac{(2\mne)^{3/2}}{2\pi^2\hbar^3}
+        (E-E_\text{c})^{1/2}
+        \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+        \exp(\frac{E_\text{c}-E}{\kB T})\dd{E}
+    \end{Equation}
+    设$v$为电子运动的速度，那么
+    \begin{Equation}&[3]
+        E-E_\text{c}=\frac{1}{2}\mne v^2\qquad
+        \dd{E}=\mne v\dd{v}
+    \end{Equation}
+    将\xrefpeq{3}代入\xrefpeq{2}
+    \begin{Equation}&[4]
+        \qquad\qquad
+        \dd{n}=\frac{(2\mne)^{3/2}}{2\pi^2\hbar^3}
+        \qty(\frac{1}{2}\mne v^2)^{1/2}
+        \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+        \exp(-\frac{\mne v^2}{2\kB T})
+        \mne v\dd{v}
+        \qquad\qquad
+    \end{Equation}
+    整理
+    \begin{Equation}&[5]
+        \dd{n}=
+        \frac{(\mne)^3}{\pi^2\hbar^3}
+        \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+        \exp(-\frac{\mne v^2}{2\kB T})v^2\dd{v}
+    \end{Equation}
+    凑系数
+    \begin{Equation}&[6]
+        \qquad\quad
+        \dd{n}=
+        4\pi\qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        \qty[
+            2\qty(\frac{\mne\kB T}{2\pi\hbar^2})^{3/2}
+            \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+        ]\exp(-\frac{\mne v^2}{2\kB T})v^2\dd{v}
+        \qquad\quad
+    \end{Equation}
+    再依据\fancyref{fml:导带电子浓度}
+    \begin{Equation}&[7]
+        n_0=N_\text{c}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\qquad N_\text{c}=2\qty(\frac{\mne\kB T}{2\pi\hbar^2})^{3/2}
+    \end{Equation}
+    将\xrefpeq{7}代入\xrefpeq{6}
+    \begin{Equation}&[8]
+        \dd{n}=
+        4\pi n_0\qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        v^2\exp(-\frac{\mne v^2}{2\kB T})\dd{v}
+    \end{Equation}
+    这里$\dd{n}$表示单位体积重速度在$v$至$v+\dd{v}$间的电子数。
+
+    这是一维的情况，容易推广至三维，注意$4\pi v^2$消失了，它们被作为球坐标的系数了
+    \begin{Equation}&[9]
+        \dd{n}=n_0\qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        \exp[-\frac{\mne(v_x^2+v_y^2+v_z^2)}{2\kB T}]\dd{v_x}\dd{v_y}\dd{v_z}
+    \end{Equation}
+    那么，有多少电子可以在单位时间内到达金属和半导体的界面呢？设半导体指向金属的方向为$v_x$的正方向，很明显，速度在$v_x$至$v_x+\dd{v_x}$间的电子，只要在距离界面$v_x$距离内，就都可以到达界面。因此，就单位截面积，能到达界面的电子数目是（即体积$v_x$中的电子数）
+    \begin{Equation}&[10]
+        \qquad\qquad
+        \dd{N}=v_x\dd{n}=n_0\qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        \exp[-\frac{\mne(v_x^2+v_y^2+v_z^2)}{2\kB T}]v_x\dd{v_x}\dd{v_y}\dd{v_z}
+        \qquad\qquad
+    \end{Equation}
+    而到达界面的电子，要越过势垒，必须满足
+    \begin{Equation}&[11]
+        \frac{1}{2}\mne v_x^2\geq q(V_\text{D}-V)
+    \end{Equation}
+    即所需的$v_x$方向的最小速度是
+    \begin{Equation}&[12]
+        v_{x0}=\sqrt{\frac{2q(V_\text{D}-V)}{\mne}}
+    \end{Equation}\nopagebreak
+    而$v_y,v_z$方向的速度则没有任何的限制。\goodbreak
+
+    因此，从半导体流向金属的电子流所形成的电流密度就是
+    \begin{Equation}&[13]
+        \qquad
+        J_{\text{s}\to\text{m}}=
+        q\Int[-\infty][\infty]
+        \Int[-\infty][\infty]
+        \Int[v_{x0}][\infty]
+        n_0\qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        \exp[-\frac{\mne(v_x^2+v_y^2+v_z^2)}{2\kB T}]v_x\dd{v_x}\dd{v_y}\dd{v_z}
+        \qquad
+    \end{Equation}
+    关于$v_y,v_z$的积分即高斯积分，容易得到
+    \begin{Gather}[10pt]
+        \Int[-\infty][\infty]\exp(-\frac{\mne v_y^2}{2\kB T})v_y=\qty(\frac{2\kB T}{\mne})^{1/2}\sqrt{\pi}=\qty(\frac{2\kB T\pi}{\mne})^{1/2}\xlabelpeq{14}\\
+        \Int[-\infty][\infty]\exp(-\frac{\mne v_z^2}{2\kB T})v_z=\qty(\frac{2\kB T}{\mne})^{1/2}\sqrt{\pi}=\qty(\frac{2\kB T\pi}{\mne})^{1/2}\xlabelpeq{15}
+    \end{Gather}
+    关于$v_x$的积分
+    \begin{Equation}&[16]
+        \Int[v_{x0}][\infty]
+        \exp(-\frac{\mne v_x^2}{2\kB T})v_x\dd{v_x}=\frac{1}{2}\qty(-\frac{2\kB T}{\mne})\eval{\exp(-\frac{\mne v_x^2}{2\kB T})}_{v_{x0}}^{\infty}
+    \end{Equation}
+    化简得
+    \begin{Equation}&[17]
+        \Int[v_{x0}][\infty]
+        \exp(-\frac{\mne v_x^2}{2\kB T})v_x\dd{v_x}=\qty(\frac{\kB T}{\mne})\exp(-\frac{\mne v_{x0}^2}{2\kB T})
+    \end{Equation}
+    将\xrefpeq{14},\xrefpeq{15},\xrefpeq{17}代入\xrefpeq{13}
+    \begin{Equation}&[18]
+        J_{\text{s}\to\text{m}}=
+        qn_0
+        \qty(\frac{\mne}{2\pi\kB T})^{3/2}
+        \qty(\frac{2\kB T\pi}{\mne})
+        \qty(\frac{\kB T}{\mne})
+        \exp(-\frac{\mne v_{x0}^2}{2\kB T})
+    \end{Equation}
+    合并系数
+    \begin{Equation}&[19]
+        J_{\text{s}\to\text{m}}=
+        qn_0
+        \qty(\frac{\kB T}{2\pi\mne})^{1/2}
+        \exp(-\frac{\mne v_{x0}^2}{2\kB T})
+    \end{Equation}
+    在\xrefpeq{19}中就$n_0$代入\fancyref{fml:导带电子浓度}
+    \begin{Equation}&[20]
+        \qquad\qquad
+        J_{\text{s}\to\text{m}}=
+        2q\qty(\frac{\mne\kB T}{2\pi\hbar^2})^{3/2}\qty(\frac{\kB T}{2\pi\mne})^{1/2}
+        \exp(\frac{E_\text{F}-E_\text{c}}{\kB T})
+        \exp(-\frac{\mne v_{x0}^2}{2\kB T})
+        \qquad\qquad
+    \end{Equation}
+    合并系数
+    \begin{Equation}&[21]
+        J_{\text{s}\to\text{m}}=
+        q\frac{\mne\kB^2T^2}{2\pi^2\hbar^3}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\exp(-\frac{\mne v_{x0}^2}{2\kB T})
+    \end{Equation}
+    根据\xrefpeq{11}，这里$(\mne v_{x0}^2)/2=q(V_\text{D}-V)$
+    \begin{Equation}&[22]
+        J_{\text{s}\to\text{m}}=
+        q\frac{\mne\kB^2T^2}{2\pi^2\hbar^3}\exp(\frac{E_\text{F}-E_\text{c}}{\kB T})\exp(-\frac{q(V_\text{D}-V)}{\kB T})
+    \end{Equation}
+    如\xref{tab:金属半导体接触的整流理论}所示，在是势垒外有$E_\text{c}-E_\text{F}=q\phi_\text{ns}-qV_\text{D}$
+    \begin{Equation}&[23]
+        J_{\text{s}\to\text{m}}=
+        q\frac{\mne\kB^2T^2}{2\pi^2\hbar^3}\exp(-\frac{q(\phi_\text{ns}-V_\text{D})}{\kB T})\exp(-\frac{q(V_\text{D}-V)}{\kB T})
+    \end{Equation}
+    即
+    \begin{Equation}&[24]
+        J_{\text{s}\to\text{m}}=
+        \frac{q\mne\kB^2T^2}{2\pi^2\hbar^3}\exp(-\frac{q\phi_\text{ns}}{\kB T})\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    引入有效理查逊常数$A^{*}$代换
+    \begin{Equation}&[25]
+        A^{*}=\frac{q\mne\kB^2}{2\pi^2\hbar^3}
+    \end{Equation}
+    这样\xrefpeq{24}就可以表示为
+    \begin{Equation}&[26]
+        J_{\text{s}\to\text{m}}=
+        A^{*}T^2\exp(-\frac{q\phi_\text{ns}}{\kB T})\exp(\frac{qV}{\kB T})
+    \end{Equation}
+    这是半导体流向金属的电流密度，而由于金属侧势垒不随电压变化，金属流向半导体的电流密度$J_{\text{m}\to\text{s}}$应当是一个常量，它应与$V=0$时$J_{\text{s}\to\text{m}}$的大小相等，方向相反，因此
+    \begin{Equation}&[27]
+        J_{\text{m}\to\text{s}}=-J_{\text{s}\to\text{m}}|_{V=0}=-A^{*}T^2\exp(-\frac{q\phi_\text{ns}}{\kB T})
+    \end{Equation}
+    将\xrefpeq{26}和\xrefpeq{27}，得到总电流密度
+    \begin{Equation}*
+        J=J_{\text{s}\to\text{m}}+J_{\text{m}\to\text{s}}=A^{*}T^2\exp(-\frac{q\phi_\text{ns}}{\kB T})\qty[\exp(\frac{qV}{\kB T})-1]\qedhere
+    \end{Equation}
+\end{Proof}
+
+由此可见，扩散理论和热电子发射理论得到的电压电流特性在形式上是一致的（与PN结的形式也是一致的），但不同的是，扩散理论的$J_\text{sD}$与电压有关，热电子发射理论$J_\text{sT}$则与电压无关，但却是一个更加强烈的依赖于温度的函数，若忽略指数项，$J_\text{sT}$是直接正比于$T^2$的。
