@@ -16,6 +16,11 @@ nbPDFNameList=(StringReplace[nbPDFName,".fig"->#<>".fig"]&)/@Alphabet[];
 Export[nbPDFName,""]
 
 
+Ap=4
+Bp=1
+Cp=5
+
+
 k:=Sqrt[x^2+y^2+z^2]
 H[x_,y_,z_]:=-(Ap k^2-Sqrt[Bp^2 k^4+Cp^2 (x^2 y^2+y^2 z^2+z^2 x^2)])
 L[x_,y_,z_]:=-(Ap k^2+Sqrt[Bp^2 k^4+Cp^2 (x^2 y^2+y^2 z^2+z^2 x^2)])
