@@ -21,7 +21,7 @@ p1[x_]:=Exp[-(x/Lp)]
 p2[x_,W_]:=Sinh[(W-x)/Lp]/Sinh[W/Lp]
 
 (* DeltP *)
-fig1=lot[{p2[x,0.5],p2[x,1],p2[x,1.5],p2[x,2],p2[x,2.5],p1[x]},{x,0,5},
+fig1=Plot[{p2[x,0.5],p2[x,1],p2[x,1.5],p2[x,2],p2[x,2.5],p1[x]},{x,0,5},
 PlotRange->{0,1},
 GridLines->Automatic,
 Frame->True,
